@@ -328,14 +328,23 @@ class TraceReplayEngine:
             import networkx as nx
             from src.core.contracts import FrontierEdge
 
+            # DIAGNOSTIC LOGGING: Track state mutation
+            logger.info(f"DIAGNOSTIC: Initial street count: {len(current_state.streets)}")
+            logger.info(f"DIAGNOSTIC: Current streets object ID: {id(current_state.streets)}")
+
             # Start with copies of current state components
             new_streets = current_state.streets.copy()
             new_graph = current_state.graph.copy()
             new_blocks = current_state.blocks  # Blocks typically don't change in EXTEND_FRONTIER
 
+            logger.info(f"DIAGNOSTIC: After copy - new_streets object ID: {id(new_streets)}")
+            logger.info(f"DIAGNOSTIC: After copy - street count: {len(new_streets)}")
+
             # Apply added streets
             if state_diff.get('added_streets'):
-                for street_data in state_diff['added_streets']:
+                logger.info(f"DIAGNOSTIC: Processing {len(state_diff['added_streets'])} added streets")
+
+                for i, street_data in enumerate(state_diff['added_streets']):
                     # Reconstruct street geometry from WKT
                     if street_data.get('geometry_wkt'):
                         try:
@@ -355,8 +364,14 @@ class TraceReplayEngine:
                             'length': street_data.get('length', geometry.length if hasattr(geometry, 'length') else 0)
                         }
 
+                        logger.info(f"DIAGNOSTIC: Adding street {i+1} at index {new_index}")
+                        logger.info(f"DIAGNOSTIC: Street entry keys: {list(street_entry.keys())}")
+                        logger.info(f"DIAGNOSTIC: GeoDataFrame columns: {list(new_streets.columns)}")
+
                         # Add to GeoDataFrame
                         new_streets.loc[new_index] = street_entry
+
+                        logger.info(f"DIAGNOSTIC: After adding street {i+1} - street count: {len(new_streets)}")
 
                         # Add to graph
                         u, v = street_data['u'], street_data['v']
@@ -382,6 +397,9 @@ class TraceReplayEngine:
 
             # Create new state
             new_iteration = current_state.iteration + 1
+
+            logger.info(f"DIAGNOSTIC: Final street count before return: {len(new_streets)}")
+            logger.info(f"DIAGNOSTIC: Final new_streets object ID: {id(new_streets)}")
 
             return GrowthState(
                 streets=new_streets,
@@ -629,6 +647,8 @@ class TraceReplayEngine:
             successful_actions = 0
             failed_matches = 0
             
+            prev_street_count = len(initial_state.streets)
+
             for i, action in enumerate(actions):
                 if i % 10 == 0:
                     logger.info(f"Replaying action {i+1}/{len(actions)} (Success rate: {successful_actions}/{i if i > 0 else 1})")
@@ -647,13 +667,21 @@ class TraceReplayEngine:
                     # PHASE 2: Check if action has complete state diff (preferred approach)
                     if action.get('state_diff') and action['state_diff'].get('added_streets'):
                         logger.info(f"Action {i+1}: ✓ APPLYING STATE DIFF directly")
+                        logger.info(f"Action {i+1}: State diff has {len(action['state_diff']['added_streets'])} added streets")
                         current_state = self._apply_state_diff(current_state, action['state_diff'])
                         successful_actions += 1
                         logger.info(f"Action {i+1}: Applied state diff successfully. New state has {len(current_state.streets)} streets")
 
+                        # MONOTONIC GROWTH ASSERTION: Street count should increase
+                        current_street_count = len(current_state.streets)
+                        assert current_street_count >= prev_street_count, f"Street count decreased: {prev_street_count} -> {current_street_count} at action {i+1}"
+                        if current_street_count > prev_street_count:
+                            logger.info(f"✓ MONOTONIC GROWTH: Streets increased from {prev_street_count} to {current_street_count}")
+                        prev_street_count = current_street_count
+
                     else:
                         # Fallback to legacy frontier matching approach
-                        logger.info(f"Action {i+1}: Using legacy frontier matching")
+                        logger.info(f"Action {i+1}: ✗ NO STATE DIFF - using legacy frontier matching")
                         target_frontier = self._find_frontier_by_multi_stage_matching(action, current_state.frontiers)
 
                         if target_frontier is None:
@@ -682,6 +710,13 @@ class TraceReplayEngine:
                         current_state = engine.apply_growth_action(growth_action, current_state)
                         successful_actions += 1
                         logger.info(f"Action {i+1}: Applied successfully. New state has {len(current_state.streets)} frontiers\n")
+
+                        # MONOTONIC GROWTH ASSERTION: Street count should increase
+                        current_street_count = len(current_state.streets)
+                        assert current_street_count >= prev_street_count, f"Street count decreased: {prev_street_count} -> {current_street_count} at action {i+1}"
+                        if current_street_count > prev_street_count:
+                            logger.info(f"✓ MONOTONIC GROWTH: Streets increased from {prev_street_count} to {current_street_count}")
+                        prev_street_count = current_street_count
 
                 except Exception as e:
                     logger.error(f"Failed to replay action {i+1}: {e}")

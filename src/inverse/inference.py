@@ -319,14 +319,12 @@ class BasicInferenceEngine:
                 for idx, street in current_state.streets.iterrows():
                     u, v = street.get('u'), street.get('v')
                     if (u == edge_u and v == edge_v) or (u == edge_v and v == edge_u):
-                        # MEMORY OPTIMIZATION: Store only edge IDs and essential metadata
-                        # Geometry will be reconstructed from final state during replay
+                        # Store complete street data including geometry for replay
                         street_data = {
                             'edge_id': (min(u, v), max(u, v)),  # Normalized edge tuple for lookup
                             'u': u,
                             'v': v,
-                            # Remove heavy WKT geometry storage - reconstruct from final state
-                            # 'geometry_wkt': street.geometry.wkt if hasattr(street.geometry, 'wkt') else None,
+                            'geometry_wkt': street.geometry.wkt if hasattr(street.geometry, 'wkt') else None,
                             'osmid': street.get('osmid'),
                             'highway': street.get('highway'),
                             'length': street.geometry.length if hasattr(street.geometry, 'length') else None

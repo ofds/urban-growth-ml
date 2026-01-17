@@ -8,6 +8,7 @@ from typing import Optional, Any, Dict, List, Set, Tuple
 from shapely.geometry import Point, LineString, Polygon
 import logging
 import networkx as nx
+import numpy as np
 
 from src.core.contracts import GrowthState, FrontierEdge
 from .data_structures import InverseGrowthAction, ActionType
@@ -18,10 +19,20 @@ logger = logging.getLogger(__name__)
 class RewindEngine:
     """
     Engine for rewinding growth states during inverse inference.
-    
+
     Provides operations to undo growth actions and restore previous states.
     """
-    
+
+    # Performance constants
+    GEOMETRY_TOLERANCE = 1.0
+    DEAD_END_WEIGHT = 0.8
+    BLOCK_EDGE_WEIGHT = 0.5
+
+    @staticmethod
+    def _normalize_edge(u: int, v: int) -> Tuple[int, int]:
+        """Normalize edge to canonical form (min, max)."""
+        return (min(u, v), max(u, v))
+
     def __init__(self):
         self.action_handlers = {
             ActionType.EXTEND_FRONTIER: self._rewind_extend_frontier,
@@ -29,15 +40,28 @@ class RewindEngine:
             ActionType.REALIGN_STREET: self._rewind_realign_street,
             ActionType.REMOVE_STREET: self._rewind_remove_street,
         }
-    
+        self._edge_index = None  # Lazy initialization
+
+    def _build_edge_index(self, streets) -> Dict[Tuple[int, int], int]:
+        """Build fast lookup index for street edges."""
+        return {
+            self._normalize_edge(row['u'], row['v']): idx
+            for idx, row in streets.iterrows()
+        }
+
+    def _get_edge_data_cached(self, graph, u, v):
+        """Cache frequently accessed edge data."""
+        if not hasattr(self, '_edge_cache'):
+            self._edge_cache = {}
+
+        key = self._normalize_edge(u, v)
+        if key not in self._edge_cache:
+            self._edge_cache[key] = graph.get_edge_data(u, v)
+        return self._edge_cache[key]
+
     def rewind_action(self, action: InverseGrowthAction, current_state: GrowthState) -> GrowthState:
         """Rewind a single action from the current state."""
-        
-        # Remove this check - we want to rewind FROM final state TO initial state
-        # if current_state.iteration == 0:
-        #     logger.warning(f"Cannot rewind action {action.action_type}: already at initial state (iteration {current_state.iteration})")
-        #     return current_state
-        
+
         # Check if we can actually remove this street
         handler = self.action_handlers.get(action.action_type)
         if handler is None:
@@ -66,13 +90,10 @@ class RewindEngine:
             logger.warning(f"Cannot rewind: no edge_id in action")
             return state
 
-        # Find street(s) matching this edge
-        streets_to_remove = []
-        for idx, street in state.streets.iterrows():
-            u, v = street.get('u'), street.get('v')
-            if (u == edge_u and v == edge_v) or (u == edge_v and v == edge_u):
-                streets_to_remove.append(idx)
-                break  # Found it
+        # Find street(s) matching this edge - use vectorized operations
+        mask = ((state.streets['u'] == edge_u) & (state.streets['v'] == edge_v)) | \
+               ((state.streets['u'] == edge_v) & (state.streets['v'] == edge_u))
+        streets_to_remove = state.streets[mask].index.tolist()
 
         if not streets_to_remove:
             logger.warning(f"Cannot rewind: street with edge ({edge_u}, {edge_v}) not found in current state")
@@ -164,48 +185,36 @@ class RewindEngine:
         
         return edge_segments
     
-    def _edge_matches_block_segment(self, edge_geom: LineString, 
+    def _edge_matches_block_segment(self, edge_geom: LineString,
                                     block_segments: Set[Tuple[Tuple[float, float], Tuple[float, float]]],
                                     tolerance: float = 1.0) -> Tuple[bool, float]:
         """
         Check if an edge geometry matches any block boundary segment.
-        
+
         Args:
             edge_geom: LineString geometry of the edge
             block_segments: Set of block edge segments
             tolerance: Distance tolerance for matching (meters)
-        
+
         Returns:
             Tuple of (is_match, min_distance)
         """
-        edge_coords = list(edge_geom.coords)
+        edge_coords = np.array(list(edge_geom.coords))
         if len(edge_coords) < 2:
             return False, float('inf')
-        
-        # Get edge endpoints
-        edge_start = edge_coords[0]
-        edge_end = edge_coords[-1]
-        
-        # Normalize edge segment
-        edge_segment = tuple(sorted([edge_start, edge_end]))
-        
-        min_total_dist = float('inf')
-        
-        # Check for exact or near matches
+
+        # Get edge endpoints and sort
+        edge_segment = np.sort(edge_coords[[0, -1]], axis=0)
+
+        min_dist = float('inf')
         for block_seg in block_segments:
-            # Check if endpoints match within tolerance
-            start_dist = ((edge_segment[0][0] - block_seg[0][0])**2 + 
-                        (edge_segment[0][1] - block_seg[0][1])**2)**0.5
-            end_dist = ((edge_segment[1][0] - block_seg[1][0])**2 + 
-                    (edge_segment[1][1] - block_seg[1][1])**2)**0.5
-            
-            total_dist = start_dist + end_dist
-            min_total_dist = min(min_total_dist, total_dist)
-            
-            if start_dist < tolerance and end_dist < tolerance:
-                return True, total_dist
-        
-        return False, min_total_dist
+            block_array = np.array(block_seg)
+            dist = np.sum(np.sqrt(np.sum((edge_segment - block_array)**2, axis=1)))
+            min_dist = min(min_dist, dist)
+            if dist < tolerance * 2:  # Total distance for both endpoints
+                return True, dist
+
+        return False, min_dist
 
     def _rebuild_frontiers_simple(self, streets, graph, blocks=None) -> List[FrontierEdge]:
         """
@@ -292,75 +301,56 @@ class RewindEngine:
         Returns:
             Updated list of frontiers
         """
-        # Create a copy of current frontiers
-        new_frontiers = current_frontiers.copy()
+        # Use set for O(1) lookups
+        affected_nodes = {removed_u, removed_v}
 
-        # Find frontiers that need updating (those connected to removed nodes)
-        affected_frontiers = []
-        affected_indices = []
+        # Filter in one pass instead of storing indices and popping
+        new_frontiers = [
+            f for f in current_frontiers
+            if f.edge_id[0] not in affected_nodes and f.edge_id[1] not in affected_nodes
+        ]
 
-        for i, frontier in enumerate(current_frontiers):
-            u, v = frontier.edge_id
-            # Check if this frontier is connected to the removed edge's nodes
-            if u in [removed_u, removed_v] or v in [removed_u, removed_v]:
-                affected_frontiers.append(frontier)
-                affected_indices.append(i)
-
-        # Remove affected frontiers from the list
-        for i in reversed(affected_indices):
-            new_frontiers.pop(i)
-
-        # Rebuild only the affected frontiers
-        rebuilt_frontiers = []
-
-        # Get all edges connected to the affected nodes
-        affected_nodes = set([removed_u, removed_v])
-        affected_edges = []
+        # Build edge set once for deduplication
+        seen_edges = set()
 
         for node in affected_nodes:
-            if node in graph:
-                # Get all edges connected to this node
-                for neighbor in graph.neighbors(node):
-                    edge_key = tuple(sorted([node, neighbor]))
-                    if edge_key not in affected_edges:
-                        affected_edges.append(edge_key)
+            if node not in graph:
+                continue
+            for neighbor in graph.neighbors(node):
+                edge_key = self._normalize_edge(node, neighbor)
+                if edge_key not in seen_edges:
+                    seen_edges.add(edge_key)
+                    # Build frontier
+                    if graph.has_edge(node, neighbor):
+                        data = graph.get_edge_data(node, neighbor)
+                        geometry = data.get('geometry')
 
-        # Rebuild frontiers for affected edges
-        for u, v in affected_edges:
-            if graph.has_edge(u, v):
-                data = graph.get_edge_data(u, v)
-                geometry = data.get('geometry')
+                        if geometry and isinstance(geometry, LineString):
+                            u_degree = graph.degree[node]
+                            v_degree = graph.degree[neighbor]
 
-                if geometry and isinstance(geometry, LineString):
-                    u_degree = graph.degree[u]
-                    v_degree = graph.degree[v]
+                            # Determine frontier type
+                            if u_degree == 1 or v_degree == 1:
+                                frontier_type = 'dead_end'
+                                expansion_weight = self.DEAD_END_WEIGHT
+                            else:
+                                frontier_type = 'block_edge'
+                                expansion_weight = self.BLOCK_EDGE_WEIGHT
 
-                    # Determine frontier type
-                    if u_degree == 1 or v_degree == 1:
-                        frontier_type = 'dead_end'
-                        expansion_weight = 0.8
-                    else:
-                        frontier_type = 'block_edge'
-                        expansion_weight = 0.5
+                            frontier_id = f"{frontier_type}_{edge_key[0]}_{edge_key[1]}"
 
-                    edge_tuple = (min(u, v), max(u, v))
-                    frontier_id = f"{frontier_type}_{edge_tuple[0]}_{edge_tuple[1]}"
+                            frontier = FrontierEdge(
+                                frontier_id=frontier_id,
+                                edge_id=(node, neighbor),
+                                block_id=None,
+                                geometry=geometry,
+                                frontier_type=frontier_type,
+                                expansion_weight=expansion_weight,
+                                spatial_hash=""
+                            )
+                            new_frontiers.append(frontier)
 
-                    frontier = FrontierEdge(
-                        frontier_id=frontier_id,
-                        edge_id=(u, v),
-                        block_id=None,
-                        geometry=geometry,
-                        frontier_type=frontier_type,
-                        expansion_weight=expansion_weight,
-                        spatial_hash=""
-                    )
-                    rebuilt_frontiers.append(frontier)
-
-        # Add rebuilt frontiers to the list
-        new_frontiers.extend(rebuilt_frontiers)
-
-        logger.info(f"Delta frontier update: affected {len(affected_frontiers)} frontiers, rebuilt {len(rebuilt_frontiers)} frontiers")
+        logger.info(f"Delta frontier update: removed {len(current_frontiers) - len(new_frontiers) + len([f for f in new_frontiers if f.edge_id[0] in affected_nodes or f.edge_id[1] in affected_nodes])} affected frontiers, added {len([f for f in new_frontiers if f.edge_id[0] in affected_nodes or f.edge_id[1] in affected_nodes])} new frontiers")
         return new_frontiers
 
     def can_rewind_action(self, action: InverseGrowthAction, state: GrowthState) -> bool:
