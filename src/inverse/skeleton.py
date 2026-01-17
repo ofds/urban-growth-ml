@@ -23,8 +23,8 @@ class ArterialSkeletonExtractor:
     
     def __init__(self,
                  min_length: float = 5.0,      # Minimum length for arterial consideration
-                 betweenness_threshold: float = 0.0001,  # Relative betweenness centrality
-                 max_curvature: float = 0.20):   # Maximum curvature for straight streets
+                 betweenness_threshold: float = 0.00001,  # Relative betweenness centrality
+                 max_curvature: float = 0.40):   # Maximum curvature for straight streets
         self.min_length = min_length
         self.betweenness_threshold = betweenness_threshold
         self.max_curvature = max_curvature
@@ -163,37 +163,62 @@ class ArterialSkeletonExtractor:
         Returns:
             Minimal GrowthState with skeleton as initial conditions
         """
-        # This would create a new GrowthState with only skeleton streets
-        # Implementation depends on GrowthState constructor
-        # For now, return a placeholder
-        logger.warning("create_skeleton_state not fully implemented - returning original state")
-        return original_state
-
-    def create_skeleton_state(self, skeleton_streets: List[dict], original_state) -> Any:
-        """
-        Create a minimal GrowthState containing only the arterial skeleton.
-        
-        Args:
-            skeleton_streets: List of skeleton street data
-            original_state: Original GrowthState for reference
-        
-        Returns:
-            Minimal GrowthState with skeleton as initial conditions
-        """
         import geopandas as gpd
         import pandas as pd
-        from core.contracts import GrowthState
+        from core.contracts import GrowthState, FrontierEdge
+        import hashlib
+        from shapely.geometry import LineString
         
         if not skeleton_streets:
             # No skeleton, return minimal state with just first 2 streets
             logger.info("No skeleton found, using first 2 streets as seed")
             seed_streets = original_state.streets.iloc[:2].copy()
             
-            # Create minimal frontiers (just boundaries of seed)
-            seed_frontiers = []
+            # Create graph with only seed streets
+            import networkx as nx
+            seed_graph = nx.Graph()
             
-            # Create minimal graph
-            seed_graph = original_state.graph.copy()
+            # Build graph from seed streets
+            for idx, street in seed_streets.iterrows():
+                u, v = street['u'], street['v']
+                geom = street.geometry
+                
+                if u not in seed_graph.nodes:
+                    from shapely.geometry import Point
+                    seed_graph.add_node(u, geometry=Point(geom.coords[0]))
+                if v not in seed_graph.nodes:
+                    seed_graph.add_node(v, geometry=Point(geom.coords[-1]))
+                
+                seed_graph.add_edge(u, v, geometry=geom, length=geom.length)
+            
+            # Create frontiers from dead-end nodes
+            seed_frontiers = []
+            for node in seed_graph.nodes():
+                if seed_graph.degree(node) == 1:
+                    # Get the edge geometry
+                    neighbors = list(seed_graph.neighbors(node))
+                    if neighbors:
+                        neighbor = neighbors[0]
+                        edge_data = seed_graph.edges.get((node, neighbor), {})
+                        geometry = edge_data.get('geometry')
+                        
+                        if geometry and isinstance(geometry, LineString) and geometry.is_valid:
+                            frontier_id = hashlib.sha256(
+                                f"dead_end_{min(node, neighbor)}_{max(node, neighbor)}".encode()
+                            ).hexdigest()[:16]
+                            
+                            frontier = FrontierEdge(
+                                frontier_id=frontier_id,
+                                edge_id=(node, neighbor),
+                                block_id=None,
+                                geometry=geometry,
+                                frontier_type="dead_end",
+                                expansion_weight=0.8,
+                                spatial_hash=""
+                            )
+                            seed_frontiers.append(frontier)
+            
+            logger.info(f"Created seed state with {len(seed_streets)} streets and {len(seed_frontiers)} frontiers")
             
             return GrowthState(
                 streets=seed_streets,
@@ -210,13 +235,55 @@ class ArterialSkeletonExtractor:
             crs=original_state.streets.crs
         )
         
-        logger.info(f"Created skeleton state with {len(skeleton_gdf)} arterial streets")
+        # Build graph from skeleton streets
+        import networkx as nx
+        skeleton_graph = nx.Graph()
+        
+        for idx, street in skeleton_gdf.iterrows():
+            u, v = street['u'], street['v']
+            geom = street['geometry']
+            
+            if u not in skeleton_graph.nodes:
+                from shapely.geometry import Point
+                skeleton_graph.add_node(u, geometry=Point(geom.coords[0]))
+            if v not in skeleton_graph.nodes:
+                skeleton_graph.add_node(v, geometry=Point(geom.coords[-1]))
+            
+            skeleton_graph.add_edge(u, v, geometry=geom, length=geom.length)
+        
+        # Create frontiers from dead-end nodes
+        skeleton_frontiers = []
+        for node in skeleton_graph.nodes():
+            if skeleton_graph.degree(node) == 1:
+                neighbors = list(skeleton_graph.neighbors(node))
+                if neighbors:
+                    neighbor = neighbors[0]
+                    edge_data = skeleton_graph.edges.get((node, neighbor), {})
+                    geometry = edge_data.get('geometry')
+                    
+                    if geometry and isinstance(geometry, LineString) and geometry.is_valid:
+                        frontier_id = hashlib.sha256(
+                            f"dead_end_{min(node, neighbor)}_{max(node, neighbor)}".encode()
+                        ).hexdigest()[:16]
+                        
+                        frontier = FrontierEdge(
+                            frontier_id=frontier_id,
+                            edge_id=(node, neighbor),
+                            block_id=None,
+                            geometry=geometry,
+                            frontier_type="dead_end",
+                            expansion_weight=0.8,
+                            spatial_hash=""
+                        )
+                        skeleton_frontiers.append(frontier)
+        
+        logger.info(f"Created skeleton state with {len(skeleton_gdf)} arterial streets and {len(skeleton_frontiers)} frontiers")
         
         return GrowthState(
             streets=skeleton_gdf,
             blocks=gpd.GeoDataFrame(columns=['geometry'], crs=original_state.streets.crs),
-            frontiers=[],  # Skeleton has no frontiers initially
-            graph=original_state.graph,  # Keep full graph for now
+            frontiers=skeleton_frontiers,
+            graph=skeleton_graph,
             iteration=0,
             city_bounds=original_state.city_bounds
         )

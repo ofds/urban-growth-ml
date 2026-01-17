@@ -30,56 +30,54 @@ class RewindEngine:
         }
     
     def rewind_action(self, action: InverseGrowthAction, current_state: GrowthState) -> GrowthState:
-        """
-        Rewind a single action from the current state.
-
-        Args:
-            action: The action to rewind
-            current_state: Current growth state
-
-        Returns:
-            Previous growth state with action undone
-        """
-        # Don't rewind if we're already at the initial state (iteration 0)
-        if current_state.iteration <= 0:
-            logger.warning(f"Cannot rewind action {action.action_type}: already at initial state (iteration {current_state.iteration})")
-            return current_state
-
+        """Rewind a single action from the current state."""
+        
+        # Remove this check - we want to rewind FROM final state TO initial state
+        # if current_state.iteration == 0:
+        #     logger.warning(f"Cannot rewind action {action.action_type}: already at initial state (iteration {current_state.iteration})")
+        #     return current_state
+        
+        # Check if we can actually remove this street
         handler = self.action_handlers.get(action.action_type)
         if handler is None:
             logger.warning(f"No rewind handler for action type: {action.action_type}")
             return current_state
-
+        
         try:
-            return handler(action, current_state)
+            new_state = handler(action, current_state)
+            # Verify state actually changed
+            if len(new_state.streets) >= len(current_state.streets):
+                logger.warning(f"Rewind failed to remove street - state unchanged")
+                return current_state
+            return new_state
         except Exception as e:
             logger.error(f"Failed to rewind action {action.action_type}: {e}")
             return current_state
     
     def _rewind_extend_frontier(self, action: InverseGrowthAction, state: GrowthState) -> GrowthState:
         """Rewind an EXTEND_FRONTIER action by removing the added street segment."""
-        target_id = action.target_id
         
-        # Optimized: Use index-based lookup when possible
-        streets_to_remove = []
+        # Get edge info from action
+        edge_u = action.realized_geometry.get('edgeid', (None, None))[0] if action.realized_geometry else None
+        edge_v = action.realized_geometry.get('edgeid', (None, None))[1] if action.realized_geometry else None
         
-        # Try direct index lookup first
-        try:
-            idx = int(target_id)
-            if idx in state.streets.index:
-                streets_to_remove.append(idx)
-        except ValueError:
-            # Fallback to string matching (slower)
-            for idx, street in state.streets.iterrows():
-                osmid = street.get('osmid', '')
-                if osmid and str(osmid) == target_id:
-                    streets_to_remove.append(idx)
-                    break
-        
-        if not streets_to_remove:
+        if edge_u is None or edge_v is None:
+            logger.warning(f"Cannot rewind: no edge_id in action")
             return state
         
-        # Remove streets
+        # Find street(s) matching this edge
+        streets_to_remove = []
+        for idx, street in state.streets.iterrows():
+            u, v = street.get('u'), street.get('v')
+            if (u == edge_u and v == edge_v) or (u == edge_v and v == edge_u):
+                streets_to_remove.append(idx)
+                break  # Found it
+        
+        if not streets_to_remove:
+            logger.warning(f"Cannot rewind: street with edge ({edge_u}, {edge_v}) not found in current state")
+            return state
+        
+        # Remove streets (rest of code stays the same)
         new_streets = state.streets.drop(streets_to_remove)
         
         # Update graph efficiently
