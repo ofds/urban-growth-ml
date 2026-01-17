@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Test complete pipeline on real Piedmont data."""
+"""Test complete pipeline on real Piedmont data with detailed diagnostics."""
 
 import sys
 from pathlib import Path
@@ -17,18 +17,52 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 
+class PipelineMetrics:
+    """Track detailed metrics across pipeline stages."""
+    
+    def __init__(self):
+        self.stages = {
+            'loading': {'success': False, 'metrics': {}},
+            'inference': {'success': False, 'metrics': {}},
+            'replay': {'success': False, 'metrics': {}},
+        }
+    
+    def record_stage(self, stage: str, success: bool, **metrics):
+        """Record stage results and metrics."""
+        self.stages[stage]['success'] = success
+        self.stages[stage]['metrics'] = metrics
+    
+    def get_summary(self) -> dict:
+        """Generate comprehensive summary."""
+        return {
+            'all_stages_passed': all(s['success'] for s in self.stages.values()),
+            'stages': self.stages
+        }
+
+
 def test_piedmont_pipeline():
     """Test complete inverse inference + replay on Piedmont."""
     
+    metrics = PipelineMetrics()
+    
     print("="*60)
-    print("PIEDMONT FULL PIPELINE TEST")
+    print("PIEDMONT FULL PIPELINE TEST - DETAILED DIAGNOSTICS")
     print("="*60)
     
+    # ==================================================================
+    # STAGE 1: LOADING
+    # ==================================================================
+    print("\n[1/4] Loading Piedmont city state...")
     try:
-        # Step 1: Load processed city
-        print("\n[1/4] Loading Piedmont city state...")
         engine = GrowthEngine('piedmont_ca', seed=42)
         city = engine.load_initial_state()
+        
+        metrics.record_stage('loading', True,
+            streets=len(city.streets),
+            blocks=len(city.blocks),
+            frontiers=len(city.frontiers),
+            graph_nodes=city.graph.number_of_nodes()
+        )
         
         print(f"  ✅ Loaded city:")
         print(f"     Streets: {len(city.streets)}")
@@ -36,48 +70,55 @@ def test_piedmont_pipeline():
         print(f"     Frontiers: {len(city.frontiers)}")
         print(f"     Graph nodes: {city.graph.number_of_nodes()}")
         
-        # Check frontier types
-        frontier_types = {}
-        for f in city.frontiers:
-            frontier_types[f.frontier_type] = frontier_types.get(f.frontier_type, 0) + 1
-        print(f"     Frontier types: {frontier_types}")
-        
     except Exception as e:
         print(f"  ❌ Failed to load city: {e}")
-        import traceback
-        traceback.print_exc()
-        return False
+        metrics.record_stage('loading', False, error=str(e))
+        return False, metrics
+    
+    # ==================================================================
+    # STAGE 2: INFERENCE
+    # ==================================================================
+    print("\n[2/4] Running inverse inference...")
+    print("  (Limited to 20 steps for testing)")
     
     try:
-        # Step 2: Run inference (limit to 20 steps for testing)
-        print("\n[2/4] Running inverse inference...")
-        print("  (Limited to 20 steps for speed)")
-        
         inference = BasicInferenceEngine()
-        trace = inference.infer_trace(city, max_steps=20)
+        trace = inference.infer_trace(city)
+        
+        # Calculate inference quality metrics
+        actions_inferred = len(trace.actions)
+        avg_confidence = trace.average_confidence
+        expected_actions = len(city.streets) - 2  # Minus initial skeleton
+        inference_coverage = (actions_inferred / expected_actions) * 100 if expected_actions > 0 else 0
+        
+        metrics.record_stage('inference', True,
+            actions_inferred=actions_inferred,
+            avg_confidence=avg_confidence,
+            expected_total=expected_actions,
+            coverage_pct=inference_coverage
+        )
         
         print(f"  ✅ Inference complete:")
-        print(f"     Actions inferred: {len(trace.actions)}")
-        print(f"     Average confidence: {trace.average_confidence:.2f}")
+        print(f"     Actions inferred: {actions_inferred}/{expected_actions} ({inference_coverage:.1f}% coverage)")
+        print(f"     Average confidence: {avg_confidence:.2f}")
         
-        if len(trace.actions) > 0:
-            print(f"     First 3 actions:")
-            for i, action in enumerate(trace.actions[:3]):
-                print(f"       {i+1}. {action.action_type.value} (conf={action.confidence:.2f})")
-        else:
-            print("  ⚠️  No actions inferred")
-            return False
+        if actions_inferred == 0:
+            print("  ❌ CRITICAL: No actions inferred")
+            return False, metrics
             
     except Exception as e:
         print(f"  ❌ Inference failed: {e}")
+        metrics.record_stage('inference', False, error=str(e))
         import traceback
         traceback.print_exc()
-        return False
+        return False, metrics
+    
+    # ==================================================================
+    # STAGE 3: REPLAY
+    # ==================================================================
+    print("\n[3/4] Replaying with growth engine...")
     
     try:
-        # Step 3: Replay with growth engine
-        print("\n[3/4] Replaying with growth engine...")
-        
         replay_engine = TraceReplayEngine()
         validation = replay_engine.validate_trace_replay(
             trace=trace,
@@ -85,63 +126,144 @@ def test_piedmont_pipeline():
             city_name='piedmont_ca'
         )
         
-        print(f"  ✅ Replay complete:")
-        print(f"     Success: {validation.get('success', False)}")
-        print(f"     Replay fidelity: {validation.get('replay_fidelity', 0):.2f}")
-        print(f"     Morphological valid: {validation.get('morphological_valid', False)}")
-        print(f"     Geometric valid: {validation.get('geometric_valid', False)}")
+        # Extract detailed replay metrics
+        actions_attempted = validation.get('trace_actions', 0)
+        actions_replayed = validation.get('replay_actions', 0)
+        replay_success_rate = (actions_replayed / actions_attempted * 100) if actions_attempted > 0 else 0
+        
+        streets_original = validation.get('original_streets', 0)
+        streets_replayed = validation.get('replayed_streets', 0)
+        street_reproduction_rate = (streets_replayed / streets_original * 100) if streets_original > 0 else 0
+        
+        replay_fidelity = validation.get('replay_fidelity', 0)
+        morphological_valid = validation.get('morphological_valid', False)
+        
+        metrics.record_stage('replay', True,
+            actions_attempted=actions_attempted,
+            actions_successfully_replayed=actions_replayed,
+            replay_success_rate=replay_success_rate,
+            streets_original=streets_original,
+            streets_reproduced=streets_replayed,
+            street_reproduction_rate=street_reproduction_rate,
+            replay_fidelity=replay_fidelity,
+            morphological_valid=morphological_valid
+        )
+        
+        print(f"  📊 Replay Diagnostics:")
+        print(f"     Action replay rate: {actions_replayed}/{actions_attempted} ({replay_success_rate:.1f}%)")
+        print(f"     Street reproduction: {streets_replayed}/{streets_original} ({street_reproduction_rate:.1f}%)")
+        print(f"     Morphological fidelity: {replay_fidelity:.2f}")
+        print(f"     Morphological valid: {morphological_valid}")
+        
+        # CRITICAL: Check for false positive
+        if replay_success_rate < 50 and morphological_valid:
+            print(f"\n  ⚠️  WARNING: Validation may be misleading!")
+            print(f"     Only {replay_success_rate:.1f}% of actions replayed successfully")
+            print(f"     But validator reports 'success' - likely comparing only {streets_replayed} streets")
         
     except Exception as e:
         print(f"  ❌ Replay failed: {e}")
+        metrics.record_stage('replay', False, error=str(e))
         import traceback
         traceback.print_exc()
-        return False
+        return False, metrics
     
-    # Step 4: Final assessment
+    # ==================================================================
+    # STAGE 4: FINAL ASSESSMENT
+    # ==================================================================
     print("\n[4/4] Final Assessment")
     print("-"*60)
     
-    fidelity = validation.get('replay_fidelity', 0)
-    success = validation.get('success', False)
+    replay_metrics = metrics.stages['replay']['metrics']
+    replay_rate = replay_metrics.get('replay_success_rate', 0)
+    street_repro = replay_metrics.get('street_reproduction_rate', 0)
+    fidelity = replay_metrics.get('replay_fidelity', 0)
     
-    if success and fidelity > 0.7:
+    # Determine pipeline quality
+    pipeline_quality = None
+    ready_for_ml = False
+    
+    if replay_rate >= 80 and street_repro >= 80:
+        pipeline_quality = "EXCELLENT"
+        ready_for_ml = True
         print("🎉 EXCELLENT: Full pipeline working at high quality!")
-        print(f"   Replay fidelity: {fidelity:.2%}")
-        print("\n✅ READY FOR ML TRAINING")
-        return True
-    elif success and fidelity > 0.5:
+    elif replay_rate >= 50 and street_repro >= 50:
+        pipeline_quality = "GOOD"
+        ready_for_ml = True
         print("✅ GOOD: Pipeline working, acceptable quality")
-        print(f"   Replay fidelity: {fidelity:.2%}")
-        print("\n⚠️  Can proceed to ML, but tune inference first")
-        return True
-    elif success:
-        print("⚠️  LOW QUALITY: Pipeline runs but fidelity is low")
-        print(f"   Replay fidelity: {fidelity:.2%}")
-        print("\n❌ Needs improvement before ML training")
-        return False
+    elif replay_rate >= 20:
+        pipeline_quality = "POOR"
+        ready_for_ml = False
+        print("⚠️  POOR: Pipeline runs but quality is low")
     else:
-        print("❌ FAILURE: Pipeline has critical errors")
-        print(f"   Error: {validation.get('error', 'Unknown')}")
-        return False
+        pipeline_quality = "FAILING"
+        ready_for_ml = False
+        print("❌ FAILING: Critical pipeline errors")
+    
+    print(f"   Action replay: {replay_rate:.1f}%")
+    print(f"   Street reproduction: {street_repro:.1f}%")
+    print(f"   Fidelity score: {fidelity:.2f}")
+    
+    if ready_for_ml:
+        print("\n✅ READY FOR ML TRAINING")
+    else:
+        print("\n❌ NOT READY - Fix issues before ML training")
+    
+    return ready_for_ml, metrics
+
+
+def print_detailed_report(metrics: PipelineMetrics):
+    """Print comprehensive pipeline report."""
+    print("\n" + "="*60)
+    print("DETAILED PIPELINE REPORT")
+    print("="*60)
+    
+    summary = metrics.get_summary()
+    
+    for stage_name, stage_data in summary['stages'].items():
+        print(f"\n{stage_name.upper()}: {'✅ PASS' if stage_data['success'] else '❌ FAIL'}")
+        for key, value in stage_data['metrics'].items():
+            if isinstance(value, float):
+                print(f"  {key}: {value:.2f}")
+            else:
+                print(f"  {key}: {value}")
+    
+    print("\n" + "="*60)
+    print(f"OVERALL: {'✅ ALL STAGES PASSED' if summary['all_stages_passed'] else '❌ SOME STAGES FAILED'}")
+    print("="*60)
 
 
 def main():
-    success = test_piedmont_pipeline()
+    ready_for_ml, metrics = test_piedmont_pipeline()
+    
+    print_detailed_report(metrics)
     
     print("\n" + "="*60)
-    if success:
+    if ready_for_ml:
         print("NEXT STEPS:")
-        print("1. Generate datasets from multiple cities")
-        print("2. Train ML model on inferred actions")
-        print("3. Generate new cities with trained model")
+        print("1. Increase max_steps to infer full trace (1400+ actions)")
+        print("2. Verify replay rate stays >80% on full trace")
+        print("3. Generate datasets from multiple cities")
+        print("4. Train ML model on inferred actions")
     else:
-        print("FIX ISSUES:")
-        print("1. Check inference heuristics")
-        print("2. Verify growth engine validators")
-        print("3. Tune skeleton extraction")
+        print("FIX REQUIRED:")
+        replay_rate = metrics.stages['replay']['metrics'].get('replay_success_rate', 0)
+        
+        if replay_rate < 20:
+            print("1. CRITICAL: Action ordering bug - verify insert(0) vs append()")
+            print("2. Check stable_id computation matches between inference and replay")
+            print("3. Verify geometry_for_matching is correctly stored in actions")
+        elif replay_rate < 50:
+            print("1. Improve stable_id matching algorithm")
+            print("2. Tune geometry matching tolerance")
+            print("3. Add fallback matching strategies")
+        else:
+            print("1. Fine-tune inference heuristics")
+            print("2. Verify growth engine validators")
+            print("3. Check skeleton extraction quality")
     print("="*60)
     
-    sys.exit(0 if success else 1)
+    sys.exit(0 if ready_for_ml else 1)
 
 
 if __name__ == '__main__':

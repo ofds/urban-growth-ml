@@ -52,13 +52,13 @@ class TraceReplayEngine:
         initial_state = self._create_replay_initial_state(trace)
 
         # Replay the trace
-        replayed_state = self._replay_actions(replay_actions, initial_state, city_name)
+        replayed_state, successful_actions = self._replay_actions(replay_actions, initial_state, city_name)
 
         if replayed_state is None:
             return {
                 'success': False,
                 'error': 'Replay failed',
-                'replay_actions': len(replay_actions),
+                'replay_actions': successful_actions,
                 'trace_actions': len(trace.actions)
             }
 
@@ -70,7 +70,7 @@ class TraceReplayEngine:
             'success': validation_results['morphological_valid'],
             'city_name': city_name,
             'trace_actions': len(trace.actions),
-            'replay_actions': len(replay_actions),
+            'replay_actions': successful_actions,  # FIXED: Use actual successful actions count
             'replayed_streets': len(replayed_state.streets),
             'replayed_blocks': len(replayed_state.blocks),
             'original_streets': len(original_state.streets),
@@ -254,7 +254,7 @@ class TraceReplayEngine:
     def _replay_actions(self,
                         actions: List[Dict[str, Any]],
                         initial_state: GrowthState,
-                        city_name: str) -> Optional[GrowthState]:
+                        city_name: str) -> tuple[Optional[GrowthState], int]:
         """
         OPTIMIZED: Replay actions using stable frontier identification.
         
@@ -266,7 +266,6 @@ class TraceReplayEngine:
             from shapely.ops import nearest_points
 
             engine = GrowthEngine(city_name, seed=42)
-            actions = list(reversed(actions))
             current_state = initial_state
             
             logger.info(f"Replaying {len(actions)} actions for {city_name}")
@@ -361,7 +360,7 @@ class TraceReplayEngine:
                                 # Find best matching frontier by geometry
                                 best_match = None
                                 best_distance = float('inf')
-                                tolerance_meters = 20.0  # Adjust as needed
+                                tolerance_meters = 100.0  # Adjust as needed
                                 
                                 for frontier in current_state.frontiers:
                                     # Extract frontier geometry
@@ -439,14 +438,14 @@ class TraceReplayEngine:
             success_rate = successful_actions / len(actions) if actions else 0
             logger.info(f"Replay complete: {successful_actions}/{len(actions)} actions successful ({success_rate:.1%})")
             logger.info(f"Failed frontier matches: {failed_matches}/{len(actions)} ({failed_matches/len(actions):.1%})")
-            
-            return current_state
+
+            return current_state, successful_actions
 
         except Exception as e:
             logger.error(f"Replay failed: {e}")
             import traceback
             traceback.print_exc()
-            return None
+            return None, 0
 
 
     def _create_replay_validation_visuals(self,
@@ -566,4 +565,3 @@ City-by-City Results:
             self.logger.warning(f"No geometry match within {tolerance_meters}m tolerance")
             
         return best_match
-

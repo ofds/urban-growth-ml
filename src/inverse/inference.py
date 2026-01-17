@@ -27,7 +27,7 @@ class BasicInferenceEngine:
         self.skeleton_extractor = ArterialSkeletonExtractor()
         self.rewind_engine = RewindEngine()
     
-    def infer_trace(self, final_state: GrowthState, max_steps: int = 50,
+    def infer_trace(self, final_state: GrowthState, max_steps: int = 10000000,
                     initial_state: Optional[GrowthState] = None) -> GrowthTrace:
         """
         Infer growth trace from final city state.
@@ -86,8 +86,9 @@ class BasicInferenceEngine:
                 break
             
             # Only record action if rewind succeeded
-            actions.append(action)
-            logger.info(f"Inference step {step}: {action.action_type.value}, streets: {len(current_state.streets)} -> {len(prev_state.streets)}")
+            actions.insert(0, action)
+            if step % 100 == 0 or step < 10:
+                logger.info(f"Inference step {step}: streets {len(current_state.streets)} -> {len(prev_state.streets)}")
             current_state = prev_state
             step += 1
         
@@ -121,18 +122,12 @@ class BasicInferenceEngine:
         # Find dead-end frontiers
         dead_end_frontiers = [f for f in state.frontiers if f.frontier_type == "dead_end"]
 
-        logger.info(f"DEBUG: Total frontiers: {len(state.frontiers)}")
-        logger.info(f"DEBUG: Dead-end frontiers: {len(dead_end_frontiers)}")
-        logger.info(f"DEBUG: Skeleton edges: {len(skeleton_edges)}")
-        logger.info(f"DEBUG: Current streets: {len(state.streets)}")
-
         if dead_end_frontiers:
             peripheral_frontier = max(
                 dead_end_frontiers,
                 key=lambda f: self.distance_from_center(f.geometry, center)
             )
 
-            logger.info(f"DEBUG: Found peripheral frontier: {peripheral_frontier.frontier_id}")
 
             from shapely import wkt
 
@@ -159,7 +154,6 @@ class BasicInferenceEngine:
             )
         
         # Fallback for short streets
-        logger.info(f"DEBUG: No dead-end frontiers, trying short streets fallback")
         candidate_streets = []
         for idx, street in state.streets.iterrows():
             geometry = street.geometry
@@ -185,12 +179,9 @@ class BasicInferenceEngine:
                 length = geometry.length
                 candidate_streets.append((idx, length, street, matching_frontier))
         
-        logger.info(f"DEBUG: Found {len(candidate_streets)} candidate streets for removal")
         
         if candidate_streets:
             shortest_idx, length, street, frontier = min(candidate_streets, key=lambda x: x[1])
-
-            logger.info(f"DEBUG: Selecting shortest street: idx={shortest_idx}, length={length:.2f}")
 
             from shapely import wkt
 
