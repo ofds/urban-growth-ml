@@ -151,7 +151,7 @@ def test_synthetic_growth_pipeline():
         # Step 4: Run inverse inference
         print("\n[4/5] Running inverse inference...")
         inference = BasicInferenceEngine()
-        trace = inference.infer_trace(grown_city, max_steps=20, initial_state=seed_state)
+        trace = inference.infer_trace(grown_city, max_steps=10000, initial_state=seed_state)
         
         print(f"  ✅ Inference complete:")
         print(f"     Actions inferred: {len(trace.actions)}")

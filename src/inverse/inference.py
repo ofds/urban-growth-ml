@@ -62,7 +62,16 @@ class BasicInferenceEngine:
         actions = []
         step = 0
         
-        while step < max_steps and not self._is_minimal_state(current_state, skeleton_edges_set):
+        logger.info(f"Inference setup: final={len(final_state.streets)} streets, initial={len(initial_state.streets)} streets, skeleton={len(skeleton_edges_set)} edges")
+        
+        # Main inference loop - rewind until we reach initial state
+        while step < max_steps:
+            # Check if we've reached the initial state
+            if len(current_state.streets) <= len(initial_state.streets):
+                logger.info(f"Reached initial state size at step {step}")
+                break
+            
+            # Try to infer next action
             action = self.infer_most_recent_action(current_state, skeleton_edges_set)
             if action is None:
                 logger.info(f"No more actions to infer at step {step}")
@@ -73,14 +82,14 @@ class BasicInferenceEngine:
             
             # Check if rewind actually worked
             if len(prev_state.streets) >= len(current_state.streets):
-                logger.warning(f"Rewind failed at step {step} - cannot continue")
+                logger.warning(f"Rewind failed at step {step} - state unchanged ({len(prev_state.streets)} >= {len(current_state.streets)})")
                 break
             
             # Only record action if rewind succeeded
             actions.insert(0, action)
+            logger.info(f"Inference step {step}: {action.action_type.value}, streets: {len(current_state.streets)} -> {len(prev_state.streets)}")
             current_state = prev_state
             step += 1
-            logger.debug(f"Inference step {step}: {action.action_type.value}")
         
         # Create trace
         trace = GrowthTrace(
@@ -104,16 +113,18 @@ class BasicInferenceEngine:
         # Simplified: check if we have very few streets
         return len(state.streets) <= max(5, len(skeleton_edges) * 2)
     
+
     def infer_most_recent_action(self, state: GrowthState, skeleton_edges: set):
         """Infer the most recently added action using simple heuristics."""
-        center = self.get_city_center(state)
+        center = self._get_city_center(state)
         
         # Find dead-end frontiers
         dead_end_frontiers = [f for f in state.frontiers if f.frontier_type == "dead_end"]
         
-        print(f"DEBUG: Total frontiers: {len(state.frontiers)}")
-        print(f"DEBUG: Dead-end frontiers: {len(dead_end_frontiers)}")
-        print(f"DEBUG: Skeleton edges: {len(skeleton_edges)}")
+        logger.info(f"DEBUG: Total frontiers: {len(state.frontiers)}")
+        logger.info(f"DEBUG: Dead-end frontiers: {len(dead_end_frontiers)}")
+        logger.info(f"DEBUG: Skeleton edges: {len(skeleton_edges)}")
+        logger.info(f"DEBUG: Current streets: {len(state.streets)}")
         
         if dead_end_frontiers:
             peripheral_frontier = max(
@@ -121,15 +132,17 @@ class BasicInferenceEngine:
                 key=lambda f: self.distance_from_center(f.geometry, center)
             )
             
-            print(f"DEBUG: Found peripheral frontier: {peripheral_frontier.frontier_id}")
+            logger.info(f"DEBUG: Found peripheral frontier: {peripheral_frontier.frontier_id}")
             
             from shapely import wkt
             return InverseGrowthAction(
                 action_type=ActionType.EXTEND_FRONTIER,
                 target_id=peripheral_frontier.frontier_id,
-                intent_params={"direction": "peripheral_expansion"},
-                edge_u=str(peripheral_frontier.edge_id[0]),
-                edge_v=str(peripheral_frontier.edge_id[1]),
+                intent_params={
+                    "direction": "peripheral_expansion",
+                    "edge_u": str(peripheral_frontier.edge_id[0]),
+                    "edge_v": str(peripheral_frontier.edge_id[1])
+                },
                 realized_geometry={
                     "geometry_wkt": wkt.dumps(peripheral_frontier.geometry),
                     "edgeid": peripheral_frontier.edge_id,
@@ -140,6 +153,7 @@ class BasicInferenceEngine:
             )
         
         # Fallback for short streets
+        logger.info(f"DEBUG: No dead-end frontiers, trying short streets fallback")
         candidate_streets = []
         for idx, street in state.streets.iterrows():
             geometry = street.geometry
@@ -165,8 +179,12 @@ class BasicInferenceEngine:
                 length = geometry.length
                 candidate_streets.append((idx, length, street, matching_frontier))
         
+        logger.info(f"DEBUG: Found {len(candidate_streets)} candidate streets for removal")
+        
         if candidate_streets:
             shortest_idx, length, street, frontier = min(candidate_streets, key=lambda x: x[1])
+            
+            logger.info(f"DEBUG: Selecting shortest street: idx={shortest_idx}, length={length:.2f}")
             
             from shapely import wkt
             return InverseGrowthAction(
@@ -177,16 +195,18 @@ class BasicInferenceEngine:
                     'edge_u': str(frontier.edge_id[0]),
                     'edge_v': str(frontier.edge_id[1])
                 },
-                realized_geometry={  # ← STORE GEOMETRY HERE!
+                realized_geometry={
                     'geometry_wkt': wkt.dumps(frontier.geometry),
-                    'edge_id': frontier.edge_id,
+                    'edgeid': frontier.edge_id,
                     'frontier_type': frontier.frontier_type
                 },
                 confidence=0.6,
                 timestamp=len(state.streets)
             )
         
+        logger.warning(f"DEBUG: No actions found - cannot infer further")
         return None
+
 
     def _get_city_center(self, state: GrowthState):
         """Get approximate city center."""
@@ -203,7 +223,7 @@ class BasicInferenceEngine:
             return type('Point', (), {'x': sum(x_coords)/len(x_coords), 'y': sum(y_coords)/len(y_coords)})()
         return type('Point', (), {'x': 0, 'y': 0})()
     
-    def _distance_from_center(self, geometry: LineString, center) -> float:
+    def distance_from_center(self, geometry: LineString, center) -> float:
         """Calculate distance from geometry to city center."""
         if hasattr(geometry, 'centroid'):
             geom_center = geometry.centroid

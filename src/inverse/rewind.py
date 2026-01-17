@@ -77,7 +77,7 @@ class RewindEngine:
             logger.warning(f"Cannot rewind: street with edge ({edge_u}, {edge_v}) not found in current state")
             return state
         
-        # Remove streets (rest of code stays the same)
+        # Remove streets
         new_streets = state.streets.drop(streets_to_remove)
         
         # Update graph efficiently
@@ -100,12 +100,17 @@ class RewindEngine:
         # Rebuild frontiers
         new_frontiers = self._rebuild_frontiers_simple(new_streets, new_graph)
         
+        # FIXED: Keep iteration at 0 during inference rewind
+        # During inverse inference, we're rewinding from a final state (iteration=0)
+        # back towards an initial state. We don't need negative iterations.
+        new_iteration = max(0, state.iteration - 1)
+        
         return GrowthState(
             streets=new_streets,
             blocks=state.blocks,
             frontiers=new_frontiers,
             graph=new_graph,
-            iteration=state.iteration - 1,
+            iteration=new_iteration,  # ← FIXED: Use max(0, iteration-1)
             city_bounds=state.city_bounds
         )
     
