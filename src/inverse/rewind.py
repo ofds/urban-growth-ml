@@ -143,25 +143,43 @@ class RewindEngine:
             u_degree = graph.degree[u]
             v_degree = graph.degree[v]
             
+            geometry = data.get('geometry')
+            if not geometry or not isinstance(geometry, LineString):
+                continue
+                
             if u_degree == 1 or v_degree == 1:
-                geometry = data.get('geometry')
-                if geometry and isinstance(geometry, LineString):
-                    edge_tuple = (min(u, v), max(u, v))
-                    frontier_id = f"dead_end_{edge_tuple[0]}_{edge_tuple[1]}"
-                    
-                    frontier = FrontierEdge(
-                        frontier_id=frontier_id,
-                        edge_id=(u, v),
-                        block_id=None,
-                        geometry=geometry,
-                        frontier_type='dead_end',
-                        expansion_weight=0.8,
-                        spatial_hash=""
-                    )
-                    frontiers.append(frontier)
+                # Dead-end frontier
+                edge_tuple = (min(u, v), max(u, v))
+                frontier_id = f"dead_end_{edge_tuple[0]}_{edge_tuple[1]}"
+                
+                frontier = FrontierEdge(
+                    frontier_id=frontier_id,
+                    edge_id=(u, v),
+                    block_id=None,
+                    geometry=geometry,
+                    frontier_type='dead_end',
+                    expansion_weight=0.8,
+                    spatial_hash=""
+                )
+                frontiers.append(frontier)
+            else:
+                # Block-edge frontier (simplified - assumes all other edges are block edges)
+                edge_tuple = (min(u, v), max(u, v))
+                frontier_id = f"block_edge_{edge_tuple[0]}_{edge_tuple[1]}"
+                
+                frontier = FrontierEdge(
+                    frontier_id=frontier_id,
+                    edge_id=(u, v),
+                    block_id=None,  # Would need block detection logic
+                    geometry=geometry,
+                    frontier_type='block_edge',
+                    expansion_weight=0.5,
+                    spatial_hash=""
+                )
+                frontiers.append(frontier)
         
         return frontiers
-    
+
     def can_rewind_action(self, action: InverseGrowthAction, state: GrowthState) -> bool:
         """
         Check if an action can be safely rewound from the current state.
