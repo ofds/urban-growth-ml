@@ -277,28 +277,24 @@ class TraceReplayEngine:
 
                 try:
                     action_type = action['action_type']
-                    stable_id = action.get('stable_frontier_id')
-                    
-                    # OPTIMIZATION: Use stable frontier matching
-                    target_frontier = None
 
-                    # Method 1: Try stable ID first
+                    # Method 1: Try stable geometric ID FIRST
+                    stable_id = None
+                    if action.get('intent'):
+                        stable_id = action['intent'].get('stable_id')
+                    if not stable_id and action.get('frontier'):
+                        stable_id = action['frontier'].realized_geometry.get('stable_id')
+
                     if stable_id:
                         target_frontier = self._find_frontier_by_stable_id(
                             stable_id,
                             current_state.frontiers,
                             tolerance=2.0
                         )
+                        if target_frontier:
+                            logger.debug(f"Action {i+1}: Matched via stable_id")
 
-                    # Method 2: Try original ID matching
-                    if target_frontier is None:
-                        target_id = action['target_id']
-                        for frontier in current_state.frontiers:
-                            if frontier.frontier_id == target_id:
-                                target_frontier = frontier
-                                break
-
-                    # Method 3: Try geometry matching with stored geometry
+                    # Method 2: Fallback to geometry matching
                     if target_frontier is None and 'geometry_for_matching' in action:
                         stored_geometry = action['geometry_for_matching']
                         if stored_geometry is not None:
@@ -306,18 +302,16 @@ class TraceReplayEngine:
                             class MockFrontier:
                                 def __init__(self, geometry):
                                     self.geometry = geometry
-                            
+
                             mock_frontier = MockFrontier(stored_geometry)
                             target_frontier = self._find_frontier_by_geometry(
                                 mock_frontier,
                                 current_state.frontiers,
                                 tolerance=10.0
                             )
-                            
+
                             if target_frontier:
                                 logger.debug(f"Action {i+1}: Found via geometry matching")
-
-                    # Method 4: REMOVED - was duplicate of Method 3
 
                     if target_frontier is None:
                         logger.warning(f"Could not find frontier for action {i+1}, skipping")

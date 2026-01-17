@@ -117,36 +117,42 @@ class BasicInferenceEngine:
     def infer_most_recent_action(self, state: GrowthState, skeleton_edges: set):
         """Infer the most recently added action using simple heuristics."""
         center = self._get_city_center(state)
-        
+
         # Find dead-end frontiers
         dead_end_frontiers = [f for f in state.frontiers if f.frontier_type == "dead_end"]
-        
+
         logger.info(f"DEBUG: Total frontiers: {len(state.frontiers)}")
         logger.info(f"DEBUG: Dead-end frontiers: {len(dead_end_frontiers)}")
         logger.info(f"DEBUG: Skeleton edges: {len(skeleton_edges)}")
         logger.info(f"DEBUG: Current streets: {len(state.streets)}")
-        
+
         if dead_end_frontiers:
             peripheral_frontier = max(
                 dead_end_frontiers,
                 key=lambda f: self.distance_from_center(f.geometry, center)
             )
-            
+
             logger.info(f"DEBUG: Found peripheral frontier: {peripheral_frontier.frontier_id}")
-            
+
             from shapely import wkt
+
+            # CRITICAL FIX: Compute and store stable geometric ID
+            stable_id = self._compute_stable_frontier_id(peripheral_frontier)
+
             return InverseGrowthAction(
                 action_type=ActionType.EXTEND_FRONTIER,
-                target_id=peripheral_frontier.frontier_id,
+                target_id=peripheral_frontier.frontier_id,  # Keep for debugging
                 intent_params={
                     "direction": "peripheral_expansion",
                     "edge_u": str(peripheral_frontier.edge_id[0]),
-                    "edge_v": str(peripheral_frontier.edge_id[1])
+                    "edge_v": str(peripheral_frontier.edge_id[1]),
+                    "stable_id": stable_id  # ← ADD THIS
                 },
                 realized_geometry={
                     "geometry_wkt": wkt.dumps(peripheral_frontier.geometry),
                     "edgeid": peripheral_frontier.edge_id,
-                    "frontier_type": peripheral_frontier.frontier_type
+                    "frontier_type": peripheral_frontier.frontier_type,
+                    "stable_id": stable_id  # ← ADD THIS TOO
                 },
                 confidence=0.8,
                 timestamp=len(state.streets)
@@ -183,22 +189,28 @@ class BasicInferenceEngine:
         
         if candidate_streets:
             shortest_idx, length, street, frontier = min(candidate_streets, key=lambda x: x[1])
-            
+
             logger.info(f"DEBUG: Selecting shortest street: idx={shortest_idx}, length={length:.2f}")
-            
+
             from shapely import wkt
+
+            # CRITICAL FIX: Compute and store stable geometric ID
+            stable_id = self._compute_stable_frontier_id(frontier)
+
             return InverseGrowthAction(
                 action_type=ActionType.EXTEND_FRONTIER,
                 target_id=frontier.frontier_id,
                 intent_params={
                     'strategy': 'short_segment',
                     'edge_u': str(frontier.edge_id[0]),
-                    'edge_v': str(frontier.edge_id[1])
+                    'edge_v': str(frontier.edge_id[1]),
+                    'stable_id': stable_id  # ← ADD THIS
                 },
                 realized_geometry={
                     'geometry_wkt': wkt.dumps(frontier.geometry),
                     'edgeid': frontier.edge_id,
-                    'frontier_type': frontier.frontier_type
+                    'frontier_type': frontier.frontier_type,
+                    'stable_id': stable_id  # ← ADD THIS TOO
                 },
                 confidence=0.6,
                 timestamp=len(state.streets)
@@ -229,3 +241,20 @@ class BasicInferenceEngine:
             geom_center = geometry.centroid
             return ((geom_center.x - center.x)**2 + (geom_center.y - center.y)**2)**0.5
         return 0.0
+
+    def _compute_stable_frontier_id(self, frontier) -> str:
+        """Generate stable ID from geometry coordinates."""
+        import hashlib
+        if not hasattr(frontier, 'geometry') or frontier.geometry is None:
+            return "invalid_frontier"
+
+        geom = frontier.geometry
+        if isinstance(geom, LineString) and len(geom.coords) >= 2:
+            start = (round(geom.coords[0][0], 0), round(geom.coords[0][1], 0))
+            end = (round(geom.coords[-1][0], 0), round(geom.coords[-1][1], 1))
+            frontier_type = getattr(frontier, 'frontier_type', 'unknown')
+
+            hash_input = f"{start}_{end}_{frontier_type}".encode('utf-8')
+            return hashlib.md5(hash_input).hexdigest()[:16]
+
+        return "invalid_geometry"
