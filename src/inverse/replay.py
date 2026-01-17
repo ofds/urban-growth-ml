@@ -9,7 +9,7 @@ import logging
 from shapely.geometry import Point, LineString
 import hashlib
 
-from ..growth.growth_engine import GrowthEngine
+from ..core.growth_engine import GrowthEngine
 from ..core.contracts import GrowthState
 from .data_structures import GrowthTrace, InverseGrowthAction, ActionType
 from .validation import MorphologicalValidator
