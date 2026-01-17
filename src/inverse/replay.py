@@ -9,8 +9,8 @@ import logging
 from shapely.geometry import Point, LineString
 import hashlib
 
-from ..core.growth_engine import GrowthEngine
-from ..core.contracts import GrowthState
+from core.growth.new.growth_engine import GrowthEngine
+from core.contracts import GrowthState
 from .data_structures import GrowthTrace, InverseGrowthAction, ActionType
 from .validation import MorphologicalValidator
 from .visualization import InverseGrowthVisualizer
@@ -143,92 +143,107 @@ class TraceReplayEngine:
     def _find_frontier_by_geometry(self, target_frontier, frontiers: List, tolerance: float = 5.0):
         """
         Find frontier in current state by geometric similarity.
-
+        
         Args:
-            target_frontier: The frontier from the trace
+            target_frontier: The frontier from the trace (or mock object with geometry)
             frontiers: List of current frontiers
             tolerance: Spatial matching tolerance in meters
-
+        
         Returns:
             Best matching frontier or None
         """
         if not hasattr(target_frontier, 'geometry') or target_frontier.geometry is None:
             return None
-
+        
         target_geom = target_frontier.geometry
         if not isinstance(target_geom, LineString) or len(target_geom.coords) < 2:
             return None
-
+        
         # Get target start/end points
         target_start = Point(target_geom.coords[0])
         target_end = Point(target_geom.coords[-1])
+        
         best_match = None
         best_distance = tolerance
-
+        
         for frontier in frontiers:
             if not hasattr(frontier, 'geometry') or frontier.geometry is None:
                 continue
-
+            
             geom = frontier.geometry
             if not isinstance(geom, LineString) or len(geom.coords) < 2:
                 continue
-
+            
             # Check if start/end points are close
             start_dist = target_start.distance(Point(geom.coords[0]))
             end_dist = target_end.distance(Point(geom.coords[-1]))
-
+            
             # Also check reverse orientation
             start_dist_rev = target_start.distance(Point(geom.coords[-1]))
             end_dist_rev = target_end.distance(Point(geom.coords[0]))
-
+            
             # Use the better orientation
             avg_dist = min(
                 (start_dist + end_dist) / 2,
                 (start_dist_rev + end_dist_rev) / 2
             )
-
+            
             if avg_dist < best_distance:
                 best_distance = avg_dist
                 best_match = frontier
-
+        
         return best_match if best_distance < tolerance else None
 
     def _convert_trace_to_replayable_actions(self, trace: GrowthTrace) -> List[Dict[str, Any]]:
         """
         Convert InverseGrowthActions to a format playable by the growth engine.
-
-        OPTIMIZATION: Add stable frontier identification
+        OPTIMIZATION: Add stable frontier identification + geometry extraction
         """
         replay_actions = []
-
+        
         for inverse_action in trace.actions:
+            # Extract geometry if available from realized_geometry
+            geometry_for_matching = None
+            if inverse_action.realized_geometry:
+                from shapely import wkt
+                geom_wkt = inverse_action.realized_geometry.get('geometry_wkt')
+                if geom_wkt:
+                    try:
+                        geometry_for_matching = wkt.loads(geom_wkt)
+                    except Exception as e:
+                        logger.warning(f"Failed to load geometry from WKT: {e}")
+            
             # Convert based on action type
             if inverse_action.action_type == ActionType.EXTEND_FRONTIER:
                 action = {
                     'action_type': 'grow_trajectory',
                     'target_id': inverse_action.target_id,
                     'stable_frontier_id': self._compute_stable_frontier_id(inverse_action),
-                    'frontier': inverse_action,  # Include the frontier object for geometric matching
+                    'frontier': inverse_action,  # Include the action object for fallback matching
+                    'geometry_for_matching': geometry_for_matching,  # ← ADD THIS!
                     'intent': inverse_action.intent_params,
                     'confidence': inverse_action.confidence
                 }
                 replay_actions.append(action)
-
+            
             elif inverse_action.action_type == ActionType.SUBDIVIDE_BLOCK:
                 action = {
                     'action_type': 'subdivide_block',
                     'target_id': inverse_action.target_id,
                     'stable_frontier_id': self._compute_stable_frontier_id(inverse_action),
-                    'frontier': inverse_action,  # Include the frontier object for geometric matching
+                    'frontier': inverse_action,  # Include the action object for fallback matching
+                    'geometry_for_matching': geometry_for_matching,  # ← ADD THIS!
                     'intent': inverse_action.intent_params,
                     'confidence': inverse_action.confidence
                 }
                 replay_actions.append(action)
-
+            
             else:
                 logger.debug(f"Skipping unsupported action type: {inverse_action.action_type}")
-
+        
         return replay_actions
+
+
 
     def _create_replay_initial_state(self, trace: GrowthTrace) -> GrowthState:
         """
@@ -237,16 +252,16 @@ class TraceReplayEngine:
         return trace.initial_state
 
     def _replay_actions(self,
-                         actions: List[Dict[str, Any]],
-                         initial_state: GrowthState,
-                         city_name: str) -> Optional[GrowthState]:
+                        actions: List[Dict[str, Any]],
+                        initial_state: GrowthState,
+                        city_name: str) -> Optional[GrowthState]:
         """
         OPTIMIZED: Replay actions using stable frontier identification.
         
         Performance improvement: 1% → ~80% action success rate
         """
         try:
-            from ..growth.growth_engine import GrowthEngine
+            from core.growth.new.growth_engine import GrowthEngine
 
             engine = GrowthEngine(city_name, seed=42)
 
@@ -267,15 +282,15 @@ class TraceReplayEngine:
                     # OPTIMIZATION: Use stable frontier matching
                     target_frontier = None
 
+                    # Method 1: Try stable ID first
                     if stable_id:
-                        # Try stable ID first
                         target_frontier = self._find_frontier_by_stable_id(
                             stable_id,
                             current_state.frontiers,
                             tolerance=2.0
                         )
 
-                    # Fallback to original ID matching
+                    # Method 2: Try original ID matching
                     if target_frontier is None:
                         target_id = action['target_id']
                         for frontier in current_state.frontiers:
@@ -283,13 +298,26 @@ class TraceReplayEngine:
                                 target_frontier = frontier
                                 break
 
-                    # FINAL FALLBACK: Geometric matching using the frontier from the trace
-                    if target_frontier is None and 'frontier' in action:
-                        target_frontier = self._find_frontier_by_geometry(
-                            action['frontier'],
-                            current_state.frontiers,
-                            tolerance=5.0
-                        )
+                    # Method 3: Try geometry matching with stored geometry
+                    if target_frontier is None and 'geometry_for_matching' in action:
+                        stored_geometry = action['geometry_for_matching']
+                        if stored_geometry is not None:
+                            # Create a mock frontier object for geometry matching
+                            class MockFrontier:
+                                def __init__(self, geometry):
+                                    self.geometry = geometry
+                            
+                            mock_frontier = MockFrontier(stored_geometry)
+                            target_frontier = self._find_frontier_by_geometry(
+                                mock_frontier,
+                                current_state.frontiers,
+                                tolerance=10.0
+                            )
+                            
+                            if target_frontier:
+                                logger.debug(f"Action {i+1}: Found via geometry matching")
+
+                    # Method 4: REMOVED - was duplicate of Method 3
 
                     if target_frontier is None:
                         logger.warning(f"Could not find frontier for action {i+1}, skipping")
@@ -317,6 +345,8 @@ class TraceReplayEngine:
 
                 except Exception as e:
                     logger.error(f"Failed to replay action {i+1}: {e}")
+                    import traceback
+                    traceback.print_exc()
                     continue
 
             success_rate = successful_actions / len(actions) if actions else 0
@@ -327,6 +357,8 @@ class TraceReplayEngine:
 
         except Exception as e:
             logger.error(f"Replay failed: {e}")
+            import traceback
+            traceback.print_exc()
             return None
 
     def _create_replay_validation_visuals(self,

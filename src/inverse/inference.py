@@ -8,7 +8,7 @@ from typing import List, Optional, Any
 import logging
 from shapely.geometry import LineString
 
-from ..core.contracts import GrowthState
+from core.contracts import GrowthState
 from .data_structures import GrowthTrace, InverseGrowthAction, ActionType
 from .skeleton import ArterialSkeletonExtractor
 from .rewind import RewindEngine
@@ -88,70 +88,88 @@ class BasicInferenceEngine:
         # Simplified: check if we have very few streets
         return len(state.streets) <= max(5, len(skeleton_edges) * 2)
     
-    def _infer_most_recent_action(self, state: GrowthState, skeleton_edges: set) -> Optional[InverseGrowthAction]:
-        """
-        Infer the most recently added action using simple heuristics.
+    def _infer_most_recent_action(self, state: GrowthState, skeleton_edges: set):
+        """Infer the most recently added action using simple heuristics."""
         
-        Priority order:
-        1. Dead-end streets far from center
-        2. Short streets (likely recent additions)
-        3. Streets with simple geometry
-        """
-        # Cache center calculation
         center = self._get_city_center(state)
         
-        # Find dead-end frontiers (already filtered)
+        # Find dead-end frontiers
         dead_end_frontiers = [f for f in state.frontiers if f.frontier_type == 'dead_end']
         
         if dead_end_frontiers:
-            # Vectorized distance calculation
             peripheral_frontier = max(
                 dead_end_frontiers,
                 key=lambda f: self._distance_from_center(f.geometry, center)
             )
             
+            # CRITICAL FIX: Store geometry for replay matching
+            from shapely import wkt
             return InverseGrowthAction(
                 action_type=ActionType.EXTEND_FRONTIER,
                 target_id=peripheral_frontier.frontier_id,
-                intent_params={'direction': 'peripheral_expansion'},
+                intent_params={
+                    'direction': 'peripheral_expansion',
+                    'edge_u': str(peripheral_frontier.edge_id[0]),
+                    'edge_v': str(peripheral_frontier.edge_id[1])
+                },
+                realized_geometry={  # ← USE THIS FIELD!
+                    'geometry_wkt': wkt.dumps(peripheral_frontier.geometry),
+                    'edge_id': peripheral_frontier.edge_id,
+                    'frontier_type': peripheral_frontier.frontier_type
+                },
                 confidence=0.8,
                 timestamp=len(state.streets)
             )
         
-        # Optimized: single pass through streets with early filtering
+        # Fallback for short streets
         candidate_streets = []
         for idx, street in state.streets.iterrows():
             geometry = street.geometry
             if not isinstance(geometry, LineString):
                 continue
-                
-            # Cache attributes
+            
             u, v = street.get('u'), street.get('v')
             if u is None or v is None:
                 continue
-                
-            # Skip skeleton streets (normalized edge key)
+            
             edge_key = (min(u, v), max(u, v))
             if edge_key in skeleton_edges:
                 continue
             
-            # Pre-calculated length
-            length = geometry.length
-            candidate_streets.append((idx, length, street))
+            # Find matching frontier
+            matching_frontier = None
+            for frontier in state.frontiers:
+                if frontier.edge_id == (u, v) or frontier.edge_id == (v, u):
+                    matching_frontier = frontier
+                    break
+            
+            if matching_frontier:
+                length = geometry.length
+                candidate_streets.append((idx, length, street, matching_frontier))
         
         if candidate_streets:
-            shortest_idx, length, street = min(candidate_streets, key=lambda x: x[1])
+            shortest_idx, length, street, frontier = min(candidate_streets, key=lambda x: x[1])
             
+            from shapely import wkt
             return InverseGrowthAction(
                 action_type=ActionType.EXTEND_FRONTIER,
-                target_id=str(shortest_idx),
-                intent_params={'strategy': 'short_segment'},
+                target_id=frontier.frontier_id,
+                intent_params={
+                    'strategy': 'short_segment',
+                    'edge_u': str(frontier.edge_id[0]),
+                    'edge_v': str(frontier.edge_id[1])
+                },
+                realized_geometry={  # ← STORE GEOMETRY HERE!
+                    'geometry_wkt': wkt.dumps(frontier.geometry),
+                    'edge_id': frontier.edge_id,
+                    'frontier_type': frontier.frontier_type
+                },
                 confidence=0.6,
                 timestamp=len(state.streets)
             )
         
         return None
-    
+
     def _get_city_center(self, state: GrowthState):
         """Get approximate city center."""
         if state.city_bounds:

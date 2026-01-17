@@ -22,9 +22,9 @@ class ArterialSkeletonExtractor:
     """
     
     def __init__(self,
-                 min_length: float = 200.0,      # Minimum length for arterial consideration
-                 betweenness_threshold: float = 0.1,  # Relative betweenness centrality
-                 max_curvature: float = 0.01):   # Maximum curvature for straight streets
+                 min_length: float = 5.0,      # Minimum length for arterial consideration
+                 betweenness_threshold: float = 0.0001,  # Relative betweenness centrality
+                 max_curvature: float = 0.20):   # Maximum curvature for straight streets
         self.min_length = min_length
         self.betweenness_threshold = betweenness_threshold
         self.max_curvature = max_curvature
@@ -168,3 +168,55 @@ class ArterialSkeletonExtractor:
         # For now, return a placeholder
         logger.warning("create_skeleton_state not fully implemented - returning original state")
         return original_state
+
+    def create_skeleton_state(self, skeleton_streets: List[dict], original_state) -> Any:
+        """
+        Create a minimal GrowthState containing only the arterial skeleton.
+        
+        Args:
+            skeleton_streets: List of skeleton street data
+            original_state: Original GrowthState for reference
+        
+        Returns:
+            Minimal GrowthState with skeleton as initial conditions
+        """
+        import geopandas as gpd
+        import pandas as pd
+        from core.contracts import GrowthState
+        
+        if not skeleton_streets:
+            # No skeleton, return minimal state with just first 2 streets
+            logger.info("No skeleton found, using first 2 streets as seed")
+            seed_streets = original_state.streets.iloc[:2].copy()
+            
+            # Create minimal frontiers (just boundaries of seed)
+            seed_frontiers = []
+            
+            # Create minimal graph
+            seed_graph = original_state.graph.copy()
+            
+            return GrowthState(
+                streets=seed_streets,
+                blocks=gpd.GeoDataFrame(columns=['geometry'], crs=original_state.streets.crs),
+                frontiers=seed_frontiers,
+                graph=seed_graph,
+                iteration=0,
+                city_bounds=original_state.city_bounds
+            )
+        
+        # Extract skeleton streets into GeoDataFrame
+        skeleton_gdf = gpd.GeoDataFrame(
+            [s for s in skeleton_streets],
+            crs=original_state.streets.crs
+        )
+        
+        logger.info(f"Created skeleton state with {len(skeleton_gdf)} arterial streets")
+        
+        return GrowthState(
+            streets=skeleton_gdf,
+            blocks=gpd.GeoDataFrame(columns=['geometry'], crs=original_state.streets.crs),
+            frontiers=[],  # Skeleton has no frontiers initially
+            graph=original_state.graph,  # Keep full graph for now
+            iteration=0,
+            city_bounds=original_state.city_bounds
+        )
