@@ -10,8 +10,8 @@ from shapely.geometry import Point
 from shapely.strtree import STRtree  # OPTIMIZATION: Spatial indexing
 from shapely.ops import unary_union
 
-from src.core.contracts import GrowthState
-from src.inverse.data_structures import GrowthTrace
+from core.contracts import GrowthState
+from .data_structures import GrowthTrace
 
 logger = logging.getLogger(__name__)
 

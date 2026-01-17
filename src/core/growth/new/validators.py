@@ -11,7 +11,7 @@ from shapely.geometry import LineString, Point
 
 from .actions import GrowthAction, ACTION_GROW_TRAJECTORY, ACTION_SUBDIVIDE_BLOCK
 from .geometry_utils import calculate_angle_between_lines, point_to_line_distance
-from src.core.contracts import GrowthState
+from ...contracts import GrowthState
 
 # Validation constants
 MIN_STREET_LENGTH = 10.0  # meters

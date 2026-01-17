@@ -3,7 +3,12 @@
 
 import sys
 from pathlib import Path
-sys.path.insert(0, str(Path(__file__).parent.parent / 'src'))
+
+# Add src directory to path for imports BEFORE any other imports
+project_root = Path(__file__).parent.parent
+src_path = project_root / 'src'
+if str(src_path) not in sys.path:
+    sys.path.insert(0, str(src_path))
 
 import logging
 from core.growth.new.growth_engine import GrowthEngine

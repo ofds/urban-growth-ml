@@ -8,10 +8,10 @@ from typing import List, Optional, Any, Dict
 import logging
 from shapely.geometry import LineString
 
-from src.core.contracts import GrowthState
-from src.inverse.data_structures import GrowthTrace, InverseGrowthAction, ActionType, compute_frontier_signature
-from src.inverse.skeleton import ArterialSkeletonExtractor
-from src.inverse.rewind import RewindEngine
+from core.contracts import GrowthState
+from .data_structures import GrowthTrace, InverseGrowthAction, ActionType, compute_frontier_signature
+from .skeleton import ArterialSkeletonExtractor
+from .rewind import RewindEngine
 
 logger = logging.getLogger(__name__)
 
@@ -61,22 +61,40 @@ class BasicInferenceEngine:
         current_state = final_state
         actions = []
         step = 0
-        
+
+        # BATCH COMPUTATION CACHING: Cache expensive computations
+        cache_iteration = 0
+        CACHE_INTERVAL = 50  # Recalculate every N steps
+        cached_city_center = None
+        cached_candidate_streets = None
+        cached_frontier_distances = None
+
         logger.info(f"Inference setup: final={len(final_state.streets)} streets, initial={len(initial_state.streets)} streets, skeleton={len(skeleton_edges_set)} edges")
-        
+
         # Main inference loop - rewind until we reach initial state
         while step < max_steps:
             # Check if we've reached the initial state
             if len(current_state.streets) <= len(initial_state.streets):
                 logger.info(f"Reached initial state size at step {step}")
                 break
-            
+
+            # BATCH COMPUTATION CACHING: Update cached values periodically
+            if step % CACHE_INTERVAL == 0 or cached_city_center is None:
+                cached_city_center = self._get_city_center(current_state)
+                # Precompute frontier distances for dead-end frontiers
+                dead_end_frontiers = [f for f in current_state.frontiers if f.frontier_type == "dead_end"]
+                cached_frontier_distances = {}
+                for frontier in dead_end_frontiers:
+                    cached_frontier_distances[frontier] = self.distance_from_center(frontier.geometry, cached_city_center)
+                cache_iteration = step
+                logger.debug(f"Updated cached computations at step {step}")
+
             # Try to infer next action
             action = self.infer_most_recent_action(current_state, skeleton_edges_set)
             if action is None:
                 logger.info(f"No more actions to infer at step {step}")
                 break
-            
+
             # PHASE 2: Capture complete state diff before rewind
             state_diff = self._compute_state_diff(current_state, action)
 
@@ -125,6 +143,13 @@ class BasicInferenceEngine:
         """Infer the most recently added action using simple heuristics."""
         center = self._get_city_center(state)
 
+        # FRONTIER LOOKUP OPTIMIZATION: Build dictionary mapping edge tuples to frontiers
+        frontier_lookup = {}
+        for frontier in state.frontiers:
+            edge_key = (min(frontier.edge_id[0], frontier.edge_id[1]),
+                       max(frontier.edge_id[0], frontier.edge_id[1]))
+            frontier_lookup[edge_key] = frontier
+
         # Find dead-end frontiers
         dead_end_frontiers = [f for f in state.frontiers if f.frontier_type == "dead_end"]
 
@@ -162,34 +187,30 @@ class BasicInferenceEngine:
                 timestamp=len(state.streets),
                 geometric_signature=geometric_signature  # ← ADD GEOMETRIC SIGNATURE
             )
-        
+
         # Fallback for short streets
         candidate_streets = []
         for idx, street in state.streets.iterrows():
             geometry = street.geometry
             if not isinstance(geometry, LineString):
                 continue
-            
+
             u, v = street.get('u'), street.get('v')
             if u is None or v is None:
                 continue
-            
+
             edge_key = (min(u, v), max(u, v))
             if edge_key in skeleton_edges:
                 continue
-            
-            # Find matching frontier
-            matching_frontier = None
-            for frontier in state.frontiers:
-                if frontier.edge_id == (u, v) or frontier.edge_id == (v, u):
-                    matching_frontier = frontier
-                    break
-            
+
+            # OPTIMIZED FRONTIER LOOKUP: O(1) dictionary lookup instead of O(n) linear search
+            matching_frontier = frontier_lookup.get(edge_key)
+
             if matching_frontier:
                 length = geometry.length
                 candidate_streets.append((idx, length, street, matching_frontier))
-        
-        
+
+
         if candidate_streets:
             shortest_idx, length, street, frontier = min(candidate_streets, key=lambda x: x[1])
 
@@ -220,7 +241,7 @@ class BasicInferenceEngine:
                 timestamp=len(state.streets),
                 geometric_signature=geometric_signature  # ← ADD GEOMETRIC SIGNATURE
             )
-        
+
         logger.warning(f"DEBUG: No actions found - cannot infer further")
         return None
 
@@ -298,13 +319,14 @@ class BasicInferenceEngine:
                 for idx, street in current_state.streets.iterrows():
                     u, v = street.get('u'), street.get('v')
                     if (u == edge_u and v == edge_v) or (u == edge_v and v == edge_u):
-                        # This is the street that will be removed during rewind
-                        # During replay, this is the street that should be added
+                        # MEMORY OPTIMIZATION: Store only edge IDs and essential metadata
+                        # Geometry will be reconstructed from final state during replay
                         street_data = {
-                            'index': idx,
+                            'edge_id': (min(u, v), max(u, v)),  # Normalized edge tuple for lookup
                             'u': u,
                             'v': v,
-                            'geometry_wkt': street.geometry.wkt if hasattr(street.geometry, 'wkt') else None,
+                            # Remove heavy WKT geometry storage - reconstruct from final state
+                            # 'geometry_wkt': street.geometry.wkt if hasattr(street.geometry, 'wkt') else None,
                             'osmid': street.get('osmid'),
                             'highway': street.get('highway'),
                             'length': street.geometry.length if hasattr(street.geometry, 'length') else None

@@ -8,8 +8,8 @@ from typing import Optional, Any, Dict, List, Set, Tuple
 from shapely.geometry import Point, LineString, Polygon
 import logging
 
-from src.core.contracts import GrowthState, FrontierEdge
-from src.inverse.data_structures import InverseGrowthAction, ActionType
+from core.contracts import GrowthState, FrontierEdge
+from .data_structures import InverseGrowthAction, ActionType
 
 logger = logging.getLogger(__name__)
 
@@ -56,15 +56,15 @@ class RewindEngine:
 
     def _rewind_extend_frontier(self, action: InverseGrowthAction, state: GrowthState) -> GrowthState:
         """Rewind an EXTEND_FRONTIER action by removing the added street segment."""
-        
+
         # Get edge info from action
         edge_u = action.realized_geometry.get('edgeid', (None, None))[0] if action.realized_geometry else None
         edge_v = action.realized_geometry.get('edgeid', (None, None))[1] if action.realized_geometry else None
-        
+
         if edge_u is None or edge_v is None:
             logger.warning(f"Cannot rewind: no edge_id in action")
             return state
-        
+
         # Find street(s) matching this edge
         streets_to_remove = []
         for idx, street in state.streets.iterrows():
@@ -72,50 +72,37 @@ class RewindEngine:
             if (u == edge_u and v == edge_v) or (u == edge_v and v == edge_u):
                 streets_to_remove.append(idx)
                 break  # Found it
-        
+
         if not streets_to_remove:
             logger.warning(f"Cannot rewind: street with edge ({edge_u}, {edge_v}) not found in current state")
             return state
-        
+
         # Remove streets from GeoDataFrame
         new_streets = state.streets.drop(streets_to_remove)
-        
-        # Rebuild graph from remaining streets to ensure geometry is preserved
+
+        # INCREMENTAL GRAPH UPDATE: Remove specific edge instead of full rebuild
         import networkx as nx
-        new_graph = nx.Graph()
-        
-        # Add all nodes from streets
-        for idx, street in new_streets.iterrows():
-            u, v = street['u'], street['v']
-            geometry = street.get('geometry')
-            
-            if geometry and hasattr(geometry, 'coords'):
-                coords = list(geometry.coords)
-                if len(coords) >= 2:
-                    # Add nodes with their coordinates
-                    start_point = coords[0]
-                    end_point = coords[-1]
-                    
-                    if u not in new_graph:
-                        new_graph.add_node(u, x=start_point[0], y=start_point[1], 
-                                        geometry=Point(start_point))
-                    if v not in new_graph:
-                        new_graph.add_node(v, x=end_point[0], y=end_point[1],
-                                        geometry=Point(end_point))
-                    
-                    # Add edge with geometry
-                    new_graph.add_edge(u, v, 
-                                    geometry=geometry,
-                                    length=geometry.length)
-        
-        logger.info(f"Rebuilt graph: {new_graph.number_of_nodes()} nodes, {new_graph.number_of_edges()} edges")
-        
-        # Rebuild frontiers
-        new_frontiers = self._rebuild_frontiers_simple(new_streets, new_graph, state.blocks)
-        
+        new_graph = state.graph.copy()
+
+        # Remove the edge
+        try:
+            new_graph.remove_edge(edge_u, edge_v)
+        except nx.NetworkXError:
+            logger.warning(f"Edge ({edge_u}, {edge_v}) not found in graph during incremental update")
+
+        # Remove isolated nodes (nodes with no edges)
+        nodes_to_remove = [node for node in [edge_u, edge_v] if new_graph.degree[node] == 0]
+        for node in nodes_to_remove:
+            new_graph.remove_node(node)
+
+        logger.info(f"Incremental graph update: removed edge ({edge_u}, {edge_v}), removed {len(nodes_to_remove)} isolated nodes")
+
+        # DELTA-BASED FRONTIER UPDATE: Only update affected frontiers
+        new_frontiers = self._update_frontiers_delta(state.frontiers, new_graph, edge_u, edge_v)
+
         # Keep iteration at 0 during inference rewind
         new_iteration = max(0, state.iteration - 1)
-        
+
         return GrowthState(
             streets=new_streets,
             blocks=state.blocks,
@@ -177,49 +164,6 @@ class RewindEngine:
         
         return edge_segments
     
-    def _edge_matches_block_segment(self, edge_geom: LineString, 
-                                    block_segments: Set[Tuple[Tuple[float, float], Tuple[float, float]]],
-                                    tolerance: float = 1.0) -> Tuple[bool, float]:
-        """
-        Check if an edge geometry matches any block boundary segment.
-        
-        Args:
-            edge_geom: LineString geometry of the edge
-            block_segments: Set of block edge segments
-            tolerance: Distance tolerance for matching (meters)
-        
-        Returns:
-            Tuple of (is_match, min_distance)
-        """
-        edge_coords = list(edge_geom.coords)
-        if len(edge_coords) < 2:
-            return False, float('inf')
-        
-        # Get edge endpoints
-        edge_start = edge_coords[0]
-        edge_end = edge_coords[-1]
-        
-        # Normalize edge segment
-        edge_segment = tuple(sorted([edge_start, edge_end]))
-        
-        min_total_dist = float('inf')
-        
-        # Check for exact or near matches
-        for block_seg in block_segments:
-            # Check if endpoints match within tolerance
-            start_dist = ((edge_segment[0][0] - block_seg[0][0])**2 + 
-                        (edge_segment[0][1] - block_seg[0][1])**2)**0.5
-            end_dist = ((edge_segment[1][0] - block_seg[1][0])**2 + 
-                    (edge_segment[1][1] - block_seg[1][1])**2)**0.5
-            
-            total_dist = start_dist + end_dist
-            min_total_dist = min(min_total_dist, total_dist)
-            
-            if start_dist < tolerance and end_dist < tolerance:
-                return True, total_dist
-        
-        return False, min_total_dist
-
     def _edge_matches_block_segment(self, edge_geom: LineString, 
                                     block_segments: Set[Tuple[Tuple[float, float], Tuple[float, float]]],
                                     tolerance: float = 1.0) -> Tuple[bool, float]:
@@ -333,7 +277,91 @@ class RewindEngine:
         
         return frontiers
 
+    def _update_frontiers_delta(self, current_frontiers: List[FrontierEdge], graph, removed_u: int, removed_v: int) -> List[FrontierEdge]:
+        """
+        Delta-based frontier update: only modify frontiers affected by edge removal.
 
+        Instead of rebuilding all frontiers, identify which frontiers are affected by the
+        removed edge and update only those, keeping others unchanged.
+
+        Args:
+            current_frontiers: Current list of frontiers
+            graph: Updated graph after edge removal
+            removed_u, removed_v: Node IDs of the removed edge
+
+        Returns:
+            Updated list of frontiers
+        """
+        # Create a copy of current frontiers
+        new_frontiers = current_frontiers.copy()
+
+        # Find frontiers that need updating (those connected to removed nodes)
+        affected_frontiers = []
+        affected_indices = []
+
+        for i, frontier in enumerate(current_frontiers):
+            u, v = frontier.edge_id
+            # Check if this frontier is connected to the removed edge's nodes
+            if u in [removed_u, removed_v] or v in [removed_u, removed_v]:
+                affected_frontiers.append(frontier)
+                affected_indices.append(i)
+
+        # Remove affected frontiers from the list
+        for i in reversed(affected_indices):
+            new_frontiers.pop(i)
+
+        # Rebuild only the affected frontiers
+        rebuilt_frontiers = []
+
+        # Get all edges connected to the affected nodes
+        affected_nodes = set([removed_u, removed_v])
+        affected_edges = []
+
+        for node in affected_nodes:
+            if node in graph:
+                # Get all edges connected to this node
+                for neighbor in graph.neighbors(node):
+                    edge_key = tuple(sorted([node, neighbor]))
+                    if edge_key not in affected_edges:
+                        affected_edges.append(edge_key)
+
+        # Rebuild frontiers for affected edges
+        for u, v in affected_edges:
+            if graph.has_edge(u, v):
+                data = graph.get_edge_data(u, v)
+                geometry = data.get('geometry')
+
+                if geometry and isinstance(geometry, LineString):
+                    u_degree = graph.degree[u]
+                    v_degree = graph.degree[v]
+
+                    # Determine frontier type
+                    if u_degree == 1 or v_degree == 1:
+                        frontier_type = 'dead_end'
+                        expansion_weight = 0.8
+                    else:
+                        frontier_type = 'block_edge'
+                        expansion_weight = 0.5
+
+                    edge_tuple = (min(u, v), max(u, v))
+                    frontier_id = f"{frontier_type}_{edge_tuple[0]}_{edge_tuple[1]}"
+
+                    frontier = FrontierEdge(
+                        frontier_id=frontier_id,
+                        edge_id=(u, v),
+                        block_id=None,
+                        geometry=geometry,
+                        frontier_type=frontier_type,
+                        expansion_weight=expansion_weight,
+                        spatial_hash=""
+                    )
+                    rebuilt_frontiers.append(frontier)
+
+        # Add rebuilt frontiers to the list
+        new_frontiers.extend(rebuilt_frontiers)
+
+        logger.info(f"Delta frontier update: affected {len(affected_frontiers)} frontiers, rebuilt {len(rebuilt_frontiers)} frontiers")
+        return new_frontiers
 
     def can_rewind_action(self, action: InverseGrowthAction, state: GrowthState) -> bool:
         """
