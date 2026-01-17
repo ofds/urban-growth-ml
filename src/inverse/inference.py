@@ -86,7 +86,7 @@ class BasicInferenceEngine:
                 break
             
             # Only record action if rewind succeeded
-            actions.insert(0, action)
+            actions.append(action)
             logger.info(f"Inference step {step}: {action.action_type.value}, streets: {len(current_state.streets)} -> {len(prev_state.streets)}")
             current_state = prev_state
             step += 1
