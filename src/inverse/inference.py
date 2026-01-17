@@ -8,7 +8,7 @@ from typing import List, Optional, Any, Dict
 import logging
 from shapely.geometry import LineString
 
-from core.contracts import GrowthState
+from src.core.contracts import GrowthState
 from .data_structures import GrowthTrace, InverseGrowthAction, ActionType, compute_frontier_signature
 from .skeleton import ArterialSkeletonExtractor
 from .rewind import RewindEngine

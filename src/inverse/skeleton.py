@@ -165,7 +165,7 @@ class ArterialSkeletonExtractor:
         """
         import geopandas as gpd
         import pandas as pd
-        from core.contracts import GrowthState, FrontierEdge
+        from src.core.contracts import GrowthState, FrontierEdge
         import hashlib
         from shapely.geometry import LineString
         

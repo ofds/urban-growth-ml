@@ -9,7 +9,7 @@ from shapely.geometry import Point, LineString, Polygon
 import logging
 import networkx as nx
 
-from core.contracts import GrowthState, FrontierEdge
+from src.core.contracts import GrowthState, FrontierEdge
 from .data_structures import InverseGrowthAction, ActionType
 
 logger = logging.getLogger(__name__)

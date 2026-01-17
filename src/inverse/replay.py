@@ -9,8 +9,8 @@ import logging
 from shapely.geometry import Point, LineString
 import hashlib
 
-from core.growth.new.growth_engine import GrowthEngine
-from core.contracts import GrowthState
+from src.core.growth.new.growth_engine import GrowthEngine
+from src.core.contracts import GrowthState
 from .data_structures import GrowthTrace, InverseGrowthAction, ActionType, compute_frontier_signature
 from .validation import MorphologicalValidator
 from .visualization import InverseGrowthVisualizer
@@ -326,7 +326,7 @@ class TraceReplayEngine:
         try:
             from shapely import wkt
             import networkx as nx
-            from core.contracts import FrontierEdge
+            from src.core.contracts import FrontierEdge
 
             # Start with copies of current state components
             new_streets = current_state.streets.copy()
@@ -616,7 +616,7 @@ class TraceReplayEngine:
         Performance improvement: 10% → ~80% action success rate
         """
         try:
-            from core.growth.new.growth_engine import GrowthEngine
+            from src.core.growth.new.growth_engine import GrowthEngine
             from shapely.geometry import LineString, Point
             from shapely.ops import nearest_points
 

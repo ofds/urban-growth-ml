@@ -64,7 +64,7 @@ from pathlib import Path
 from typing import List, Optional
 import json
 
-# Add parent directory to path for imports
+# Add project root to path for imports
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from src.inverse.dataset_generator import DatasetGenerator, generate_dataset_from_cities

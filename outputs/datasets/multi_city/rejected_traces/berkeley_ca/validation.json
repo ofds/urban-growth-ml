@@ -1,0 +1,30 @@
+{
+  "success": true,
+  "city_name": "berkeley_ca",
+  "trace_actions": 2492,
+  "replay_actions": 2492,
+  "replayed_streets": 2,
+  "replayed_blocks": 0,
+  "original_streets": 5812,
+  "original_blocks": 1145,
+  "validation_results": {
+    "geometric_valid": false,
+    "topological_valid": false,
+    "morphological_valid": true,
+    "endpoint_errors": [
+      99.56538425254728,
+      66.30404612724665
+    ],
+    "frechet_errors": [],
+    "block_count_error": 1.0,
+    "connectivity_preserved": false,
+    "overall_score": 1.0,
+    "issues": [],
+    "avg_endpoint_error": 41.46735759494848,
+    "avg_frechet_error": 0.0
+  },
+  "replay_fidelity": 1.0,
+  "morphological_valid": true,
+  "geometric_valid": false,
+  "topological_valid": false
+}

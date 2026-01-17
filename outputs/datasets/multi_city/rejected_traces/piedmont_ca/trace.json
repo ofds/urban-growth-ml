@@ -1,0 +1,6457 @@
+{
+  "actions": [
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_783",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "822",
+        "edge_v": "823",
+        "stable_id": "d974f17016d97351"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_60",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "68",
+        "edge_v": "69",
+        "stable_id": "fc120beac89643ec"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_160",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "172",
+        "edge_v": "173",
+        "stable_id": "88ab15bcb6c2fb17"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_153",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "165",
+        "edge_v": "166",
+        "stable_id": "dfe8a51f7f697773"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_95",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "103",
+        "edge_v": "104",
+        "stable_id": "91cf57ae15524a2b"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_99",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "107",
+        "edge_v": "108",
+        "stable_id": "aa4afe446bac7540"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_103",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "111",
+        "edge_v": "112",
+        "stable_id": "50d1f5b773a7ea77"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1210",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1272",
+        "edge_v": "1273",
+        "stable_id": "a2dec2f5aaaec534"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_362",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "388",
+        "edge_v": "389",
+        "stable_id": "464d1c711f3653c5"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_403",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "429",
+        "edge_v": "430",
+        "stable_id": "ca8f60c45e3f2244"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_905",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "946",
+        "edge_v": "947",
+        "stable_id": "ec428c1d2b78949e"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_136",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "144",
+        "edge_v": "145",
+        "stable_id": "3cf6f2449e35a840"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1068",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1115",
+        "edge_v": "1116",
+        "stable_id": "b28f1d7ec234da68"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_42",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "42",
+        "edge_v": "43",
+        "stable_id": "8e6b0c1fcf7cef74"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_167",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "179",
+        "edge_v": "180",
+        "stable_id": "bcd61bd77a22bf52"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1113",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1161",
+        "edge_v": "1162",
+        "stable_id": "0620374fc832472e"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_499",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "529",
+        "edge_v": "530",
+        "stable_id": "9f5ebc46c07a465b"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_112",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "120",
+        "edge_v": "121",
+        "stable_id": "38ec3a0d64ac1842"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_277",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "297",
+        "edge_v": "298",
+        "stable_id": "e3eb8a7caa41a551"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1020",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1065",
+        "edge_v": "1066",
+        "stable_id": "741c167b055998f2"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_933",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "974",
+        "edge_v": "975",
+        "stable_id": "d182d9ae71f4d8b6"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_11",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "11",
+        "edge_v": "12",
+        "stable_id": "1509d698109a184c"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_852",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "892",
+        "edge_v": "893",
+        "stable_id": "fb6fa4253270ba34"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_856",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "896",
+        "edge_v": "897",
+        "stable_id": "79f3effc625e7cee"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_686",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "721",
+        "edge_v": "722",
+        "stable_id": "77f9ea07434ee79e"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_191",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "206",
+        "edge_v": "207",
+        "stable_id": "3ac49c665f1a502f"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_926",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "967",
+        "edge_v": "968",
+        "stable_id": "6bc1e9de3e400690"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_377",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "403",
+        "edge_v": "404",
+        "stable_id": "cd21a9f19b1a9ccd"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_845",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "885",
+        "edge_v": "886",
+        "stable_id": "bf20be338c5e3813"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_745",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "780",
+        "edge_v": "781",
+        "stable_id": "4786da049500a1f7"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_325",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "350",
+        "edge_v": "351",
+        "stable_id": "4c27a92e90256472"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_731",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "766",
+        "edge_v": "767",
+        "stable_id": "4a81562288cfeba2"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1070",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1117",
+        "edge_v": "1118",
+        "stable_id": "8d610ab0ae8f50dc"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_369",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "395",
+        "edge_v": "396",
+        "stable_id": "ebe6a373683cbe64"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1084",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1131",
+        "edge_v": "1132",
+        "stable_id": "88d82c8dced7966c"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_573",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "604",
+        "edge_v": "605",
+        "stable_id": "fc5b3654d1584621"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_348",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "374",
+        "edge_v": "375",
+        "stable_id": "e614d42a83e278bd"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_702",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "737",
+        "edge_v": "738",
+        "stable_id": "57010957443965a2"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_134",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "142",
+        "edge_v": "143",
+        "stable_id": "06dc6de2e5f48919"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_873",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "914",
+        "edge_v": "915",
+        "stable_id": "8017f05923217823"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_257",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "277",
+        "edge_v": "278",
+        "stable_id": "1aacacd75215e6a3"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_803",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "843",
+        "edge_v": "844",
+        "stable_id": "e3cb910aed009067"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_670",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "705",
+        "edge_v": "706",
+        "stable_id": "79b701522f14f0ab"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1145",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1197",
+        "edge_v": "1198",
+        "stable_id": "eaac6c9f10a75a3d"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_456",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "485",
+        "edge_v": "486",
+        "stable_id": "4c2489befb81fdaa"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1150",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1204",
+        "edge_v": "1205",
+        "stable_id": "002b5c48de0ab8b7"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_966",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1007",
+        "edge_v": "1008",
+        "stable_id": "1be7fec3385b62a1"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_961",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1002",
+        "edge_v": "1003",
+        "stable_id": "efcf88bd60e313a9"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_120",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "128",
+        "edge_v": "129",
+        "stable_id": "17614021296698ad"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_760",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "795",
+        "edge_v": "796",
+        "stable_id": "d93527397884289a"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_789",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "829",
+        "edge_v": "830",
+        "stable_id": "364b75694a928f01"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1318",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1403",
+        "edge_v": "1404",
+        "stable_id": "8601387996030654"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_108",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "116",
+        "edge_v": "117",
+        "stable_id": "2f8046a71a0ac147"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_373",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "399",
+        "edge_v": "400",
+        "stable_id": "bb62909e44fcc19b"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_688",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "723",
+        "edge_v": "724",
+        "stable_id": "b246ff2875d113d2"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_89",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "97",
+        "edge_v": "98",
+        "stable_id": "b5bd6478e295623c"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1058",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1105",
+        "edge_v": "1106",
+        "stable_id": "65cbf474e6952ad9"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1179",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1235",
+        "edge_v": "1236",
+        "stable_id": "61e3fe24039bcc44"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_346",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "372",
+        "edge_v": "373",
+        "stable_id": "bb674150dc8c9c68"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_847",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "887",
+        "edge_v": "888",
+        "stable_id": "c2aea79357f01676"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_297",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "321",
+        "edge_v": "322",
+        "stable_id": "90e99d19cbd892bb"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_981",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1022",
+        "edge_v": "1023",
+        "stable_id": "fb6e874532ac2a94"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_339",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "365",
+        "edge_v": "366",
+        "stable_id": "3f95bffe0b6b289e"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1032",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1079",
+        "edge_v": "1080",
+        "stable_id": "d3c1269da428a55a"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_718",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "753",
+        "edge_v": "754",
+        "stable_id": "d4a20d4e8ef7af17"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_261",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "281",
+        "edge_v": "282",
+        "stable_id": "fbe2aa0e24a17f32"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_723",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "758",
+        "edge_v": "759",
+        "stable_id": "a3b4172adc77b065"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_833",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "873",
+        "edge_v": "874",
+        "stable_id": "caaf0e4ce1e26464"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_727",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "762",
+        "edge_v": "763",
+        "stable_id": "b81efa65ecb25aa8"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1039",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1086",
+        "edge_v": "1087",
+        "stable_id": "011a2797befe6b2d"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_354",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "380",
+        "edge_v": "381",
+        "stable_id": "6b6e752c44c1ed8c"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_513",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "544",
+        "edge_v": "545",
+        "stable_id": "2476b98e17f162a6"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_7",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "7",
+        "edge_v": "8",
+        "stable_id": "21d39c6e5ebc9c9a"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_706",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "741",
+        "edge_v": "742",
+        "stable_id": "7b70c69fc35f4904"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_412",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "438",
+        "edge_v": "439",
+        "stable_id": "0a9f416048c5d7d2"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_391",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "417",
+        "edge_v": "418",
+        "stable_id": "b69666eb785ad6b8"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1076",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1123",
+        "edge_v": "1124",
+        "stable_id": "eccf8dba3d26d9b0"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_9",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "9",
+        "edge_v": "10",
+        "stable_id": "76dce629995c381e"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_562",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "593",
+        "edge_v": "594",
+        "stable_id": "e4a3105f11355f64"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_985",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1026",
+        "edge_v": "1027",
+        "stable_id": "bbd3d86da15ff876"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1124",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1173",
+        "edge_v": "1174",
+        "stable_id": "34c0d91f483839bf"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_87",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "95",
+        "edge_v": "96",
+        "stable_id": "2b1e2b896032bddf"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_761",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "800",
+        "edge_v": "801",
+        "stable_id": "5e68e20ca0d56e30"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1279",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1354",
+        "edge_v": "1355",
+        "stable_id": "4234a159a6e04098"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_220",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "236",
+        "edge_v": "237",
+        "stable_id": "2b05b3f10bb627c3"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_216",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "232",
+        "edge_v": "233",
+        "stable_id": "e44b9a50a4e986bb"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_968",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1009",
+        "edge_v": "1010",
+        "stable_id": "61f04433e70eb0c2"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_750",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "785",
+        "edge_v": "786",
+        "stable_id": "7c374ef7448d55b6"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_407",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "433",
+        "edge_v": "434",
+        "stable_id": "f6fa86a8ffb5858f"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_653",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "688",
+        "edge_v": "689",
+        "stable_id": "acd79026b4329b7d"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_840",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "880",
+        "edge_v": "881",
+        "stable_id": "7ef576a48ada81b0"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1003",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1046",
+        "edge_v": "1047",
+        "stable_id": "824d7291a6006372"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_998",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1041",
+        "edge_v": "1042",
+        "stable_id": "5ad130962f3bf545"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1117",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1165",
+        "edge_v": "1166",
+        "stable_id": "45ab291c7e622e8f"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_858",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "898",
+        "edge_v": "899",
+        "stable_id": "017cb5c4f32df34b"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1180",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1238",
+        "edge_v": "1239",
+        "stable_id": "5afec744c6f76f40"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1050",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1097",
+        "edge_v": "1098",
+        "stable_id": "1b56e01d3c19a7d0"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_502",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "533",
+        "edge_v": "534",
+        "stable_id": "d6644fc3e48c9cf4"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1102",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1150",
+        "edge_v": "1151",
+        "stable_id": "426d3bc8914ecbac"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_469",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "498",
+        "edge_v": "499",
+        "stable_id": "dd38e6bdaa0cd235"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_537",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "568",
+        "edge_v": "569",
+        "stable_id": "1cb35e4343bc826a"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_767",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "806",
+        "edge_v": "807",
+        "stable_id": "c5c5d4185d33058d"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_178",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "190",
+        "edge_v": "191",
+        "stable_id": "8e0935b33ac1dda4"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_721",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "756",
+        "edge_v": "757",
+        "stable_id": "a97f8ea9719db6fe"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_231",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "247",
+        "edge_v": "248",
+        "stable_id": "c0d83e99f1a400bb"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_197",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "212",
+        "edge_v": "213",
+        "stable_id": "fd080e627e2c36c6"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_195",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "210",
+        "edge_v": "211",
+        "stable_id": "16b7876b582ffa8c"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_29",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "29",
+        "edge_v": "30",
+        "stable_id": "fc4deb56987a6704"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_26",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "26",
+        "edge_v": "27",
+        "stable_id": "96d85ad522df0d9d"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_637",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "669",
+        "edge_v": "670",
+        "stable_id": "e2dc6d5169827006"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_951",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "992",
+        "edge_v": "993",
+        "stable_id": "7485cf3ee03cd4c1"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_320",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "345",
+        "edge_v": "346",
+        "stable_id": "629531532d48ddbe"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_13",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "13",
+        "edge_v": "14",
+        "stable_id": "02d10b5d8da3b33c"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1011",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1054",
+        "edge_v": "1055",
+        "stable_id": "c9bc0ed9c2afb5cc"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_964",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1005",
+        "edge_v": "1006",
+        "stable_id": "3e66ff7aa84ff435"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_202",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "217",
+        "edge_v": "218",
+        "stable_id": "fc3a5e3fc79ad8f3"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_544",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "575",
+        "edge_v": "576",
+        "stable_id": "2aa412e15c4cc123"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_460",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "489",
+        "edge_v": "490",
+        "stable_id": "f4d58fffabc75849"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_179",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "193",
+        "edge_v": "194",
+        "stable_id": "e5ed0d67185d9c48"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_690",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "725",
+        "edge_v": "726",
+        "stable_id": "bd93a19dea45c60d"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_279",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "299",
+        "edge_v": "300",
+        "stable_id": "bd19b0395df4738d"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_797",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "837",
+        "edge_v": "838",
+        "stable_id": "59ae57b086fbe9b5"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_398",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "424",
+        "edge_v": "425",
+        "stable_id": "b186000fe31fdd07"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_259",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "279",
+        "edge_v": "280",
+        "stable_id": "00ca73c2ac61f82f"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_226",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "242",
+        "edge_v": "243",
+        "stable_id": "75ab658a3e1392f1"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_295",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "319",
+        "edge_v": "320",
+        "stable_id": "aa1ff067ae5d50ae"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_850",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "890",
+        "edge_v": "891",
+        "stable_id": "b2a04226b9e7cc06"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_246",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "266",
+        "edge_v": "267",
+        "stable_id": "d7f6a76e06ce4de9"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_826",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "866",
+        "edge_v": "867",
+        "stable_id": "773a42fa68b0a833"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_440",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "469",
+        "edge_v": "470",
+        "stable_id": "4fb1e9aeb0456115"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_928",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "969",
+        "edge_v": "970",
+        "stable_id": "cf703831132a8eae"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_973",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1014",
+        "edge_v": "1015",
+        "stable_id": "54fa2e65784afc7a"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1064",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1111",
+        "edge_v": "1112",
+        "stable_id": "abdf2f6717cb4e71"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_284",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "304",
+        "edge_v": "305",
+        "stable_id": "775ef86b658b8e9c"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_116",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "124",
+        "edge_v": "125",
+        "stable_id": "046dd5d7765f1c07"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_878",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "919",
+        "edge_v": "920",
+        "stable_id": "c263c154713b5ea3"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1024",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1069",
+        "edge_v": "1070",
+        "stable_id": "67352ff152948f28"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_864",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "904",
+        "edge_v": "905",
+        "stable_id": "1e15b00b6ad66b3d"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_861",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "901",
+        "edge_v": "902",
+        "stable_id": "90519dfe02df4a1b"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_596",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "628",
+        "edge_v": "629",
+        "stable_id": "1a97189fa4f41044"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_33",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "33",
+        "edge_v": "34",
+        "stable_id": "e881936f8fdb26bd"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_118",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "126",
+        "edge_v": "127",
+        "stable_id": "fda28ccd68ed3045"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_679",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "714",
+        "edge_v": "715",
+        "stable_id": "22cab6a90b4e5b5b"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_281",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "301",
+        "edge_v": "302",
+        "stable_id": "5516c170813c39c7"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1205",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1267",
+        "edge_v": "1268",
+        "stable_id": "5e9cc2780d7c9c32"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_517",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "548",
+        "edge_v": "549",
+        "stable_id": "fddecb89b27da5c5"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_868",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "909",
+        "edge_v": "910",
+        "stable_id": "1fe7a608ad917bab"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_692",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "727",
+        "edge_v": "728",
+        "stable_id": "926e7f1498bcacc9"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_233",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "249",
+        "edge_v": "250",
+        "stable_id": "6ba5f2d0f3121632"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_542",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "573",
+        "edge_v": "574",
+        "stable_id": "484e31fd6cb2544e"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1147",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1201",
+        "edge_v": "1202",
+        "stable_id": "e6bf73c87de5c9b9"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_854",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "894",
+        "edge_v": "895",
+        "stable_id": "7d3e2615a6c89479"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1314",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1398",
+        "edge_v": "1399",
+        "stable_id": "03fee41b51ec3814"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_539",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "570",
+        "edge_v": "571",
+        "stable_id": "392da2850112eaea"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_534",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "565",
+        "edge_v": "566",
+        "stable_id": "d1665fb22acf3fca"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_151",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "163",
+        "edge_v": "164",
+        "stable_id": "57b48ef09d04c7a7"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_148",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "160",
+        "edge_v": "161",
+        "stable_id": "5dd1f9cd1de8c903"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1034",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1081",
+        "edge_v": "1082",
+        "stable_id": "7b5e885babf36673"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_564",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "595",
+        "edge_v": "596",
+        "stable_id": "034b4205c6d04161"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1041",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1088",
+        "edge_v": "1089",
+        "stable_id": "6bddc3c026af4600"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1044",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1091",
+        "edge_v": "1092",
+        "stable_id": "7c218375b0d6d09c"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_658",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "693",
+        "edge_v": "694",
+        "stable_id": "071dce78cfd6e438"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_337",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "363",
+        "edge_v": "364",
+        "stable_id": "ddcb53e8643f3a65"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_716",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "751",
+        "edge_v": "752",
+        "stable_id": "0952e017b5376b15"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_712",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "747",
+        "edge_v": "748",
+        "stable_id": "61d109ffe48bf9e6"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_714",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "749",
+        "edge_v": "750",
+        "stable_id": "b396829d7b4da3b0"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_710",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "745",
+        "edge_v": "746",
+        "stable_id": "dfd584a18b6dfc99"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_949",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "990",
+        "edge_v": "991",
+        "stable_id": "3ecfb66e015f5519"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_547",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "578",
+        "edge_v": "579",
+        "stable_id": "7900faa99aad4a4d"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1022",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1067",
+        "edge_v": "1068",
+        "stable_id": "9d4846b0bfd37eca"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_213",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "229",
+        "edge_v": "230",
+        "stable_id": "c7252a3d7cb93537"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_186",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "201",
+        "edge_v": "202",
+        "stable_id": "f4c20f3281e9e30c"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_623",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "655",
+        "edge_v": "656",
+        "stable_id": "31e890a4801f1836"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_183",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "198",
+        "edge_v": "199",
+        "stable_id": "739ca2c52ba8332e"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_211",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "226",
+        "edge_v": "227",
+        "stable_id": "ae455be2ade58404"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_614",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "646",
+        "edge_v": "647",
+        "stable_id": "784a661b9e0b118f"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_575",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "606",
+        "edge_v": "607",
+        "stable_id": "a4aabf1ddd7f9f8d"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_641",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "673",
+        "edge_v": "674",
+        "stable_id": "c2d5e9fd2f4ec723"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_444",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "473",
+        "edge_v": "474",
+        "stable_id": "2cc503af3f74cd02"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_381",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "407",
+        "edge_v": "408",
+        "stable_id": "00b65dfb8b10f8d0"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_959",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1000",
+        "edge_v": "1001",
+        "stable_id": "8cecaedeb21ede79"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_379",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "405",
+        "edge_v": "406",
+        "stable_id": "be11e5109ec45374"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_571",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "602",
+        "edge_v": "603",
+        "stable_id": "865a55946466239b"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_568",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "599",
+        "edge_v": "600",
+        "stable_id": "4501462f6cc6672f"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_358",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "384",
+        "edge_v": "385",
+        "stable_id": "46581719775f9a66"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_970",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1011",
+        "edge_v": "1012",
+        "stable_id": "e5f8b771e58b5710"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1060",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1107",
+        "edge_v": "1108",
+        "stable_id": "9a52718343588a91"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_923",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "964",
+        "edge_v": "965",
+        "stable_id": "83f07acd1809c872"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_206",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "221",
+        "edge_v": "222",
+        "stable_id": "774f84a9b41b9798"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_386",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "412",
+        "edge_v": "413",
+        "stable_id": "6cc9c63864cd18b5"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_383",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "409",
+        "edge_v": "410",
+        "stable_id": "dce17b646a6c2662"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_881",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "922",
+        "edge_v": "923",
+        "stable_id": "d3920a271e163556"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_52",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "55",
+        "edge_v": "56",
+        "stable_id": "3b320ad9423307e9"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_427",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "456",
+        "edge_v": "457",
+        "stable_id": "52fde33863ca8409"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1078",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1125",
+        "edge_v": "1126",
+        "stable_id": "06c914c880a28df0"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_396",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "422",
+        "edge_v": "423",
+        "stable_id": "f7a60d0553c42872"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_808",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "848",
+        "edge_v": "849",
+        "stable_id": "43fe92d9d62c22c4"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_497",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "526",
+        "edge_v": "527",
+        "stable_id": "3bb52bff0b355908"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1115",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1163",
+        "edge_v": "1164",
+        "stable_id": "3c0c6a3636abab27"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_435",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "464",
+        "edge_v": "465",
+        "stable_id": "ba4480371f0bedca"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1047",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1094",
+        "edge_v": "1095",
+        "stable_id": "12ad8ae8c3d6b374"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_811",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "851",
+        "edge_v": "852",
+        "stable_id": "049f90bed9bdf276"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_666",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "701",
+        "edge_v": "702",
+        "stable_id": "34517814038b4693"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_515",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "546",
+        "edge_v": "547",
+        "stable_id": "66711bd69665845d"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_59",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "63",
+        "edge_v": "64",
+        "stable_id": "a96834a415189d08"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_56",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "59",
+        "edge_v": "60",
+        "stable_id": "c3fad9d69306f90f"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_364",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "390",
+        "edge_v": "391",
+        "stable_id": "0b96ebcd0300f648"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_189",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "204",
+        "edge_v": "205",
+        "stable_id": "66304f8c11bb055d"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_454",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "483",
+        "edge_v": "484",
+        "stable_id": "3fea272f1ab832ca"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_141",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "153",
+        "edge_v": "154",
+        "stable_id": "15648ca599100a7a"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1201",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1262",
+        "edge_v": "1263",
+        "stable_id": "32fc1de7a47f8f63"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_122",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "130",
+        "edge_v": "131",
+        "stable_id": "d462b79b4e44b233"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1136",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1185",
+        "edge_v": "1186",
+        "stable_id": "3987c9705e9f928b"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1134",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1183",
+        "edge_v": "1184",
+        "stable_id": "91e52fa916f2ecd5"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_394",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "420",
+        "edge_v": "421",
+        "stable_id": "79a66a8b4f0d96cd"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_327",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "352",
+        "edge_v": "353",
+        "stable_id": "2bdf8e5f30f644c3"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_20",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "20",
+        "edge_v": "21",
+        "stable_id": "4859417a3a70dfe0"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_17",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "17",
+        "edge_v": "18",
+        "stable_id": "77b6198537eec2f2"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_409",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "435",
+        "edge_v": "436",
+        "stable_id": "9eeaff8b3daf0fce"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_938",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "979",
+        "edge_v": "980",
+        "stable_id": "7c0292661d66c07c"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_483",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "512",
+        "edge_v": "513",
+        "stable_id": "a5a1d33ad8ca2930"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_47",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "49",
+        "edge_v": "50",
+        "stable_id": "2702780d8d7edee5"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_40",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "40",
+        "edge_v": "41",
+        "stable_id": "cb9d44f3f5369bc4"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_899",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "940",
+        "edge_v": "941",
+        "stable_id": "be73d76c3e87be47"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_729",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "764",
+        "edge_v": "765",
+        "stable_id": "eccae22d545a7ff3"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_957",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "998",
+        "edge_v": "999",
+        "stable_id": "d6ba46d7551ba48d"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_892",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "933",
+        "edge_v": "934",
+        "stable_id": "84ffb341868c8521"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_888",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "929",
+        "edge_v": "930",
+        "stable_id": "d8ec9fb80fc51e43"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_977",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1018",
+        "edge_v": "1019",
+        "stable_id": "664b936520abe5e7"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_838",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "878",
+        "edge_v": "879",
+        "stable_id": "119e460b95199e93"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_75",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "83",
+        "edge_v": "84",
+        "stable_id": "db2fcb485a8d7805"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_806",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "846",
+        "edge_v": "847",
+        "stable_id": "541392b3dfdd1623"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_291",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "315",
+        "edge_v": "316",
+        "stable_id": "8e6f992e1d19b1a1"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1066",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1113",
+        "edge_v": "1114",
+        "stable_id": "7f63c35bf8f155a1"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_979",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1020",
+        "edge_v": "1021",
+        "stable_id": "57d9c7bb0a38705c"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_634",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "666",
+        "edge_v": "667",
+        "stable_id": "9737c937e73a469d"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_650",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "685",
+        "edge_v": "686",
+        "stable_id": "4e424dd161ae59dc"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_471",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "500",
+        "edge_v": "501",
+        "stable_id": "4addddda6faf5940"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_801",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "841",
+        "edge_v": "842",
+        "stable_id": "62ac879860159a5c"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_643",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "675",
+        "edge_v": "676",
+        "stable_id": "fdb77ef802183878"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_769",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "808",
+        "edge_v": "809",
+        "stable_id": "cbc3fa4cbf5124e3"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_588",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "620",
+        "edge_v": "621",
+        "stable_id": "4df674ec51d5a6d1"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_65",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "73",
+        "edge_v": "74",
+        "stable_id": "8e78f4b7b8900f44"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_645",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "677",
+        "edge_v": "678",
+        "stable_id": "18e869b78ae6b6f5"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_909",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "950",
+        "edge_v": "951",
+        "stable_id": "3f099d99e235a374"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_421",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "450",
+        "edge_v": "451",
+        "stable_id": "f3a9aa40af2c9b4c"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_883",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "924",
+        "edge_v": "925",
+        "stable_id": "c9a12d4e1060c64a"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1074",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1121",
+        "edge_v": "1122",
+        "stable_id": "7575edb371ed3fcc"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_249",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "269",
+        "edge_v": "270",
+        "stable_id": "2ee2f1ca4e90da8c"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_611",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "643",
+        "edge_v": "644",
+        "stable_id": "4345282006248c98"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_419",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "445",
+        "edge_v": "446",
+        "stable_id": "b749250ba4bc934c"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1228",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1290",
+        "edge_v": "1291",
+        "stable_id": "4482c53a9aa72ca3"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1276",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1351",
+        "edge_v": "1352",
+        "stable_id": "c26006abe974a422"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_911",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "952",
+        "edge_v": "953",
+        "stable_id": "548fdee5090aedb7"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_414",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "440",
+        "edge_v": "441",
+        "stable_id": "8268520eb24d7542"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_438",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "467",
+        "edge_v": "468",
+        "stable_id": "1b1d7b75542f9749"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1095",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1142",
+        "edge_v": "1143",
+        "stable_id": "6114d780b63b9f2c"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_663",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "698",
+        "edge_v": "699",
+        "stable_id": "cb7551776bb4e87c"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1082",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1129",
+        "edge_v": "1130",
+        "stable_id": "c33b9605f85ce15b"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_139",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "148",
+        "edge_v": "149",
+        "stable_id": "b7bbecad8e5bde0c"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_799",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "839",
+        "edge_v": "840",
+        "stable_id": "90ee2959ceccf08b"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_591",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "623",
+        "edge_v": "624",
+        "stable_id": "488696d62067ba94"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_267",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "287",
+        "edge_v": "288",
+        "stable_id": "8c99bc8361b1b2c0"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_738",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "773",
+        "edge_v": "774",
+        "stable_id": "9c6d1f69dc4bfb32"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1015",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1060",
+        "edge_v": "1061",
+        "stable_id": "a41d70467af10215"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_765",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "804",
+        "edge_v": "805",
+        "stable_id": "90513ae0af948ab6"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1111",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1159",
+        "edge_v": "1160",
+        "stable_id": "1bd47dc8506f94ba"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_442",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "471",
+        "edge_v": "472",
+        "stable_id": "ae7c99ac8a142ada"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_172",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "184",
+        "edge_v": "185",
+        "stable_id": "7f846003e862dfe8"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_480",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "509",
+        "edge_v": "510",
+        "stable_id": "264d52ec8503d581"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_401",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "427",
+        "edge_v": "428",
+        "stable_id": "35249dfc6503284e"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_23",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "23",
+        "edge_v": "24",
+        "stable_id": "fd05bc31b4e7521a"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_752",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "787",
+        "edge_v": "788",
+        "stable_id": "ab48ac9ee899d22f"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_331",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "357",
+        "edge_v": "358",
+        "stable_id": "dd37996691b89e5c"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1299",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1383",
+        "edge_v": "1384",
+        "stable_id": "7f32b55749c4a80e"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1192",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1252",
+        "edge_v": "1253",
+        "stable_id": "fe39ff135d586f19"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1166",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1221",
+        "edge_v": "1222",
+        "stable_id": "bb85722f97631dad"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1270",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1345",
+        "edge_v": "1346",
+        "stable_id": "6e36e0150e67312f"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1222",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1284",
+        "edge_v": "1285",
+        "stable_id": "5d93556e857f69b6"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_476",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "505",
+        "edge_v": "506",
+        "stable_id": "2e54a1907e1b9e7d"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_866",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "906",
+        "edge_v": "907",
+        "stable_id": "a7aead0511fe4ba9"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_36",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "36",
+        "edge_v": "37",
+        "stable_id": "3a2525ac48130362"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_289",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "313",
+        "edge_v": "314",
+        "stable_id": "945620c23079d180"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_273",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "293",
+        "edge_v": "294",
+        "stable_id": "1b747ca8c3fc7ce0"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_740",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "775",
+        "edge_v": "776",
+        "stable_id": "ce250d8faf83a17c"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_736",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "771",
+        "edge_v": "772",
+        "stable_id": "90c684eff16fbff6"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1052",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1099",
+        "edge_v": "1100",
+        "stable_id": "7c34632098c699b5"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_733",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "768",
+        "edge_v": "769",
+        "stable_id": "9b5ca5475a3e7665"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_824",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "864",
+        "edge_v": "865",
+        "stable_id": "aeac7d51d165c460"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_828",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "868",
+        "edge_v": "869",
+        "stable_id": "0fd4b1c6d69bd86b"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_616",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "648",
+        "edge_v": "649",
+        "stable_id": "3a4efad16c535db0"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_62",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "70",
+        "edge_v": "71",
+        "stable_id": "f54a4f2d6f70e55d"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_983",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1024",
+        "edge_v": "1025",
+        "stable_id": "c1d40ad588d07e77"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_704",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "739",
+        "edge_v": "740",
+        "stable_id": "693483eb69dd4197"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_501",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "531",
+        "edge_v": "532",
+        "stable_id": "54a9333969620012"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_560",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "591",
+        "edge_v": "592",
+        "stable_id": "7dc7301f86057e65"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_743",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "778",
+        "edge_v": "779",
+        "stable_id": "e9c9c56f765d7782"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_71",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "79",
+        "edge_v": "80",
+        "stable_id": "016bc682c0472ad3"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_781",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "820",
+        "edge_v": "821",
+        "stable_id": "825a879eef657d1e"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_778",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "817",
+        "edge_v": "818",
+        "stable_id": "f2c63db37f031e57"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_432",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "461",
+        "edge_v": "462",
+        "stable_id": "3dbbc55f97e2aced"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_417",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "443",
+        "edge_v": "444",
+        "stable_id": "af0b8caf08aa9cf0"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_264",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "284",
+        "edge_v": "285",
+        "stable_id": "d476dbab3e719650"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1214",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1276",
+        "edge_v": "1277",
+        "stable_id": "ce235be334855363"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_350",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "376",
+        "edge_v": "377",
+        "stable_id": "1124e39231e5ea99"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_316",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "340",
+        "edge_v": "341",
+        "stable_id": "4b456f62e368e17b"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_270",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "290",
+        "edge_v": "291",
+        "stable_id": "2ff5b5995b86aa3f"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1142",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1191",
+        "edge_v": "1192",
+        "stable_id": "4ecf26be69259910"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_319",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "343",
+        "edge_v": "344",
+        "stable_id": "45a9980d5112e2a0"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1005",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1048",
+        "edge_v": "1049",
+        "stable_id": "6a32dad471689fde"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_987",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1028",
+        "edge_v": "1029",
+        "stable_id": "01ac7a17a6f9f1c1"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_423",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "452",
+        "edge_v": "453",
+        "stable_id": "4466cc3820daec14"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_367",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "393",
+        "edge_v": "394",
+        "stable_id": "1c39a829b67c9d6a"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_493",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "522",
+        "edge_v": "523",
+        "stable_id": "107e47d2ad278b94"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_451",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "480",
+        "edge_v": "481",
+        "stable_id": "0ce9e31241b706a3"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_275",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "295",
+        "edge_v": "296",
+        "stable_id": "d115b6ee5ff4687e"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_647",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "679",
+        "edge_v": "680",
+        "stable_id": "7d9fd13ae9ed05a5"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_684",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "719",
+        "edge_v": "720",
+        "stable_id": "4ce93fdf8f041057"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_681",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "716",
+        "edge_v": "717",
+        "stable_id": "ff84e80c0662d3bc"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_944",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "985",
+        "edge_v": "986",
+        "stable_id": "52d2c1b1287adda0"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_940",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "981",
+        "edge_v": "982",
+        "stable_id": "95de12f468fab3fc"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_896",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "937",
+        "edge_v": "938",
+        "stable_id": "b9e0b9b34d6c95a0"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_577",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "609",
+        "edge_v": "610",
+        "stable_id": "fd3401b177aae897"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_843",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "883",
+        "edge_v": "884",
+        "stable_id": "64da2c881d066f31"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_208",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "223",
+        "edge_v": "224",
+        "stable_id": "8b1a2e6700630d71"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1194",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1254",
+        "edge_v": "1255",
+        "stable_id": "fd60c11a765df8f6"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_593",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "625",
+        "edge_v": "626",
+        "stable_id": "308311f142a6b96e"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_994",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1035",
+        "edge_v": "1036",
+        "stable_id": "2d32e0a5312f49ca"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_913",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "954",
+        "edge_v": "955",
+        "stable_id": "0effab6738698b53"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_375",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "401",
+        "edge_v": "402",
+        "stable_id": "02d27cd3bd4e2bed"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_371",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "397",
+        "edge_v": "398",
+        "stable_id": "e002ed4f263cc090"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_975",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1016",
+        "edge_v": "1017",
+        "stable_id": "fc614437ce294622"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_299",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "323",
+        "edge_v": "324",
+        "stable_id": "d9062b86f54764b5"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1089",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1136",
+        "edge_v": "1137",
+        "stable_id": "924907ef2046ae25"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_992",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1033",
+        "edge_v": "1034",
+        "stable_id": "77ad0019449339c6"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_763",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "802",
+        "edge_v": "803",
+        "stable_id": "54c7f6a55612daed"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1282",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1357",
+        "edge_v": "1358",
+        "stable_id": "d417d5a8c699ddc0"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_341",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "367",
+        "edge_v": "368",
+        "stable_id": "36e8a931a6e30352"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_228",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "244",
+        "edge_v": "245",
+        "stable_id": "19992e7f693d3ba9"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_84",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "92",
+        "edge_v": "93",
+        "stable_id": "dbc5ac07c958ea0d"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_82",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "90",
+        "edge_v": "91",
+        "stable_id": "9606c9b60090c863"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1029",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1074",
+        "edge_v": "1075",
+        "stable_id": "79a660dbadcfc2f8"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1026",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1071",
+        "edge_v": "1072",
+        "stable_id": "c46064412963f705"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_110",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "118",
+        "edge_v": "119",
+        "stable_id": "34bbeda7308e9c38"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_105",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "113",
+        "edge_v": "114",
+        "stable_id": "7183c27fa2f47e9b"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_677",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "712",
+        "edge_v": "713",
+        "stable_id": "ff91ae3e3408819f"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1182",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1241",
+        "edge_v": "1242",
+        "stable_id": "ca25b834e265dcaa"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1072",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1119",
+        "edge_v": "1120",
+        "stable_id": "0cc54818dafc928b"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_304",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "328",
+        "edge_v": "329",
+        "stable_id": "adb77558b4227490"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1097",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1144",
+        "edge_v": "1145",
+        "stable_id": "9eaa8f3d49204299"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_485",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "514",
+        "edge_v": "515",
+        "stable_id": "b1cf3b0234d6d311"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_77",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "85",
+        "edge_v": "86",
+        "stable_id": "ceda3a4b65791e9f"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_244",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "264",
+        "edge_v": "265",
+        "stable_id": "371f2a55b4570a20"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_241",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "261",
+        "edge_v": "262",
+        "stable_id": "b76da2b26edc3a47"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1008",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1051",
+        "edge_v": "1052",
+        "stable_id": "38b3806db9a882ac"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_585",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "617",
+        "edge_v": "618",
+        "stable_id": "76af5069737d9bc3"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_313",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "337",
+        "edge_v": "338",
+        "stable_id": "f80778189c9d4c66"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_310",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "334",
+        "edge_v": "335",
+        "stable_id": "6d9a8fe9f432292e"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1120",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1168",
+        "edge_v": "1169",
+        "stable_id": "fcd32c0abaeabfa6"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_360",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "386",
+        "edge_v": "387",
+        "stable_id": "bff0d197833b7736"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_343",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "369",
+        "edge_v": "370",
+        "stable_id": "4efff8b352829ee6"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1297",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1377",
+        "edge_v": "1378",
+        "stable_id": "0e579bfd1cdc5397"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_114",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "122",
+        "edge_v": "123",
+        "stable_id": "bcc46d3fc1845d6d"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_655",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "690",
+        "edge_v": "691",
+        "stable_id": "b706f08752f226cc"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_91",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "99",
+        "edge_v": "100",
+        "stable_id": "b51bb6943e86d359"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_795",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "835",
+        "edge_v": "836",
+        "stable_id": "62063c49c5259397"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_791",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "831",
+        "edge_v": "832",
+        "stable_id": "1738717d0728daed"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_876",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "917",
+        "edge_v": "918",
+        "stable_id": "6aa14a2c6f307d04"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_529",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "560",
+        "edge_v": "561",
+        "stable_id": "567d6c490679c143"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_955",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "996",
+        "edge_v": "997",
+        "stable_id": "2d1d0a5fb865e219"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_582",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "614",
+        "edge_v": "615",
+        "stable_id": "6f5d52d1c80bba2c"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1126",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1175",
+        "edge_v": "1176",
+        "stable_id": "4fde6aa37f16ab3b"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_995",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1038",
+        "edge_v": "1039",
+        "stable_id": "c881e94c3f9d7f7b"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_491",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "520",
+        "edge_v": "521",
+        "stable_id": "043d1a27b9b290bb"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_495",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "524",
+        "edge_v": "525",
+        "stable_id": "de1c8744e541a09a"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_813",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "853",
+        "edge_v": "854",
+        "stable_id": "3aa071611c108388"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_0",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "0",
+        "edge_v": "1",
+        "stable_id": "e25ef6a8ffdecd1b"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1195",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1256",
+        "edge_v": "1257",
+        "stable_id": "ba3d83cca016696d"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_694",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "729",
+        "edge_v": "730",
+        "stable_id": "f1bc78ffcead7e37"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_199",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "214",
+        "edge_v": "215",
+        "stable_id": "75e58a3b140db692"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_725",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "760",
+        "edge_v": "761",
+        "stable_id": "62a7844f6d9aa772"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_629",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "661",
+        "edge_v": "662",
+        "stable_id": "5cafdfd438a2d3b8"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_73",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "81",
+        "edge_v": "82",
+        "stable_id": "f9c335ec952afea8"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_609",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "641",
+        "edge_v": "642",
+        "stable_id": "012db284ff22f47d"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_488",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "517",
+        "edge_v": "518",
+        "stable_id": "1ab59fdf6cedcc6d"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_49",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "52",
+        "edge_v": "53",
+        "stable_id": "23469317f884fbf7"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_836",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "876",
+        "edge_v": "877",
+        "stable_id": "8bac53e907bfbfe0"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1312",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1396",
+        "edge_v": "1397",
+        "stable_id": "3695ec079c9aad9b"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_566",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "597",
+        "edge_v": "598",
+        "stable_id": "b08dd313341503d9"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1055",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1102",
+        "edge_v": "1103",
+        "stable_id": "ce04dce34018f4df"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_708",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "743",
+        "edge_v": "744",
+        "stable_id": "7f48b637f5aa8616"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_429",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "458",
+        "edge_v": "459",
+        "stable_id": "90a2d5f3c9cbbe29"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_155",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "167",
+        "edge_v": "168",
+        "stable_id": "dac6b36eeb1f94e2"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_771",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "810",
+        "edge_v": "811",
+        "stable_id": "fd0e79643212c074"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1186",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1246",
+        "edge_v": "1247",
+        "stable_id": "10b940071efa60fc"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_626",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "658",
+        "edge_v": "659",
+        "stable_id": "9d051e8d8d968868"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_169",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "181",
+        "edge_v": "182",
+        "stable_id": "4093520b1800a572"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1018",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1063",
+        "edge_v": "1064",
+        "stable_id": "9bcc69b24eb2bde0"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_553",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "584",
+        "edge_v": "585",
+        "stable_id": "d6f435fd5fc6ea91"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_550",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "581",
+        "edge_v": "582",
+        "stable_id": "a2d4d7d84b13f94b"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_918",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "959",
+        "edge_v": "960",
+        "stable_id": "fb3334d48732fd5e"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_915",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "956",
+        "edge_v": "957",
+        "stable_id": "5f67695b73959154"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1303",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1387",
+        "edge_v": "1388",
+        "stable_id": "4a97896b67c8151b"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1152",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1206",
+        "edge_v": "1207",
+        "stable_id": "30208eca6175458c"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_252",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "272",
+        "edge_v": "273",
+        "stable_id": "d024309e11491778"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1245",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1312",
+        "edge_v": "1313",
+        "stable_id": "7d8763a740aee453"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_175",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "187",
+        "edge_v": "188",
+        "stable_id": "ae5513672d10d748"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1062",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1109",
+        "edge_v": "1110",
+        "stable_id": "f4730c91c70c6107"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_793",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "833",
+        "edge_v": "834",
+        "stable_id": "954bc6193ad34f2e"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_947",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "988",
+        "edge_v": "989",
+        "stable_id": "b23e48578bf1e52a"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_101",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "109",
+        "edge_v": "110",
+        "stable_id": "36f44d75615003c8"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_602",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "634",
+        "edge_v": "635",
+        "stable_id": "5ebe176a6600f066"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_527",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "558",
+        "edge_v": "559",
+        "stable_id": "31daa8e7265c6396"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_821",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "861",
+        "edge_v": "862",
+        "stable_id": "de238c16ad63dd49"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1274",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1349",
+        "edge_v": "1350",
+        "stable_id": "34a13b88dc98896b"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1031",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1076",
+        "edge_v": "1077",
+        "stable_id": "821197768fb07797"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1268",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1342",
+        "edge_v": "1343",
+        "stable_id": "00b39ac732d18fdb"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1000",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1043",
+        "edge_v": "1044",
+        "stable_id": "d5b6379007f435fd"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_509",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "540",
+        "edge_v": "541",
+        "stable_id": "2068519d34c8861a"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_302",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "326",
+        "edge_v": "327",
+        "stable_id": "78dba42c7260ec44"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_58",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "61",
+        "edge_v": "62",
+        "stable_id": "5d57ac80fa6f5343"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1254",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1322",
+        "edge_v": "1323",
+        "stable_id": "6881f4f4b785e993"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_307",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "331",
+        "edge_v": "332",
+        "stable_id": "4a9c157ac3d9ff07"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_5",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "5",
+        "edge_v": "6",
+        "stable_id": "9cf21a2a61c6a6a3"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1109",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1157",
+        "edge_v": "1158",
+        "stable_id": "ced22d6f3e0c801d"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1092",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1139",
+        "edge_v": "1140",
+        "stable_id": "5bbd3a74d357224e"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1129",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1178",
+        "edge_v": "1179",
+        "stable_id": "5308d45d9db84a6e"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1140",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1189",
+        "edge_v": "1190",
+        "stable_id": "6498eefaa2dea474"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_618",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "650",
+        "edge_v": "651",
+        "stable_id": "6ea98af48b0339d1"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_286",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "310",
+        "edge_v": "311",
+        "stable_id": "0811a5ca99755b67"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_223",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "239",
+        "edge_v": "240",
+        "stable_id": "40729dc9f5fb1145"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_218",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "234",
+        "edge_v": "235",
+        "stable_id": "79da5c47aeebd8ca"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_31",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "31",
+        "edge_v": "32",
+        "stable_id": "a193c749c49638dd"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_15",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "15",
+        "edge_v": "16",
+        "stable_id": "04f24648087f3125"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_3",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "3",
+        "edge_v": "4",
+        "stable_id": "35fdd664062e6ad8"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_323",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "348",
+        "edge_v": "349",
+        "stable_id": "0093751b708cbf7f"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1288",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1363",
+        "edge_v": "1364",
+        "stable_id": "60d0ae179618d33e"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1285",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1360",
+        "edge_v": "1361",
+        "stable_id": "834ee570b9b9eda2"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_356",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "382",
+        "edge_v": "383",
+        "stable_id": "8a09e6f0aa0b201c"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_352",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "378",
+        "edge_v": "379",
+        "stable_id": "11281a2a084ea86f"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1197",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1258",
+        "edge_v": "1259",
+        "stable_id": "8a8d780e028eb1b0"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_674",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "709",
+        "edge_v": "710",
+        "stable_id": "d04266c7b9e2286a"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_989",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1030",
+        "edge_v": "1031",
+        "stable_id": "fdd308076275dec7"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_158",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "170",
+        "edge_v": "171",
+        "stable_id": "a8e91772223fec18"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_901",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "942",
+        "edge_v": "943",
+        "stable_id": "21547580ed15e0a1"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_579",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "611",
+        "edge_v": "612",
+        "stable_id": "d364ca70a1aa9e0a"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_604",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "636",
+        "edge_v": "637",
+        "stable_id": "080ebf410db26a7e"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_599",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "631",
+        "edge_v": "632",
+        "stable_id": "823a4f33b7ad96e0"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_870",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "911",
+        "edge_v": "912",
+        "stable_id": "90c0433c5ce27c14"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1160",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1214",
+        "edge_v": "1215",
+        "stable_id": "aba80745667e7299"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_467",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "496",
+        "edge_v": "497",
+        "stable_id": "a02062bbf2455a47"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1190",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1250",
+        "edge_v": "1251",
+        "stable_id": "9f3f9fde6ab06151"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_819",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "859",
+        "edge_v": "860",
+        "stable_id": "c46832d16c4e6149"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1239",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1305",
+        "edge_v": "1306",
+        "stable_id": "28daa6092f4076ce"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1218",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1280",
+        "edge_v": "1281",
+        "stable_id": "8ee5335cf2aa32ed"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1272",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1347",
+        "edge_v": "1348",
+        "stable_id": "617c00a49596f1e7"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_193",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "208",
+        "edge_v": "209",
+        "stable_id": "5d6df67124bf3606"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_816",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "856",
+        "edge_v": "857",
+        "stable_id": "32d7705fcd6b4f58"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_255",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "275",
+        "edge_v": "276",
+        "stable_id": "121ea340f4c41a4d"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_894",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "935",
+        "edge_v": "936",
+        "stable_id": "b3d612da0b025479"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_890",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "931",
+        "edge_v": "932",
+        "stable_id": "c85302e25ddb7eec"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1237",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1303",
+        "edge_v": "1304",
+        "stable_id": "36fdaccee7423fcf"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1236",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1298",
+        "edge_v": "1299",
+        "stable_id": "54119e5b325e458b"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_787",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "827",
+        "edge_v": "828",
+        "stable_id": "4e6705c903117962"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_907",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "948",
+        "edge_v": "949",
+        "stable_id": "dfb5cd94fed75c0f"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1247",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1314",
+        "edge_v": "1315",
+        "stable_id": "fa4b607934d1b89b"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1107",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1155",
+        "edge_v": "1156",
+        "stable_id": "d61b1e53eccebdae"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1104",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1152",
+        "edge_v": "1153",
+        "stable_id": "041a66bb315d4797"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1138",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1187",
+        "edge_v": "1188",
+        "stable_id": "65ff435d9a326351"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_425",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "454",
+        "edge_v": "455",
+        "stable_id": "2e70e1bf52ba944c"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_458",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "487",
+        "edge_v": "488",
+        "stable_id": "97e5be927ed64108"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_293",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "317",
+        "edge_v": "318",
+        "stable_id": "79db3baba5169713"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_935",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "976",
+        "edge_v": "977",
+        "stable_id": "6e368f16ffacd625"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_931",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "972",
+        "edge_v": "973",
+        "stable_id": "8269bf1a4e2ec1c8"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_774",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "813",
+        "edge_v": "814",
+        "stable_id": "b6ea5d3c85a16c48"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_504",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "535",
+        "edge_v": "536",
+        "stable_id": "d62e7301edf02c16"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_672",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "707",
+        "edge_v": "708",
+        "stable_id": "4846ddd435a45148"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_668",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "703",
+        "edge_v": "704",
+        "stable_id": "955393b295b2a035"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_757",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "792",
+        "edge_v": "793",
+        "stable_id": "226e526ce8aaa26e"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_755",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "790",
+        "edge_v": "791",
+        "stable_id": "89d1d0462671f971"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_700",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "735",
+        "edge_v": "736",
+        "stable_id": "4a3f97ea59bd1d93"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_697",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "732",
+        "edge_v": "733",
+        "stable_id": "acbedda5dc238f6d"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_464",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "493",
+        "edge_v": "494",
+        "stable_id": "87989c3a25a627b4"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_462",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "491",
+        "edge_v": "492",
+        "stable_id": "3f49f5fd8dc692df"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_474",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "503",
+        "edge_v": "504",
+        "stable_id": "235e211551f9c581"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_68",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "76",
+        "edge_v": "77",
+        "stable_id": "63ff51c8b6404e6e"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_79",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "87",
+        "edge_v": "88",
+        "stable_id": "8ed85cebb2221064"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_405",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "431",
+        "edge_v": "432",
+        "stable_id": "06e701c136bd3cae"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1258",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1332",
+        "edge_v": "1333",
+        "stable_id": "679334675c1e45a9"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_93",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "101",
+        "edge_v": "102",
+        "stable_id": "b546093b7f39a99e"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_903",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "944",
+        "edge_v": "945",
+        "stable_id": "e0774bab6fd40654"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_181",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "196",
+        "edge_v": "197",
+        "stable_id": "e9413b15f94486fd"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_953",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "994",
+        "edge_v": "995",
+        "stable_id": "4dcda2836b890ea4"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_920",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "961",
+        "edge_v": "962",
+        "stable_id": "d31e6b65bc5a7650"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_776",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "815",
+        "edge_v": "816",
+        "stable_id": "a4de5cf7ba90a19b"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_388",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "414",
+        "edge_v": "415",
+        "stable_id": "94dcbd897c4dad14"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1184",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1244",
+        "edge_v": "1245",
+        "stable_id": "9449b13347ef24ca"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1014",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1057",
+        "edge_v": "1058",
+        "stable_id": "d84d9718cae6a1aa"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1305",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1389",
+        "edge_v": "1390",
+        "stable_id": "c2c629ff0f2dd753"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1099",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1146",
+        "edge_v": "1147",
+        "stable_id": "fa6dfbb7496bfb42"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_146",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "158",
+        "edge_v": "159",
+        "stable_id": "d7275b995b61661d"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_143",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "155",
+        "edge_v": "156",
+        "stable_id": "dbf160518d90e0d9"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1261",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1335",
+        "edge_v": "1336",
+        "stable_id": "188a5beb7f0044c0"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1199",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1260",
+        "edge_v": "1261",
+        "stable_id": "bdeda9dcf7d087b2"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_449",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "478",
+        "edge_v": "479",
+        "stable_id": "a287985a2e4d820d"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1263",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1337",
+        "edge_v": "1338",
+        "stable_id": "711f810270d67998"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_524",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "555",
+        "edge_v": "556",
+        "stable_id": "46fa88ebc8828995"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_521",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "552",
+        "edge_v": "553",
+        "stable_id": "c504fc43aeb12b7c"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_478",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "507",
+        "edge_v": "508",
+        "stable_id": "b990ac4e55612d73"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_125",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "133",
+        "edge_v": "134",
+        "stable_id": "4ee0e2e5f92487c2"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1177",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1232",
+        "edge_v": "1233",
+        "stable_id": "84fefef8c403ece0"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1174",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1229",
+        "edge_v": "1230",
+        "stable_id": "87216b3746ece019"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1146",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1199",
+        "edge_v": "1200",
+        "stable_id": "9b63af49d4c6738d"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1143",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1195",
+        "edge_v": "1196",
+        "stable_id": "41843165908e675f"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_785",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "825",
+        "edge_v": "826",
+        "stable_id": "e104ec777d4d2c9d"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1294",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1371",
+        "edge_v": "1372",
+        "stable_id": "81be2cf2cbde49f7"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_507",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "538",
+        "edge_v": "539",
+        "stable_id": "7493903d4fc57230"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1212",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1274",
+        "edge_v": "1275",
+        "stable_id": "66d3d54afda36461"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_631",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "663",
+        "edge_v": "664",
+        "stable_id": "b7aa35d14048d15e"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_46",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "46",
+        "edge_v": "47",
+        "stable_id": "ccdaf0f120ea70f3"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_165",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "177",
+        "edge_v": "178",
+        "stable_id": "f0fc000f7a960ce5"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_162",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "174",
+        "edge_v": "175",
+        "stable_id": "f2fda898291e0f6e"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_556",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "587",
+        "edge_v": "588",
+        "stable_id": "1d7f47990ea63f6a"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1230",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1292",
+        "edge_v": "1293",
+        "stable_id": "f8bb3b3d31eead09"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1155",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1209",
+        "edge_v": "1210",
+        "stable_id": "7c0c4ae115907d37"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1080",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1127",
+        "edge_v": "1128",
+        "stable_id": "756d6ad2aac18f43"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1157",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1211",
+        "edge_v": "1212",
+        "stable_id": "8a5639b4f957ad59"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1291",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1368",
+        "edge_v": "1369",
+        "stable_id": "9dc8e9c146a0adf9"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_886",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "927",
+        "edge_v": "928",
+        "stable_id": "610a313b2709e584"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1290",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1366",
+        "edge_v": "1367",
+        "stable_id": "6d71aa208119b656"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_558",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "589",
+        "edge_v": "590",
+        "stable_id": "9bbfdbb733ee7f8e"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_531",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "562",
+        "edge_v": "563",
+        "stable_id": "988a1c32f422b391"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1132",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1181",
+        "edge_v": "1182",
+        "stable_id": "942c2b3f814da6d9"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_747",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "782",
+        "edge_v": "783",
+        "stable_id": "3fd17c3188b554c8"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1188",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1248",
+        "edge_v": "1249",
+        "stable_id": "7749014ca22e4725"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1168",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1223",
+        "edge_v": "1224",
+        "stable_id": "16751b13c1dbca9f"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_204",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "219",
+        "edge_v": "220",
+        "stable_id": "d1fdfb4d294185e9"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_54",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "57",
+        "edge_v": "58",
+        "stable_id": "40855dd73e14023e"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1250",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1318",
+        "edge_v": "1319",
+        "stable_id": "40f1a16fe037020c"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1171",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1226",
+        "edge_v": "1227",
+        "stable_id": "92028108401a0b00"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1252",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1320",
+        "edge_v": "1321",
+        "stable_id": "b08059fcf8475292"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_234",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "254",
+        "edge_v": "255",
+        "stable_id": "9f74e18ccb8a5e85"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1203",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1264",
+        "edge_v": "1265",
+        "stable_id": "da5a498d95d178be"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_446",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "475",
+        "edge_v": "476",
+        "stable_id": "5b800489150e276b"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1232",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1294",
+        "edge_v": "1295",
+        "stable_id": "c74d943c6411ad39"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_511",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "542",
+        "edge_v": "543",
+        "stable_id": "022b5882a1c961d5"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1100",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1148",
+        "edge_v": "1149",
+        "stable_id": "856919ae9d0cf0a8"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1310",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1394",
+        "edge_v": "1395",
+        "stable_id": "e77f0c0cc085cd82"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_639",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "671",
+        "edge_v": "672",
+        "stable_id": "30aef95ecbae40d7"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1298",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1381",
+        "edge_v": "1382",
+        "stable_id": "bc2018f82d802c65"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1163",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1217",
+        "edge_v": "1218",
+        "stable_id": "4be3e8b406867820"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_97",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "105",
+        "edge_v": "106",
+        "stable_id": "6ac33e6d56df478a"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_661",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "696",
+        "edge_v": "697",
+        "stable_id": "0f749a044b4e9500"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_334",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "360",
+        "edge_v": "361",
+        "stable_id": "20079a976d8cca9d"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_420",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "448",
+        "edge_v": "449",
+        "stable_id": "588a4157e20bf4b6"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1265",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1339",
+        "edge_v": "1340",
+        "stable_id": "b675080e236de0b0"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1037",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1084",
+        "edge_v": "1085",
+        "stable_id": "0dd203ce5e2e460f"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1122",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1170",
+        "edge_v": "1171",
+        "stable_id": "0fa2a7c8446edf9c"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_131",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "139",
+        "edge_v": "140",
+        "stable_id": "3d1ffa31d64c1752"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1255",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1329",
+        "edge_v": "1330",
+        "stable_id": "88621f12af17e8d4"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1241",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1307",
+        "edge_v": "1308",
+        "stable_id": "07d67c2e658b83c5"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1216",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1278",
+        "edge_v": "1279",
+        "stable_id": "e7b53801a71f6dc2"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1307",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1391",
+        "edge_v": "1392",
+        "stable_id": "4e8d95980485eda3"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1086",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1133",
+        "edge_v": "1134",
+        "stable_id": "a653398b411c92aa"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1226",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1288",
+        "edge_v": "1289",
+        "stable_id": "7d8d150121b12677"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_607",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "639",
+        "edge_v": "640",
+        "stable_id": "3dd89836cc02aedf"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1208",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1270",
+        "edge_v": "1271",
+        "stable_id": "7106771817997359"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1316",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1401",
+        "edge_v": "1402",
+        "stable_id": "cc901d8f1529e7d3"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_128",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "136",
+        "edge_v": "137",
+        "stable_id": "a825bc11c5ccc66b"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1248",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1316",
+        "edge_v": "1317",
+        "stable_id": "c636263debcce647"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_138",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "146",
+        "edge_v": "147",
+        "stable_id": "a892b977b05bcff8"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_330",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "355",
+        "edge_v": "356",
+        "stable_id": "cd53321224c2f709"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_239",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "259",
+        "edge_v": "260",
+        "stable_id": "7ed76d2d6df9619c"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_237",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "257",
+        "edge_v": "258",
+        "stable_id": "e9a785e4418b76be"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_942",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "983",
+        "edge_v": "984",
+        "stable_id": "58250bd3c949ca14"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_830",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "870",
+        "edge_v": "871",
+        "stable_id": "f2c7b12d2a3203c1"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1224",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1286",
+        "edge_v": "1287",
+        "stable_id": "affde4322301c2ab"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_44",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "44",
+        "edge_v": "45",
+        "stable_id": "5d7ac9c617d99f80"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1243",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1309",
+        "edge_v": "1310",
+        "stable_id": "b6a25c8743975400"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1234",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1296",
+        "edge_v": "1297",
+        "stable_id": "71616d90e5850fe3"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1220",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1282",
+        "edge_v": "1283",
+        "stable_id": "3ced6b08b51580c0"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_38",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "38",
+        "edge_v": "39",
+        "stable_id": "716fedf37b39a50f"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1301",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1385",
+        "edge_v": "1386",
+        "stable_id": "86ec65885ab61808"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_519",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "550",
+        "edge_v": "551",
+        "stable_id": "e9a9e66618778457"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_1295",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "1374",
+        "edge_v": "1375",
+        "stable_id": "05a36d8e25d6c604"
+      }
+    },
+    {
+      "action_type": "extend_frontier",
+      "confidence": 0.6,
+      "target_id": "frontier_621",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "653",
+        "edge_v": "654",
+        "stable_id": "c03c97971cdc758a"
+      }
+    }
+  ],
+  "metadata": {
+    "inference_method": "basic_peeling",
+    "max_steps": 10000,
+    "steps_taken": 586,
+    "skeleton_streets": 0
+  },
+  "num_actions": 586
+}
