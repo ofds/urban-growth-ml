@@ -19,7 +19,7 @@ from .actions import GrowthAction, ACTION_GROW_TRAJECTORY, ACTION_SUBDIVIDE_BLOC
 from .validators import validate_growth_action
 from .state_updater import apply_growth_action
 from .geometry_utils import generate_canonical_node_id
-from core.contracts import GrowthState, FrontierEdge
+from src.core.contracts import GrowthState, FrontierEdge
 
 logger = logging.getLogger(__name__)
 

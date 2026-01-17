@@ -10,7 +10,7 @@ from typing import Dict, Any
 from shapely.geometry import LineString
 
 # External contract imports
-from core.contracts import FrontierEdge
+from src.core.contracts import FrontierEdge
 
 
 # Action type constants

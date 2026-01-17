@@ -8,10 +8,10 @@ from typing import List, Optional, Any, Dict
 import logging
 from shapely.geometry import LineString
 
-from core.contracts import GrowthState
-from .data_structures import GrowthTrace, InverseGrowthAction, ActionType, compute_frontier_signature
-from .skeleton import ArterialSkeletonExtractor
-from .rewind import RewindEngine
+from src.core.contracts import GrowthState
+from src.inverse.data_structures import GrowthTrace, InverseGrowthAction, ActionType, compute_frontier_signature
+from src.inverse.skeleton import ArterialSkeletonExtractor
+from src.inverse.rewind import RewindEngine
 
 logger = logging.getLogger(__name__)
 

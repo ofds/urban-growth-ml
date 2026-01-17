@@ -31,13 +31,13 @@ import logging
 import json
 from dataclasses import asdict
 
-from .data_structures import StateActionSample, MLDataset, ActionType, GrowthTrace
-from .feature_extractor import StateFeatureExtractor
-from .inference import BasicInferenceEngine
-from .replay import ReplayEngine
-from .validation import validate_trace_quality
-from ..core.contracts import GrowthState
-from ..core.loader import CityLoader
+from src.inverse.data_structures import StateActionSample, MLDataset, ActionType, GrowthTrace
+from src.inverse.feature_extractor import StateFeatureExtractor
+from src.inverse.inference import BasicInferenceEngine
+from src.inverse.replay import TraceReplayEngine
+from src.inverse.validation import validate_trace_quality
+from src.core.contracts import GrowthState
+from src.core.growth.new.growth_engine import GrowthEngine
 
 logger = logging.getLogger(__name__)
 
@@ -81,7 +81,7 @@ class DatasetGenerator:
         
         # Initialize inference and replay engines
         self.inference_engine = BasicInferenceEngine()
-        self.replay_engine = ReplayEngine()
+        self.replay_engine = TraceReplayEngine()
 
     def generate_single_city_dataset(
         self,
@@ -118,8 +118,8 @@ class DatasetGenerator:
         # Step 1: Load city data if not provided
         if final_state is None:
             try:
-                loader = CityLoader()
-                final_state = loader.load_city(city_id)
+                engine = GrowthEngine(city_id, seed=42)
+                final_state = engine.load_initial_state()
                 logger.info(f"Loaded {city_id}: {len(final_state.streets)} streets")
             except Exception as e:
                 logger.error(f"Failed to load city {city_id}: {e}")
@@ -141,7 +141,7 @@ class DatasetGenerator:
         validation_results = {}
         if validate_trace:
             try:
-                validation_results = self._validate_trace(trace, final_state)
+                validation_results = self._validate_trace(trace, final_state, city_id)
                 logger.info(f"Validation for {city_id}: fidelity={validation_results.get('replay_fidelity', 0):.3f}")
             except Exception as e:
                 logger.error(f"Validation failed for {city_id}: {e}")
@@ -164,14 +164,15 @@ class DatasetGenerator:
             logger.warning(f"Rejected {city_id}: {validation_results}")
             return None, validation_results
 
-    def _validate_trace(self, trace: GrowthTrace, original_final_state: GrowthState) -> Dict[str, Any]:
+    def _validate_trace(self, trace: GrowthTrace, original_final_state: GrowthState, city_id: str) -> Dict[str, Any]:
         """
         Validate trace by replaying it and comparing with original final state.
-        
+
         Args:
             trace: Inferred growth trace
             original_final_state: Original final state to compare against
-            
+            city_id: City identifier for logging
+
         Returns:
             Dict containing validation metrics:
             - replay_fidelity: Match percentage [0.0-1.0]
@@ -180,16 +181,13 @@ class DatasetGenerator:
             - num_streets_expected: Expected number of streets
         """
         try:
-            # Replay the trace
-            replayed_state = self.replay_engine.replay_trace(trace)
-            
-            # Compute fidelity metrics
-            validation = validate_trace_quality(
+            # Validate trace by replaying it
+            validation = self.replay_engine.validate_trace_replay(
+                trace=trace,
                 original_state=original_final_state,
-                replayed_state=replayed_state,
-                trace=trace
+                city_name=city_id
             )
-            
+
             return validation
         except Exception as e:
             logger.error(f"Validation error: {e}")
@@ -763,19 +761,25 @@ class DatasetGenerator:
     def _apply_action_to_state(self, current_state: GrowthState, action) -> GrowthState:
         """
         Apply action to state to get next state in sequence.
-        
-        In full implementation, this should use ReplayEngine.
-        For now, returns a placeholder state with incremented iteration.
-        
+
+        Uses the TraceReplayEngine's _apply_state_diff method for accurate state progression.
+        This leverages the state_diff stored in PHASE 2 actions.
+
         Args:
             current_state: Current growth state
-            action: Action to apply
-            
+            action: Action to apply (should have state_diff from PHASE 2)
+
         Returns:
             Next growth state after applying action
         """
-        # TODO: Integrate with ReplayEngine for accurate state progression
-        # For now, return simplified next state
+        # Check if action has state_diff (PHASE 2)
+        if hasattr(action, 'state_diff') and action.state_diff:
+            try:
+                return self.replay_engine._apply_state_diff(current_state, action.state_diff)
+            except Exception as e:
+                logger.warning(f"Failed to apply state diff: {e}, falling back to placeholder")
+
+        # Fallback: return simplified next state
         return GrowthState(
             streets=current_state.streets,
             blocks=current_state.blocks,

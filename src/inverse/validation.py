@@ -10,8 +10,8 @@ from shapely.geometry import Point
 from shapely.strtree import STRtree  # OPTIMIZATION: Spatial indexing
 from shapely.ops import unary_union
 
-from core.contracts import GrowthState
-from .data_structures import GrowthTrace
+from src.core.contracts import GrowthState
+from src.inverse.data_structures import GrowthTrace
 
 logger = logging.getLogger(__name__)
 
@@ -269,3 +269,38 @@ class MorphologicalValidator:
         scores.append(1.0 if results.get('morphological_valid', True) else 0.5)
         
         return sum(scores) / len(scores) if scores else 0.0
+
+
+def validate_trace_quality(
+    original_state: GrowthState,
+    replayed_state: GrowthState,
+    trace: 'GrowthTrace'
+) -> Dict[str, Any]:
+    """
+    Convenience function to validate trace quality using MorphologicalValidator.
+
+    This is a wrapper around MorphologicalValidator.validate_replay() that provides
+    a simpler interface for the dataset generator.
+
+    Args:
+        original_state: Original final city state
+        replayed_state: State produced by replaying the trace
+        trace: The growth trace (for additional metrics)
+
+    Returns:
+        Dict with validation metrics:
+        - replay_fidelity: Overall morphological fidelity [0.0-1.0]
+        - connectivity_preserved: Whether graph connectivity matches
+        - morphological_valid: Whether validation passed thresholds
+        - geometric_valid: Whether geometric properties match
+        - topological_valid: Whether topological properties match
+    """
+    validator = MorphologicalValidator()
+    results = validator.validate_replay(original_state, replayed_state)
+
+    # Add trace-specific metrics
+    results['num_actions_inferred'] = len(trace.actions)
+    results['average_action_confidence'] = trace.average_confidence
+    results['trace_length'] = len(trace.actions)
+
+    return results

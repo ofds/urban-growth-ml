@@ -14,7 +14,7 @@ import hashlib
 
 from .actions import GrowthAction
 from .geometry_utils import generate_canonical_node_id, find_or_create_node
-from core.contracts import GrowthState, FrontierEdge
+from src.core.contracts import GrowthState, FrontierEdge
 
 
 def apply_growth_action(action: GrowthAction, state: GrowthState) -> GrowthState:

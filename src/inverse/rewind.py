@@ -8,8 +8,8 @@ from typing import Optional, Any, Dict, List, Set, Tuple
 from shapely.geometry import Point, LineString, Polygon
 import logging
 
-from core.contracts import GrowthState, FrontierEdge
-from .data_structures import InverseGrowthAction, ActionType
+from src.core.contracts import GrowthState, FrontierEdge
+from src.inverse.data_structures import InverseGrowthAction, ActionType
 
 logger = logging.getLogger(__name__)
 
