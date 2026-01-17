@@ -712,13 +712,19 @@ class TraceReplayEngine:
         Create comprehensive validation visualizations.
         """
         try:
-            comparison_path = self.visualizer.create_replay_comparison(
-                original_state, replayed_state, validation_results,
-                trace.metadata, f"{city_name}_replay_validation.png"
+            # Create replay validation comparison plot
+            comparison_path = self.visualizer.plot_replay_validation(
+                original_city=original_state,
+                replayed_city=replayed_state,
+                validation_metrics=validation_results,
+                city_name=city_name
             )
 
-            summary_path = self.visualizer.create_trace_summary_visualization(
-                trace, f"{city_name}_trace_validation_summary.png"
+            # Create trace summary dashboard
+            summary_path = self.visualizer.plot_trace_summary(
+                trace=trace,
+                city=original_state,
+                city_name=city_name
             )
 
             logger.info(f"Created replay validation visuals for {city_name}")
