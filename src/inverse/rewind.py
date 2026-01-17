@@ -53,7 +53,7 @@ class RewindEngine:
         except Exception as e:
             logger.error(f"Failed to rewind action {action.action_type}: {e}")
             return current_state
-    
+
     def _rewind_extend_frontier(self, action: InverseGrowthAction, state: GrowthState) -> GrowthState:
         """Rewind an EXTEND_FRONTIER action by removing the added street segment."""
         
@@ -77,32 +77,43 @@ class RewindEngine:
             logger.warning(f"Cannot rewind: street with edge ({edge_u}, {edge_v}) not found in current state")
             return state
         
-        # Remove streets
+        # Remove streets from GeoDataFrame
         new_streets = state.streets.drop(streets_to_remove)
         
-        # Update graph efficiently
-        new_graph = state.graph.copy()
-        nodes_to_check = set()
+        # Rebuild graph from remaining streets to ensure geometry is preserved
+        import networkx as nx
+        new_graph = nx.Graph()
         
-        for idx in streets_to_remove:
-            street = state.streets.loc[idx]
+        # Add all nodes from streets
+        for idx, street in new_streets.iterrows():
             u, v = street['u'], street['v']
+            geometry = street.get('geometry')
             
-            # Remove edge
-            if new_graph.has_edge(u, v):
-                new_graph.remove_edge(u, v)
-                nodes_to_check.update([u, v])
+            if geometry and hasattr(geometry, 'coords'):
+                coords = list(geometry.coords)
+                if len(coords) >= 2:
+                    # Add nodes with their coordinates
+                    start_point = coords[0]
+                    end_point = coords[-1]
+                    
+                    if u not in new_graph:
+                        new_graph.add_node(u, x=start_point[0], y=start_point[1], 
+                                        geometry=Point(start_point))
+                    if v not in new_graph:
+                        new_graph.add_node(v, x=end_point[0], y=end_point[1],
+                                        geometry=Point(end_point))
+                    
+                    # Add edge with geometry
+                    new_graph.add_edge(u, v, 
+                                    geometry=geometry,
+                                    length=geometry.length)
         
-        # Batch remove isolated nodes
-        isolated_nodes = [node for node in nodes_to_check if new_graph.degree[node] == 0]
-        new_graph.remove_nodes_from(isolated_nodes)
+        logger.info(f"Rebuilt graph: {new_graph.number_of_nodes()} nodes, {new_graph.number_of_edges()} edges")
         
         # Rebuild frontiers
         new_frontiers = self._rebuild_frontiers_simple(new_streets, new_graph, state.blocks)
         
-        # FIXED: Keep iteration at 0 during inference rewind
-        # During inverse inference, we're rewinding from a final state (iteration=0)
-        # back towards an initial state. We don't need negative iterations.
+        # Keep iteration at 0 during inference rewind
         new_iteration = max(0, state.iteration - 1)
         
         return GrowthState(
@@ -110,10 +121,11 @@ class RewindEngine:
             blocks=state.blocks,
             frontiers=new_frontiers,
             graph=new_graph,
-            iteration=new_iteration,  # ← FIXED: Use max(0, iteration-1)
+            iteration=new_iteration,
             city_bounds=state.city_bounds
         )
-    
+
+
     def _rewind_subdivide_block(self, action: InverseGrowthAction, state: GrowthState) -> GrowthState:
         """Rewind a SUBDIVIDE_BLOCK action by merging the subdivided blocks."""
         # This is complex - would need to identify which blocks were created
@@ -166,8 +178,8 @@ class RewindEngine:
         return edge_segments
     
     def _edge_matches_block_segment(self, edge_geom: LineString, 
-                                     block_segments: Set[Tuple[Tuple[float, float], Tuple[float, float]]],
-                                     tolerance: float = 1.0) -> bool:
+                                    block_segments: Set[Tuple[Tuple[float, float], Tuple[float, float]]],
+                                    tolerance: float = 1.0) -> Tuple[bool, float]:
         """
         Check if an edge geometry matches any block boundary segment.
         
@@ -177,11 +189,11 @@ class RewindEngine:
             tolerance: Distance tolerance for matching (meters)
         
         Returns:
-            True if edge is part of a block boundary
+            Tuple of (is_match, min_distance)
         """
         edge_coords = list(edge_geom.coords)
         if len(edge_coords) < 2:
-            return False
+            return False, float('inf')
         
         # Get edge endpoints
         edge_start = edge_coords[0]
@@ -190,146 +202,138 @@ class RewindEngine:
         # Normalize edge segment
         edge_segment = tuple(sorted([edge_start, edge_end]))
         
+        min_total_dist = float('inf')
+        
         # Check for exact or near matches
         for block_seg in block_segments:
             # Check if endpoints match within tolerance
             start_dist = ((edge_segment[0][0] - block_seg[0][0])**2 + 
-                         (edge_segment[0][1] - block_seg[0][1])**2)**0.5
+                        (edge_segment[0][1] - block_seg[0][1])**2)**0.5
             end_dist = ((edge_segment[1][0] - block_seg[1][0])**2 + 
-                       (edge_segment[1][1] - block_seg[1][1])**2)**0.5
+                    (edge_segment[1][1] - block_seg[1][1])**2)**0.5
+            
+            total_dist = start_dist + end_dist
+            min_total_dist = min(min_total_dist, total_dist)
             
             if start_dist < tolerance and end_dist < tolerance:
-                return True
+                return True, total_dist
         
-        return False
-    
+        return False, min_total_dist
+
+    def _edge_matches_block_segment(self, edge_geom: LineString, 
+                                    block_segments: Set[Tuple[Tuple[float, float], Tuple[float, float]]],
+                                    tolerance: float = 1.0) -> Tuple[bool, float]:
+        """
+        Check if an edge geometry matches any block boundary segment.
+        
+        Args:
+            edge_geom: LineString geometry of the edge
+            block_segments: Set of block edge segments
+            tolerance: Distance tolerance for matching (meters)
+        
+        Returns:
+            Tuple of (is_match, min_distance)
+        """
+        edge_coords = list(edge_geom.coords)
+        if len(edge_coords) < 2:
+            return False, float('inf')
+        
+        # Get edge endpoints
+        edge_start = edge_coords[0]
+        edge_end = edge_coords[-1]
+        
+        # Normalize edge segment
+        edge_segment = tuple(sorted([edge_start, edge_end]))
+        
+        min_total_dist = float('inf')
+        
+        # Check for exact or near matches
+        for block_seg in block_segments:
+            # Check if endpoints match within tolerance
+            start_dist = ((edge_segment[0][0] - block_seg[0][0])**2 + 
+                        (edge_segment[0][1] - block_seg[0][1])**2)**0.5
+            end_dist = ((edge_segment[1][0] - block_seg[1][0])**2 + 
+                    (edge_segment[1][1] - block_seg[1][1])**2)**0.5
+            
+            total_dist = start_dist + end_dist
+            min_total_dist = min(min_total_dist, total_dist)
+            
+            if start_dist < tolerance and end_dist < tolerance:
+                return True, total_dist
+        
+        return False, min_total_dist
+
     def _rebuild_frontiers_simple(self, streets, graph, blocks=None) -> List[FrontierEdge]:
         """
-        Enhanced frontier rebuilding after rewind operations.
+        Simple frontier rebuilding after rewind operations.
         
-        Detects both dead-end frontiers and block-edge frontiers by checking
-        if edges match block boundary segments.
+        Classifies edges as:
+        - Dead-end: if one endpoint has degree 1
+        - Block-edge: all other edges (default)
         
         Args:
             streets: GeoDataFrame of streets
             graph: NetworkX graph of street network
-            blocks: Optional GeoDataFrame of blocks (from state.blocks)
+            blocks: Optional GeoDataFrame of blocks
         
         Returns:
             List of FrontierEdge objects
         """
         frontiers = []
         
-        # Step 1: Detect dead-end frontiers
-        dead_end_edges = set()
+        # Debug logging
+        num_nodes = graph.number_of_nodes()
+        num_edges = graph.number_of_edges()
+        logger.info(f"Rebuilding frontiers from graph with {num_nodes} nodes, {num_edges} edges")
+        
+        if num_edges == 0:
+            logger.warning("Graph has no edges after rewind - this shouldn't happen!")
+            return frontiers
+        
+        # Classify all edges
+        dead_end_count = 0
+        block_edge_count = 0
+        
         for u, v, data in graph.edges(data=True):
+            geometry = data.get('geometry')
+            if not geometry or not isinstance(geometry, LineString):
+                logger.warning(f"Edge ({u}, {v}) missing geometry, skipping")
+                continue
+            
             u_degree = graph.degree[u]
             v_degree = graph.degree[v]
             
-            geometry = data.get('geometry')
-            if not geometry or not isinstance(geometry, LineString):
-                continue
-                
+            # Determine frontier type
             if u_degree == 1 or v_degree == 1:
-                edge_tuple = (min(u, v), max(u, v))
-                dead_end_edges.add(edge_tuple)
-                frontier_id = f"dead_end_{edge_tuple[0]}_{edge_tuple[1]}"
-                
-                frontier = FrontierEdge(
-                    frontier_id=frontier_id,
-                    edge_id=(u, v),
-                    block_id=None,
-                    geometry=geometry,
-                    frontier_type='dead_end',
-                    expansion_weight=0.8,
-                    spatial_hash=""
-                )
-                frontiers.append(frontier)
+                # Dead-end frontier
+                frontier_type = 'dead_end'
+                expansion_weight = 0.8
+                dead_end_count += 1
+            else:
+                # Block-edge frontier (default for all other edges)
+                frontier_type = 'block_edge'
+                expansion_weight = 0.5
+                block_edge_count += 1
+            
+            edge_tuple = (min(u, v), max(u, v))
+            frontier_id = f"{frontier_type}_{edge_tuple[0]}_{edge_tuple[1]}"
+            
+            frontier = FrontierEdge(
+                frontier_id=frontier_id,
+                edge_id=(u, v),
+                block_id=None,  # Could add block lookup if needed
+                geometry=geometry,
+                frontier_type=frontier_type,
+                expansion_weight=expansion_weight,
+                spatial_hash=""
+            )
+            frontiers.append(frontier)
         
-        logger.info(f"Detected {len(dead_end_edges)} dead-end frontiers")
+        logger.info(f"Detected {dead_end_count} dead-end + {block_edge_count} block-edge = {len(frontiers)} total frontiers")
         
-        # Step 2: Detect block-edge frontiers
-        if blocks is not None and len(blocks) > 0:
-            try:
-                # Extract all block edge segments
-                logger.info(f"Extracting edge segments from {len(blocks)} blocks...")
-                block_segments = self._extract_block_edge_segments(blocks)
-                logger.info(f"Extracted {len(block_segments)} unique block edge segments")
-                
-                # Check each graph edge against block segments
-                block_edge_count = 0
-                for u, v, data in graph.edges(data=True):
-                    edge_tuple = (min(u, v), max(u, v))
-                    
-                    # Skip if already classified as dead-end
-                    if edge_tuple in dead_end_edges:
-                        continue
-                    
-                    geometry = data.get('geometry')
-                    if not geometry or not isinstance(geometry, LineString):
-                        continue
-                    
-                    # Check if edge matches any block boundary segment
-                    if self._edge_matches_block_segment(geometry, block_segments, tolerance=2.0):
-                        block_edge_count += 1
-                        
-                        # Find which block this edge belongs to (optional, slower)
-                        block_id = None
-                        for idx, block in blocks.iterrows():
-                            if geometry.distance(block.geometry) < 1.0:
-                                block_id = int(idx)
-                                break
-                        
-                        frontier_id = f"block_edge_{edge_tuple[0]}_{edge_tuple[1]}"
-                        
-                        frontier = FrontierEdge(
-                            frontier_id=frontier_id,
-                            edge_id=(u, v),
-                            block_id=block_id,
-                            geometry=geometry,
-                            frontier_type='block_edge',
-                            expansion_weight=0.5,
-                            spatial_hash=""
-                        )
-                        frontiers.append(frontier)
-                
-                logger.info(f"Detected {block_edge_count} block-edge frontiers")
-                
-            except Exception as e:
-                logger.error(f"Error detecting block-edge frontiers: {e}")
-                import traceback
-                traceback.print_exc()
-                logger.info("Falling back to simple heuristic")
-                
-                # Fallback: treat all non-dead-end edges as potential block edges
-                for u, v, data in graph.edges(data=True):
-                    edge_tuple = (min(u, v), max(u, v))
-                    if edge_tuple in dead_end_edges:
-                        continue
-                    
-                    geometry = data.get('geometry')
-                    if not geometry or not isinstance(geometry, LineString):
-                        continue
-                    
-                    frontier_id = f"block_edge_{edge_tuple[0]}_{edge_tuple[1]}"
-                    
-                    frontier = FrontierEdge(
-                        frontier_id=frontier_id,
-                        edge_id=(u, v),
-                        block_id=None,
-                        geometry=geometry,
-                        frontier_type='block_edge',
-                        expansion_weight=0.5,
-                        spatial_hash=""
-                    )
-                    frontiers.append(frontier)
-                    
-                logger.info(f"Fallback detected {len(frontiers) - len(dead_end_edges)} block-edge frontiers")
-        else:
-            logger.warning("No blocks provided - skipping block-edge frontier detection")
-        
-        logger.info(f"Total frontiers rebuilt: {len(frontiers)}")
         return frontiers
+
+
 
     def can_rewind_action(self, action: InverseGrowthAction, state: GrowthState) -> bool:
         """
