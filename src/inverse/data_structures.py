@@ -9,6 +9,43 @@ from dataclasses import dataclass, field
 from typing import List, Dict, Any, Optional, Set
 from pathlib import Path
 import numpy as np
+import hashlib
+from shapely.geometry import LineString
+
+
+def compute_frontier_signature(frontier) -> Optional[str]:
+    """
+    Create stable geometric signature for frontier matching across state changes.
+
+    This signature should remain consistent even when:
+    - Graph operations shift coordinates slightly
+    - Frontier IDs change during rewind/replay
+    - Node IDs get renumbered
+
+    Returns a 16-character hash based on normalized geometry.
+    """
+    if not hasattr(frontier, 'geometry') or frontier.geometry is None:
+        return None
+
+    geom = frontier.geometry
+    if isinstance(geom, LineString) and len(geom.coords) >= 2:
+        # Normalize coordinates: round to 1 decimal for stability, sort start/end
+        start = (round(geom.coords[0][0], 1), round(geom.coords[0][1], 1))
+        end = (round(geom.coords[-1][0], 1), round(geom.coords[-1][1], 1))
+
+        # Sort to ensure order independence
+        coords_sorted = tuple(sorted([start, end]))
+
+        # Include frontier type for additional stability
+        frontier_type = getattr(frontier, 'frontier_type', 'unknown')
+
+        # Create signature string
+        signature = f"{coords_sorted[0]}_{coords_sorted[1]}_{frontier_type}"
+
+        # Return 16-character hash
+        return hashlib.md5(signature.encode()).hexdigest()[:16]
+
+    return None
 
 
 class ActionType(Enum):
@@ -24,15 +61,26 @@ class InverseGrowthAction:
     """
     Represents an inferred growth action, separating decision intent from geometric realization.
 
-    Key principle: Inference seeks causal plausibility, not historical truth.
-    Real cities chose "follow terrain" or "align with grid", not specific radius values.
+    PHASE 2: Now stores complete state diffs to eliminate frontier matching dependency.
     """
     action_type: ActionType
-    target_id: str                           # frontier/block/street identifier
+    target_id: str                           # frontier/block/street identifier (legacy)
     intent_params: Dict[str, Any]            # decision parameters (e.g., {'direction': 'follow_density'})
-    realized_geometry: Optional[Dict[str, Any]] = None  # geometric params for replay
+    realized_geometry: Optional[Dict[str, Any]] = None  # geometric params for replay (legacy)
     confidence: float = 1.0                  # inference certainty 0-1
     timestamp: Optional[float] = None         # temporal ordering
+    geometric_signature: Optional[str] = None  # stable geometric signature for replay matching (legacy)
+
+    # PHASE 2: Complete state diff storage
+    state_diff: Optional[Dict[str, Any]] = None  # Complete geometric changes
+    # Structure:
+    # {
+    #   'added_streets': List[Dict],     # Complete street geometries to add
+    #   'removed_streets': List[str],    # Street IDs to remove
+    #   'graph_changes': Dict,           # Node/edge additions/removals
+    #   'frontier_changes': Dict,        # Frontier state before/after
+    # }
+
     action_metadata: Dict[str, Any] = field(default_factory=dict)  # inference artifacts
 
 

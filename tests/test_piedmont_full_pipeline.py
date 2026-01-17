@@ -79,7 +79,6 @@ def test_piedmont_pipeline():
     # STAGE 2: INFERENCE
     # ==================================================================
     print("\n[2/4] Running inverse inference...")
-    print("  (Limited to 20 steps for testing)")
     
     try:
         inference = BasicInferenceEngine()

@@ -4,12 +4,12 @@ Basic Inference Engine
 Phase A: Simple backward inference for synthetic cities.
 """
 
-from typing import List, Optional, Any
+from typing import List, Optional, Any, Dict
 import logging
 from shapely.geometry import LineString
 
 from core.contracts import GrowthState
-from .data_structures import GrowthTrace, InverseGrowthAction, ActionType
+from .data_structures import GrowthTrace, InverseGrowthAction, ActionType, compute_frontier_signature
 from .skeleton import ArterialSkeletonExtractor
 from .rewind import RewindEngine
 
@@ -77,16 +77,22 @@ class BasicInferenceEngine:
                 logger.info(f"No more actions to infer at step {step}")
                 break
             
+            # PHASE 2: Capture complete state diff before rewind
+            state_diff = self._compute_state_diff(current_state, action)
+
             # Try to rewind
             prev_state = self.rewind_engine.rewind_action(action, current_state)
-            
+
             # Check if rewind actually worked
             if len(prev_state.streets) >= len(current_state.streets):
                 logger.warning(f"Rewind failed at step {step} - state unchanged ({len(prev_state.streets)} >= {len(current_state.streets)})")
                 break
-            
+
+            # PHASE 2: Update action with complete state diff
+            action_with_diff = self._add_state_diff_to_action(action, state_diff)
+
             # Only record action if rewind succeeded
-            actions.insert(0, action)
+            actions.insert(0, action_with_diff)
             if step % 100 == 0 or step < 10:
                 logger.info(f"Inference step {step}: streets {len(current_state.streets)} -> {len(prev_state.streets)}")
             current_state = prev_state
@@ -134,6 +140,9 @@ class BasicInferenceEngine:
             # CRITICAL FIX: Compute and store stable geometric ID
             stable_id = self._compute_stable_frontier_id(peripheral_frontier)
 
+            # Compute geometric signature for stable frontier matching
+            geometric_signature = compute_frontier_signature(peripheral_frontier)
+
             return InverseGrowthAction(
                 action_type=ActionType.EXTEND_FRONTIER,
                 target_id=peripheral_frontier.frontier_id,  # Keep for debugging
@@ -150,7 +159,8 @@ class BasicInferenceEngine:
                     "stable_id": stable_id  # ← ADD THIS TOO
                 },
                 confidence=0.8,
-                timestamp=len(state.streets)
+                timestamp=len(state.streets),
+                geometric_signature=geometric_signature  # ← ADD GEOMETRIC SIGNATURE
             )
         
         # Fallback for short streets
@@ -188,6 +198,9 @@ class BasicInferenceEngine:
             # CRITICAL FIX: Compute and store stable geometric ID
             stable_id = self._compute_stable_frontier_id(frontier)
 
+            # Compute geometric signature for stable frontier matching
+            geometric_signature = compute_frontier_signature(frontier)
+
             return InverseGrowthAction(
                 action_type=ActionType.EXTEND_FRONTIER,
                 target_id=frontier.frontier_id,
@@ -204,7 +217,8 @@ class BasicInferenceEngine:
                     'stable_id': stable_id  # ← ADD THIS TOO
                 },
                 confidence=0.6,
-                timestamp=len(state.streets)
+                timestamp=len(state.streets),
+                geometric_signature=geometric_signature  # ← ADD GEOMETRIC SIGNATURE
             )
         
         logger.warning(f"DEBUG: No actions found - cannot infer further")
@@ -234,18 +248,108 @@ class BasicInferenceEngine:
         return 0.0
 
     def _compute_stable_frontier_id(self, frontier) -> str:
-        """Generate stable ID from geometry coordinates."""
+        """Generate stable ID from geometry coordinates with consistent rounding."""
         import hashlib
         if not hasattr(frontier, 'geometry') or frontier.geometry is None:
             return "invalid_frontier"
 
         geom = frontier.geometry
         if isinstance(geom, LineString) and len(geom.coords) >= 2:
-            start = (round(geom.coords[0][0], 0), round(geom.coords[0][1], 0))
-            end = (round(geom.coords[-1][0], 0), round(geom.coords[-1][1], 1))
+            # FIX: Use consistent 2-decimal precision for both coordinates
+            start = (round(geom.coords[0][0], 2), round(geom.coords[0][1], 2))
+            end = (round(geom.coords[-1][0], 2), round(geom.coords[-1][1], 2))
             frontier_type = getattr(frontier, 'frontier_type', 'unknown')
 
             hash_input = f"{start}_{end}_{frontier_type}".encode('utf-8')
             return hashlib.md5(hash_input).hexdigest()[:16]
 
         return "invalid_geometry"
+
+    def _compute_state_diff(self, current_state: GrowthState, action: InverseGrowthAction) -> Dict[str, Any]:
+        """
+        Compute the complete state diff that this action represents.
+
+        This captures exactly what streets are added/removed and how the graph changes,
+        eliminating the need for frontier matching during replay.
+
+        Args:
+            current_state: State before rewind (contains the street to be removed)
+            action: Action being rewound
+
+        Returns:
+            Dict containing complete state changes
+        """
+        state_diff = {
+            'added_streets': [],    # Streets that will be added during replay
+            'removed_streets': [],  # Streets that are removed during rewind
+            'graph_changes': {},    # Node/edge changes
+            'frontier_changes': {}  # Frontier state changes
+        }
+
+        # For EXTEND_FRONTIER actions, the street being removed during rewind
+        # is the one that was added during forward growth
+        if action.action_type == ActionType.EXTEND_FRONTIER:
+            # Find the street that matches this action's edge
+            edge_u = action.realized_geometry.get('edgeid', (None, None))[0] if action.realized_geometry else None
+            edge_v = action.realized_geometry.get('edgeid', (None, None))[1] if action.realized_geometry else None
+
+            if edge_u is not None and edge_v is not None:
+                # Find the street with this edge
+                for idx, street in current_state.streets.iterrows():
+                    u, v = street.get('u'), street.get('v')
+                    if (u == edge_u and v == edge_v) or (u == edge_v and v == edge_u):
+                        # This is the street that will be removed during rewind
+                        # During replay, this is the street that should be added
+                        street_data = {
+                            'index': idx,
+                            'u': u,
+                            'v': v,
+                            'geometry_wkt': street.geometry.wkt if hasattr(street.geometry, 'wkt') else None,
+                            'osmid': street.get('osmid'),
+                            'highway': street.get('highway'),
+                            'length': street.geometry.length if hasattr(street.geometry, 'length') else None
+                        }
+                        state_diff['added_streets'].append(street_data)
+                        state_diff['removed_streets'].append(idx)
+                        break
+
+        # Store graph state information
+        state_diff['graph_changes'] = {
+            'nodes_before': current_state.graph.number_of_nodes(),
+            'edges_before': current_state.graph.number_of_edges(),
+            'nodes_after': None,  # Will be filled after rewind
+            'edges_after': None   # Will be filled after rewind
+        }
+
+        # Store frontier state information
+        state_diff['frontier_changes'] = {
+            'frontiers_before': len(current_state.frontiers),
+            'frontiers_after': None  # Will be filled after rewind
+        }
+
+        return state_diff
+
+    def _add_state_diff_to_action(self, action: InverseGrowthAction, state_diff: Dict[str, Any]) -> InverseGrowthAction:
+        """
+        Create a new action with the state diff included.
+
+        Since InverseGrowthAction is frozen, we need to create a new instance.
+
+        Args:
+            action: Original action
+            state_diff: Computed state diff
+
+        Returns:
+            New action with state_diff populated
+        """
+        return InverseGrowthAction(
+            action_type=action.action_type,
+            target_id=action.target_id,
+            intent_params=action.intent_params,
+            realized_geometry=action.realized_geometry,
+            confidence=action.confidence,
+            timestamp=action.timestamp,
+            geometric_signature=action.geometric_signature,
+            state_diff=state_diff,  # Add the state diff
+            action_metadata=action.action_metadata
+        )
