@@ -7,6 +7,7 @@ Phase A: Basic rewind operations for state manipulation during inverse inference
 from typing import Optional, Any, Dict, List, Set, Tuple
 from shapely.geometry import Point, LineString, Polygon
 import logging
+import networkx as nx
 
 from core.contracts import GrowthState, FrontierEdge
 from .data_structures import InverseGrowthAction, ActionType
@@ -81,21 +82,21 @@ class RewindEngine:
         new_streets = state.streets.drop(streets_to_remove)
 
         # INCREMENTAL GRAPH UPDATE: Remove specific edge instead of full rebuild
-        import networkx as nx
         new_graph = state.graph.copy()
 
-        # Remove the edge
-        try:
+        # Safely remove the edge using has_edge check
+        if new_graph.has_edge(edge_u, edge_v):
             new_graph.remove_edge(edge_u, edge_v)
-        except nx.NetworkXError:
+            
+            # Remove isolated nodes (nodes with no edges)
+            nodes_to_remove = [node for node in [edge_u, edge_v] 
+                             if node in new_graph and new_graph.degree[node] == 0]
+            for node in nodes_to_remove:
+                new_graph.remove_node(node)
+            
+            logger.info(f"Incremental graph update: removed edge ({edge_u}, {edge_v}), removed {len(nodes_to_remove)} isolated nodes")
+        else:
             logger.warning(f"Edge ({edge_u}, {edge_v}) not found in graph during incremental update")
-
-        # Remove isolated nodes (nodes with no edges)
-        nodes_to_remove = [node for node in [edge_u, edge_v] if new_graph.degree[node] == 0]
-        for node in nodes_to_remove:
-            new_graph.remove_node(node)
-
-        logger.info(f"Incremental graph update: removed edge ({edge_u}, {edge_v}), removed {len(nodes_to_remove)} isolated nodes")
 
         # DELTA-BASED FRONTIER UPDATE: Only update affected frontiers
         new_frontiers = self._update_frontiers_delta(state.frontiers, new_graph, edge_u, edge_v)
@@ -111,7 +112,6 @@ class RewindEngine:
             iteration=new_iteration,
             city_bounds=state.city_bounds
         )
-
 
     def _rewind_subdivide_block(self, action: InverseGrowthAction, state: GrowthState) -> GrowthState:
         """Rewind a SUBDIVIDE_BLOCK action by merging the subdivided blocks."""
