@@ -98,7 +98,7 @@ class RewindEngine:
         new_graph.remove_nodes_from(isolated_nodes)
         
         # Rebuild frontiers
-        new_frontiers = self._rebuild_frontiers_simple(new_streets, new_graph)
+        new_frontiers = self._rebuild_frontiers_simple(new_streets, new_graph, state.blocks)
         
         # FIXED: Keep iteration at 0 during inference rewind
         # During inverse inference, we're rewinding from a final state (iteration=0)
@@ -134,11 +134,28 @@ class RewindEngine:
         logger.warning("REMOVE_STREET rewind not fully implemented")
         return state
     
-    def _rebuild_frontiers_simple(self, streets, graph) -> List[FrontierEdge]:
-        """Simple frontier rebuilding after rewind operations."""
+    def _rebuild_frontiers_simple(self, streets, graph, blocks=None) -> List[FrontierEdge]:
+        """
+        Enhanced frontier rebuilding after rewind operations.
+        
+        Detects both dead-end frontiers and block-edge frontiers by checking
+        spatial adjacency to block boundaries.
+        
+        Args:
+            streets: GeoDataFrame of streets
+            graph: NetworkX graph of street network
+            blocks: Optional GeoDataFrame of blocks (from state.blocks)
+        
+        Returns:
+            List of FrontierEdge objects
+        """
+        from shapely.ops import unary_union
+        from shapely.geometry import MultiLineString
+        
         frontiers = []
         
-        # Detect dead-end edges
+        # Step 1: Detect dead-end frontiers (existing logic)
+        dead_end_edges = set()
         for u, v, data in graph.edges(data=True):
             u_degree = graph.degree[u]
             v_degree = graph.degree[v]
@@ -148,8 +165,8 @@ class RewindEngine:
                 continue
                 
             if u_degree == 1 or v_degree == 1:
-                # Dead-end frontier
                 edge_tuple = (min(u, v), max(u, v))
+                dead_end_edges.add(edge_tuple)
                 frontier_id = f"dead_end_{edge_tuple[0]}_{edge_tuple[1]}"
                 
                 frontier = FrontierEdge(
@@ -162,22 +179,90 @@ class RewindEngine:
                     spatial_hash=""
                 )
                 frontiers.append(frontier)
-            else:
-                # Block-edge frontier (simplified - assumes all other edges are block edges)
-                edge_tuple = (min(u, v), max(u, v))
-                frontier_id = f"block_edge_{edge_tuple[0]}_{edge_tuple[1]}"
-                
-                frontier = FrontierEdge(
-                    frontier_id=frontier_id,
-                    edge_id=(u, v),
-                    block_id=None,  # Would need block detection logic
-                    geometry=geometry,
-                    frontier_type='block_edge',
-                    expansion_weight=0.5,
-                    spatial_hash=""
-                )
-                frontiers.append(frontier)
         
+        logger.info(f"Detected {len(dead_end_edges)} dead-end frontiers")
+        
+        # Step 2: Detect block-edge frontiers (NEW LOGIC)
+        if blocks is not None and len(blocks) > 0:
+            # Create unified block boundary for spatial queries
+            try:
+                all_blocks_union = unary_union(blocks.geometry)
+                
+                # Get block boundary as LineString or MultiLineString
+                if hasattr(all_blocks_union, 'boundary'):
+                    block_boundaries = all_blocks_union.boundary
+                else:
+                    logger.warning("Could not extract block boundaries")
+                    block_boundaries = None
+                
+                if block_boundaries:
+                    # Check each edge against block boundaries
+                    for u, v, data in graph.edges(data=True):
+                        edge_tuple = (min(u, v), max(u, v))
+                        
+                        # Skip if already classified as dead-end
+                        if edge_tuple in dead_end_edges:
+                            continue
+                        
+                        geometry = data.get('geometry')
+                        if not geometry or not isinstance(geometry, LineString):
+                            continue
+                        
+                        # Check if edge is adjacent to block boundary
+                        # Use small buffer for numerical tolerance
+                        is_block_edge = geometry.buffer(0.1).intersects(block_boundaries)
+                        
+                        if is_block_edge:
+                            # Find which block this edge belongs to
+                            block_id = None
+                            for idx, block in blocks.iterrows():
+                                if geometry.buffer(0.1).intersects(block.geometry.boundary):
+                                    block_id = int(idx)
+                                    break
+                            
+                            frontier_id = f"block_edge_{edge_tuple[0]}_{edge_tuple[1]}"
+                            
+                            frontier = FrontierEdge(
+                                frontier_id=frontier_id,
+                                edge_id=(u, v),
+                                block_id=block_id,
+                                geometry=geometry,
+                                frontier_type='block_edge',
+                                expansion_weight=0.5,
+                                spatial_hash=""
+                            )
+                            frontiers.append(frontier)
+                
+                logger.info(f"Detected {len(frontiers) - len(dead_end_edges)} block-edge frontiers")
+                
+            except Exception as e:
+                logger.error(f"Error detecting block-edge frontiers: {e}")
+                logger.info("Falling back to simple heuristic")
+                
+                # Fallback: treat non-dead-end edges as potential block edges
+                for u, v, data in graph.edges(data=True):
+                    edge_tuple = (min(u, v), max(u, v))
+                    if edge_tuple in dead_end_edges:
+                        continue
+                    
+                    geometry = data.get('geometry')
+                    if not geometry or not isinstance(geometry, LineString):
+                        continue
+                    
+                    frontier_id = f"block_edge_{edge_tuple[0]}_{edge_tuple[1]}"
+                    
+                    frontier = FrontierEdge(
+                        frontier_id=frontier_id,
+                        edge_id=(u, v),
+                        block_id=None,
+                        geometry=geometry,
+                        frontier_type='block_edge',
+                        expansion_weight=0.5,
+                        spatial_hash=""
+                    )
+                    frontiers.append(frontier)
+        
+        logger.info(f"Total frontiers rebuilt: {len(frontiers)}")
         return frontiers
 
     def can_rewind_action(self, action: InverseGrowthAction, state: GrowthState) -> bool:
