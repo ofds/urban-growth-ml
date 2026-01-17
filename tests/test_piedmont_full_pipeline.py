@@ -246,20 +246,6 @@ def main():
         print("4. Train ML model on inferred actions")
     else:
         print("FIX REQUIRED:")
-        replay_rate = metrics.stages['replay']['metrics'].get('replay_success_rate', 0)
-        
-        if replay_rate < 20:
-            print("1. CRITICAL: Action ordering bug - verify insert(0) vs append()")
-            print("2. Check stable_id computation matches between inference and replay")
-            print("3. Verify geometry_for_matching is correctly stored in actions")
-        elif replay_rate < 50:
-            print("1. Improve stable_id matching algorithm")
-            print("2. Tune geometry matching tolerance")
-            print("3. Add fallback matching strategies")
-        else:
-            print("1. Fine-tune inference heuristics")
-            print("2. Verify growth engine validators")
-            print("3. Check skeleton extraction quality")
     print("="*60)
     
     sys.exit(0 if ready_for_ml else 1)
