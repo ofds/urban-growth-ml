@@ -1,0 +1,245 @@
+COMPREHENSIVE PROFILING REPORT
+==================================================
+
+Scaling Results:
+Size 100: 0.000555s avg, 10.8KB peak
+Size 500: 0.000434s avg, 9.7KB peak
+Size 1000: 0.000468s avg, 9.5KB peak
+Size 2000: 0.000464s avg, 9.3KB peak
+
+Hotspot Analysis:
+Timer unit: 1e-07 s
+
+Total time: 0.0026574 s
+File: C:\Users\ofds2\Desktop\Codigos\MVPs\urban-growth-ml\profile_rewind.py
+Function: identify_hotspots.<locals>.profile_rewind at line 341
+
+Line #      Hits         Time  Per Hit   % Time  Line Contents
+==============================================================
+   341                                               def profile_rewind():
+   342         1      26574.0  26574.0    100.0          return rewind_engine.rewind_action(action, city)
+
+Total time: 0 s
+File: C:\Users\ofds2\Desktop\Codigos\MVPs\urban-growth-ml\src\inverse\rewind.py
+Function: RewindEngine._build_edge_index at line 75
+
+Line #      Hits         Time  Per Hit   % Time  Line Contents
+==============================================================
+    75                                               def _build_edge_index(self, streets_gdf) -> None:
+    76                                                   """
+    77                                                   LEGACY: Build O(1) edge lookup index from streets GeoDataFrame.
+    78                                           
+    79                                                   DEPRECATED: Use _ensure_edge_index() for cached behavior.
+    80                                           
+    81                                                   Args:
+    82                                                       streets_gdf: GeoDataFrame with 'u' and 'v' columns
+    83                                                   """
+    84                                                   # For backward compatibility, force rebuild
+    85                                                   self._edge_index_cache_key = None
+    86                                                   self._ensure_edge_index(streets_gdf)
+
+Total time: 0.0026491 s
+File: C:\Users\ofds2\Desktop\Codigos\MVPs\urban-growth-ml\src\inverse\rewind.py
+Function: RewindEngine.rewind_action at line 100
+
+Line #      Hits         Time  Per Hit   % Time  Line Contents
+==============================================================
+   100                                               def rewind_action(self, action: InverseGrowthAction, current_state: GrowthState) -> GrowthState:
+   101                                                   """Rewind a single action from the current state."""
+   102                                           
+   103                                                   # OPTIMIZATION: Ensure edge index is cached for O(1) lookups
+   104         1       5734.0   5734.0     21.6          self._ensure_edge_index(current_state.streets)
+   105                                           
+   106                                                   # Check if we can actually remove this street
+   107         1         19.0     19.0      0.1          handler = self.action_handlers.get(action.action_type)
+   108         1          3.0      3.0      0.0          if handler is None:
+   109                                                       logger.warning(f"No rewind handler for action type: {action.action_type}")
+   110                                                       return current_state
+   111                                           
+   112         1          2.0      2.0      0.0          try:
+   113         1      20699.0  20699.0     78.1              new_state = handler(action, current_state)
+   114                                                       # Verify state actually changed
+   115         1         32.0     32.0      0.1              if len(new_state.streets) >= len(current_state.streets):
+   116                                                           logger.warning(f"Rewind failed to remove street - state unchanged")
+   117                                                           return current_state
+   118         1          2.0      2.0      0.0              return new_state
+   119                                                   except Exception as e:
+   120                                                       logger.error(f"Failed to rewind action {action.action_type}: {e}")
+   121                                                       return current_state
+
+Total time: 0 s
+File: C:\Users\ofds2\Desktop\Codigos\MVPs\urban-growth-ml\src\inverse\rewind.py
+Function: RewindEngine._rebuild_frontiers_simple at line 265
+
+Line #      Hits         Time  Per Hit   % Time  Line Contents
+==============================================================
+   265                                               def _rebuild_frontiers_simple(self, streets, graph, blocks=None) -> List[FrontierEdge]:
+   266                                                   """
+   267                                                   Simple frontier rebuilding after rewind operations.
+   268                                                   
+   269                                                   Classifies edges as:
+   270                                                   - Dead-end: if one endpoint has degree 1
+   271                                                   - Block-edge: all other edges (default)
+   272                                                   
+   273                                                   Args:
+   274                                                       streets: GeoDataFrame of streets
+   275                                                       graph: NetworkX graph of street network
+   276                                                       blocks: Optional GeoDataFrame of blocks
+   277                                                   
+   278                                                   Returns:
+   279                                                       List of FrontierEdge objects
+   280                                                   """
+   281                                                   frontiers = []
+   282                                                   
+   283                                                   # OPTIMIZATION: Move expensive logging behind debug guard
+   284                                                   if logger.isEnabledFor(logging.DEBUG):
+   285                                                       num_nodes = graph.number_of_nodes()
+   286                                                       num_edges = graph.number_of_edges()
+   287                                                       logger.debug(f"Rebuilding frontiers from graph with {num_nodes} nodes, {num_edges} edges")
+   288                                           
+   289                                                   if graph.number_of_edges() == 0:
+   290                                                       logger.warning("Graph has no edges after rewind - this shouldn't happen!")
+   291                                                       return frontiers
+   292                                           
+   293                                                   # Classify all edges
+   294                                                   dead_end_count = 0
+   295                                                   block_edge_count = 0
+   296                                           
+   297                                                   for u, v, data in graph.edges(data=True):
+   298                                                       geometry = data.get('geometry')
+   299                                                       if not geometry or not isinstance(geometry, LineString):
+   300                                                           if logger.isEnabledFor(logging.DEBUG):
+   301                                                               logger.debug(f"Edge ({u}, {v}) missing geometry, skipping")
+   302                                                           continue
+   303                                           
+   304                                                       u_degree = graph.degree[u]
+   305                                                       v_degree = graph.degree[v]
+   306                                           
+   307                                                       # Determine frontier type
+   308                                                       if u_degree == 1 or v_degree == 1:
+   309                                                           # Dead-end frontier
+   310                                                           frontier_type = 'dead_end'
+   311                                                           expansion_weight = self.DEAD_END_WEIGHT
+   312                                                           dead_end_count += 1
+   313                                                       else:
+   314                                                           # Block-edge frontier (default for all other edges)
+   315                                                           frontier_type = 'block_edge'
+   316                                                           expansion_weight = self.BLOCK_EDGE_WEIGHT
+   317                                                           block_edge_count += 1
+   318                                           
+   319                                                       edge_tuple = (min(u, v), max(u, v))
+   320                                                       frontier_id = f"{frontier_type}_{edge_tuple[0]}_{edge_tuple[1]}"
+   321                                           
+   322                                                       frontier = FrontierEdge(
+   323                                                           frontier_id=frontier_id,
+   324                                                           edge_id=(u, v),
+   325                                                           block_id=None,  # Could add block lookup if needed
+   326                                                           geometry=geometry,
+   327                                                           frontier_type=frontier_type,
+   328                                                           expansion_weight=expansion_weight,
+   329                                                           spatial_hash=""
+   330                                                       )
+   331                                                       frontiers.append(frontier)
+   332                                           
+   333                                                   # OPTIMIZATION: Move expensive logging behind debug guard
+   334                                                   if logger.isEnabledFor(logging.DEBUG):
+   335                                                       logger.debug(f"Detected {dead_end_count} dead-end + {block_edge_count} block-edge = {len(frontiers)} total frontiers")
+   336                                                   
+   337                                                   return frontiers
+
+Total time: 1.08e-05 s
+File: C:\Users\ofds2\Desktop\Codigos\MVPs\urban-growth-ml\src\inverse\rewind.py
+Function: RewindEngine._update_frontiers_delta at line 339
+
+Line #      Hits         Time  Per Hit   % Time  Line Contents
+==============================================================
+   339                                               def _update_frontiers_delta(self, current_frontiers: List[FrontierEdge], graph, removed_u: int, removed_v: int) -> List[FrontierEdge]:
+   340                                                   """
+   341                                                   Delta-based frontier update: only modify frontiers affected by edge removal.
+   342                                           
+   343                                                   OPTIMIZATION: Pre-normalize edges and use set-based deduplication for O(1) lookups.
+   344                                           
+   345                                                   Args:
+   346                                                       current_frontiers: Current list of frontiers
+   347                                                       graph: Updated graph after edge removal
+   348                                                       removed_u, removed_v: Node IDs of the removed edge
+   349                                           
+   350                                                   Returns:
+   351                                                       Updated list of frontiers
+   352                                                   """
+   353                                                   # Use set for O(1) lookups
+   354         1          5.0      5.0      4.6          affected_nodes = {removed_u, removed_v}
+   355                                           
+   356                                                   # Track counts for logging (avoid expensive list comprehensions)
+   357         1          3.0      3.0      2.8          removed_count = 0
+   358         1          2.0      2.0      1.9          added_count = 0
+   359                                           
+   360                                                   # Remove affected frontiers in-place to avoid O(n) list copy
+   361         1          2.0      2.0      1.9          i = 0
+   362         3          9.0      3.0      8.3          while i < len(current_frontiers):
+   363         2          6.0      3.0      5.6              f = current_frontiers[i]
+   364         2          8.0      4.0      7.4              if f.edge_id[0] in affected_nodes or f.edge_id[1] in affected_nodes:
+   365         1          6.0      6.0      5.6                  current_frontiers.pop(i)
+   366         1          3.0      3.0      2.8                  removed_count += 1
+   367                                                       else:
+   368         1          3.0      3.0      2.8                  i += 1
+   369                                           
+   370                                                   # Rename for clarity - current_frontiers is now filtered
+   371         1          3.0      3.0      2.8          new_frontiers = current_frontiers
+   372                                           
+   373                                                   # OPTIMIZATION: Pre-build all affected edges at once for O(1) deduplication
+   374                                                   # Use normalized edge tuples as keys for automatic deduplication
+   375         1          4.0      4.0      3.7          affected_edges = set()
+   376         3         10.0      3.3      9.3          for node in affected_nodes:
+   377         2         21.0     10.5     19.4              if node in graph:
+   378                                                           for neighbor in graph.neighbors(node):
+   379                                                               # Pre-normalize edge to avoid repeated calls
+   380                                                               affected_edges.add((min(node, neighbor), max(node, neighbor)))
+   381                                           
+   382                                                   # OPTIMIZATION: Batch process unique edges with single graph query per edge
+   383         1          3.0      3.0      2.8          for edge_key in affected_edges:
+   384                                                       u, v = edge_key
+   385                                           
+   386                                                       # Single graph edge existence check
+   387                                                       if graph.has_edge(u, v):
+   388                                                           node, neighbor = u, v
+   389                                                       elif graph.has_edge(v, u):
+   390                                                           node, neighbor = v, u
+   391                                                       else:
+   392                                                           continue  # Edge no longer exists
+   393                                           
+   394                                                       data = graph.get_edge_data(node, neighbor)
+   395                                                       geometry = data.get('geometry')
+   396                                           
+   397                                                       if geometry and isinstance(geometry, LineString):
+   398                                                           # OPTIMIZATION: Single degree lookup per node
+   399                                                           u_degree = graph.degree[node]
+   400                                                           v_degree = graph.degree[neighbor]
+   401                                           
+   402                                                           # Determine frontier type
+   403                                                           if u_degree == 1 or v_degree == 1:
+   404                                                               frontier_type = 'dead_end'
+   405                                                               expansion_weight = self.DEAD_END_WEIGHT
+   406                                                           else:
+   407                                                               frontier_type = 'block_edge'
+   408                                                               expansion_weight = self.BLOCK_EDGE_WEIGHT
+   409                                           
+   410                                                           frontier_id = f"{frontier_type}_{edge_key[0]}_{edge_key[1]}"
+   411                                           
+   412                                                           frontier = FrontierEdge(
+   413                                                               frontier_id=frontier_id,
+   414                                                               edge_id=(node, neighbor),
+   415                                                               block_id=None,
+   416                                                               geometry=geometry,
+   417                                                               frontier_type=frontier_type,
+   418                                                               expansion_weight=expansion_weight,
+   419                                                               spatial_hash=""
+   420                                                           )
+   421                                                           new_frontiers.append(frontier)
+   422                                                           added_count += 1
+   423                                           
+   424                                                   # OPTIMIZATION: Move expensive logging behind debug guard
+   425         1         17.0     17.0     15.7          if logger.isEnabledFor(logging.DEBUG):
+   426                                                       logger.debug(f"Delta frontier update: removed {removed_count} affected frontiers, added {added_count} new frontiers")
+   427         1          3.0      3.0      2.8          return new_frontiers
+

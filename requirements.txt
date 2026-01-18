@@ -1,0 +1,23 @@
+# Core dependencies
+numpy>=1.21.0
+pandas>=1.3.0
+geopandas>=0.10.0
+shapely>=1.8.0
+networkx>=2.6.0
+
+# Testing and profiling
+pytest>=7.0.0
+pytest-cov>=3.0.0
+pytest-benchmark>=4.0.0
+hypothesis>=6.0.0
+memory_profiler>=0.60.0
+line_profiler>=3.5.0
+
+# Development
+mypy>=0.950
+black>=22.0.0
+flake8>=4.0.0
+
+# Optional ML dependencies
+torch>=1.11.0
+scikit-learn>=1.0.0

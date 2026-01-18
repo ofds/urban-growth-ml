@@ -22,7 +22,7 @@ class RewindEngine:
 
     Provides operations to undo growth actions and restore previous states.
 
-    OPTIMIZATION: Maintains edge index for O(1) street lookups.
+    OPTIMIZATION: Maintains cached edge index for O(1) street lookups.
     """
 
     # Performance constants
@@ -37,24 +37,53 @@ class RewindEngine:
             ActionType.REALIGN_STREET: self._rewind_realign_street,
             ActionType.REMOVE_STREET: self._rewind_remove_street,
         }
-        # OPTIMIZATION: Edge index for O(1) lookups instead of O(n) DataFrame scans
+        # OPTIMIZATION: Cached edge index for O(1) lookups instead of O(n) DataFrame scans
         self._edge_index = {}  # Maps (u,v) tuples to DataFrame indices
+        self._edge_index_cache_key = None  # Cache key to detect when rebuild is needed
 
-    def _build_edge_index(self, streets_gdf) -> None:
+    def _ensure_edge_index(self, streets_gdf) -> None:
         """
-        Build O(1) edge lookup index from streets GeoDataFrame.
+        Ensure edge index is built and cached for the given streets GeoDataFrame.
 
-        OPTIMIZATION: Pre-compute edge-to-index mapping for fast lookups.
+        OPTIMIZATION: Cache edge index to avoid rebuilding on every rewind operation.
+        Only rebuilds when streets DataFrame actually changes.
+        Uses vectorized operations instead of .iterrows() for better performance.
 
         Args:
             streets_gdf: GeoDataFrame with 'u' and 'v' columns
         """
-        self._edge_index.clear()
-        for idx, row in streets_gdf.iterrows():
-            u, v = str(row['u']), str(row['v'])
-            # Store both directions for bidirectional lookup
-            self._edge_index[(u, v)] = idx
-            self._edge_index[(v, u)] = idx
+        # Create cache key based on DataFrame identity and shape
+        # Using id() for identity check - if same DataFrame object, assume unchanged
+        cache_key = (id(streets_gdf), len(streets_gdf))
+
+        if self._edge_index_cache_key != cache_key:
+            # Cache miss - rebuild index using vectorized operations
+            self._edge_index.clear()
+
+            # OPTIMIZATION: Use vectorized string conversion and zip for O(n) index building
+            u_values = streets_gdf['u'].astype(str)
+            v_values = streets_gdf['v'].astype(str)
+
+            # Build index in O(n) time using vectorized operations
+            for idx, (u, v) in enumerate(zip(u_values, v_values)):
+                # Store both directions for bidirectional lookup
+                self._edge_index[(u, v)] = idx
+                self._edge_index[(v, u)] = idx
+
+            self._edge_index_cache_key = cache_key
+
+    def _build_edge_index(self, streets_gdf) -> None:
+        """
+        LEGACY: Build O(1) edge lookup index from streets GeoDataFrame.
+
+        DEPRECATED: Use _ensure_edge_index() for cached behavior.
+
+        Args:
+            streets_gdf: GeoDataFrame with 'u' and 'v' columns
+        """
+        # For backward compatibility, force rebuild
+        self._edge_index_cache_key = None
+        self._ensure_edge_index(streets_gdf)
 
     def _find_street_index(self, edge_u: int, edge_v: int) -> Optional[int]:
         """
@@ -71,8 +100,8 @@ class RewindEngine:
     def rewind_action(self, action: InverseGrowthAction, current_state: GrowthState) -> GrowthState:
         """Rewind a single action from the current state."""
 
-        # OPTIMIZATION: Build edge index for O(1) lookups
-        self._build_edge_index(current_state.streets)
+        # OPTIMIZATION: Ensure edge index is cached for O(1) lookups
+        self._ensure_edge_index(current_state.streets)
 
         # Check if we can actually remove this street
         handler = self.action_handlers.get(action.action_type)
