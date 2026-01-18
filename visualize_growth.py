@@ -21,7 +21,7 @@ from core.growth.new.growth_engine import GrowthEngine
 from inverse.inference import BasicInferenceEngine
 from inverse.replay import TraceReplayEngine
 from inverse.visualization import InverseGrowthVisualizer
-from inverse.serialization import TraceSerializer
+from inverse.serialization import save_trace, load_trace
 
 logging.basicConfig(
     level=logging.INFO,
@@ -48,8 +48,7 @@ def load_or_infer_trace(city_name: str, engine: GrowthEngine, force_inference: b
     if not force_inference and trace_path.exists():
         logger.info(f"Loading existing trace from {trace_path}")
         try:
-            serializer = TraceSerializer()
-            trace = serializer.load_trace(str(trace_path))
+            trace = load_trace(str(trace_path))
             city = engine.load_initial_state()
             logger.info(f"Loaded trace with {len(trace.actions)} actions")
             return trace, city
@@ -64,8 +63,7 @@ def load_or_infer_trace(city_name: str, engine: GrowthEngine, force_inference: b
 
     # Save for future use
     try:
-        serializer = TraceSerializer()
-        serializer.save_trace(trace, str(trace_path))
+        save_trace(trace, str(trace_path))
         logger.info(f"Saved trace to {trace_path}")
     except Exception as e:
         logger.warning(f"Failed to save trace: {e}")

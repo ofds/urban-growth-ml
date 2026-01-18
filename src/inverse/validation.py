@@ -35,11 +35,11 @@ class MorphologicalValidator:
     def validate_replay(self, original_state: GrowthState, replayed_state: GrowthState) -> Dict[str, Any]:
         """
         Validate replayed state against original using morphological criteria.
-        
+
         Args:
             original_state: Original final state
             replayed_state: State produced by replaying inferred trace
-        
+
         Returns:
             Validation results dictionary
         """
@@ -52,72 +52,85 @@ class MorphologicalValidator:
             'block_count_error': 0.0,
             'connectivity_preserved': True,
             'overall_score': 1.0,
-            'issues': []
+            'issues': [],
+            # Coverage metrics
+            'street_coverage': 0.0,
+            'matched_streets': 0,
+            'total_original_streets': len(original_state.streets),
+            'total_replayed_streets': len(replayed_state.streets)
         }
-        
-        # Geometric validation
+
+        # Geometric validation (now includes coverage metrics)
         geom_results = self._validate_geometric(original_state, replayed_state)
         results.update(geom_results)
-        
+
         # Topological validation
         topo_results = self._validate_topological(original_state, replayed_state)
         results.update(topo_results)
-        
+
         # Morphological validation
         morph_results = self._validate_morphological(original_state, replayed_state)
         results.update(morph_results)
-        
+
         # Overall assessment
         results['overall_score'] = self._calculate_overall_score(results)
         results['morphological_valid'] = results['overall_score'] >= 0.7  # 70% threshold
-        
+
         if not results['morphological_valid']:
             results['issues'].append(f"Low morphological fidelity: {results['overall_score']:.2f}")
-        
+
+        # Add coverage-based issues
+        if results['street_coverage'] < 0.5:
+            results['issues'].append(f"Low street coverage: {results['street_coverage']:.1%}")
+
         return results
     
     def _validate_geometric(self, original: GrowthState, replayed: GrowthState) -> Dict[str, Any]:
         """Validate geometric properties with relaxed tolerances."""
         results = {'endpoint_errors': [], 'frechet_errors': []}
-        
-        # OPTIMIZATION: Match streets using spatial indexing
-        matched_pairs = self._match_streets_geometrically(original.streets, replayed.streets)
-        
+
+        # Get matched pairs and coverage statistics
+        matched_pairs, coverage_stats = self._match_streets_geometrically(original.streets, replayed.streets)
+
+        # Store coverage metrics
+        results.update(coverage_stats)
+
         total_endpoint_error = 0.0
         total_frechet_error = 0.0
         matched_count = 0
-        
+
         for orig_geom, replay_geom in matched_pairs:
             # Endpoint distance
             orig_start = Point(orig_geom.coords[0])
             orig_end = Point(orig_geom.coords[-1])
             replay_start = Point(replay_geom.coords[0])
             replay_end = Point(replay_geom.coords[-1])
-            
+
             start_dist = orig_start.distance(replay_start)
             end_dist = orig_end.distance(replay_end)
             endpoint_error = (start_dist + end_dist) / 2
-            
+
             if endpoint_error > self.endpoint_tolerance:
                 results['endpoint_errors'].append(endpoint_error)
-            
+
             # Simplified Fréchet distance
             frechet_error = self._approximate_frechet_distance(orig_geom, replay_geom)
-            
+
             if frechet_error > self.frechet_tolerance:
                 results['frechet_errors'].append(frechet_error)
-            
+
             total_endpoint_error += endpoint_error
             total_frechet_error += frechet_error
             matched_count += 1
-        
+
         results['avg_endpoint_error'] = total_endpoint_error / max(matched_count, 1)
         results['avg_frechet_error'] = total_frechet_error / max(matched_count, 1)
         results['geometric_valid'] = (
             results['avg_endpoint_error'] <= self.endpoint_tolerance and
-            results['avg_frechet_error'] <= self.frechet_tolerance
+            results['avg_frechet_error'] <= self.frechet_tolerance and
+            results.get('street_coverage', 0) > 0.1  # At least 10% coverage required
         )
-        
+
         return results
     
     def _validate_topological(self, original: GrowthState, replayed: GrowthState) -> Dict[str, Any]:
@@ -159,81 +172,114 @@ class MorphologicalValidator:
         results['morphological_valid'] = True  # Placeholder
         return results
     
-    def _match_streets_geometrically(self, orig_streets, replay_streets) -> List[Tuple]:
+    def _match_streets_geometrically(self, orig_streets, replay_streets) -> Tuple[List[Tuple], Dict[str, Any]]:
         """
-        OPTIMIZED: Match streets using STRtree spatial index instead of O(n×m) nested loops.
-        
-        Performance improvement: 5+ minutes → <30 seconds for ~5000 streets
+        FIXED: Proper geometric matching that penalizes non-matches and uses strict criteria.
+
+        Key fixes:
+        - No sampling: Compare ALL streets to get accurate coverage metrics
+        - Strict geometric matching: Use Hausdorff distance, not just centroids
+        - Coverage tracking: Return match statistics, not just matched pairs
+
+        Returns:
+            Tuple of (matched_pairs, coverage_stats)
         """
-        logger.info(f"Starting optimized spatial matching: {len(orig_streets)} original, {len(replay_streets)} replayed")
-        
-        if orig_streets.empty or replay_streets.empty:
-            logger.warning("Empty street dataset provided")
-            return []
-        
-        # For very large datasets, sample to keep performance reasonable
-        max_streets = 5000  # Increased from 1000 with spatial indexing
-        if len(orig_streets) > max_streets:
-            logger.info(f"Sampling to {max_streets} streets for performance")
-            orig_sample = orig_streets.sample(n=max_streets, random_state=42)
-        else:
-            orig_sample = orig_streets
-        
-        if len(replay_streets) > max_streets:
-            replay_sample = replay_streets.sample(n=max_streets, random_state=42)
-        else:
-            replay_sample = replay_streets
-        
-        # OPTIMIZATION: Build STRtree spatial index for replay streets
-        replay_geoms = [geom for geom in replay_sample.geometry if geom and not geom.is_empty]
-        
+        logger.info(f"Starting comprehensive geometric matching: {len(orig_streets)} original, {len(replay_streets)} replayed")
+
+        if orig_streets.empty:
+            logger.warning("No original streets to match against")
+            coverage_stats = {
+                'street_coverage': 0.0,
+                'matched_streets': 0,
+                'total_original_streets': 0,
+                'total_replayed_streets': len(replay_streets)
+            }
+            return [], coverage_stats
+
+        if replay_streets.empty:
+            logger.warning("No replayed streets to match with")
+            coverage_stats = {
+                'street_coverage': 0.0,
+                'matched_streets': 0,
+                'total_original_streets': len(orig_streets),
+                'total_replayed_streets': 0
+            }
+            return [], coverage_stats
+
+        # Build spatial index for replay streets - O(n log n)
+        replay_geoms = [(geom, idx) for idx, geom in enumerate(replay_streets.geometry)
+                       if geom and not geom.is_empty]
+
         if not replay_geoms:
             logger.warning("No valid replay geometries found")
-            return []
-        
-        # Build spatial index - O(n log n) construction
-        spatial_index = STRtree(replay_geoms)
+            coverage_stats = {
+                'street_coverage': 0.0,
+                'matched_streets': 0,
+                'total_original_streets': len(orig_streets),
+                'total_replayed_streets': len(replay_streets)
+            }
+            return [], coverage_stats
+
+        spatial_index = STRtree([geom for geom, _ in replay_geoms])
         logger.info(f"Built STRtree index with {len(replay_geoms)} geometries")
-        
+
         matches = []
-        match_threshold = 10.0  # 10m matching threshold
-        
-        # OPTIMIZATION: Query spatial index instead of nested loops - O(n log m)
-        for idx, orig_street in orig_sample.iterrows():
+        strict_match_threshold = 1.0  # 1m for strict geometric matching
+        loose_match_threshold = 5.0   # 5m for loose matching
+
+        matched_replay_indices = set()
+
+        # Match each original street against replay streets
+        for idx, orig_street in orig_streets.iterrows():
             orig_geom = orig_street.geometry
             if not orig_geom or orig_geom.is_empty:
                 continue
-            
+
             # Query spatial index for nearby candidates
-            # Returns indices of geometries whose bounding boxes intersect with buffered query
-            candidate_indices = spatial_index.query(orig_geom.buffer(match_threshold))
-            
+            candidate_indices = spatial_index.query(orig_geom.buffer(loose_match_threshold))
+
             if len(candidate_indices) == 0:
                 continue
-            
-            # Find best match among candidates by centroid distance
-            orig_centroid = orig_geom.centroid
+
+            # Find best match using Hausdorff distance (strict geometric similarity)
             best_match = None
-            best_distance = match_threshold
-            
+            best_hausdorff = loose_match_threshold
+            best_candidate_idx = None
+
             for candidate_idx in candidate_indices:
-                candidate_geom = replay_geoms[candidate_idx]
-                candidate_centroid = candidate_geom.centroid
-                
-                # Fast squared distance check
-                dx = orig_centroid.x - candidate_centroid.x
-                dy = orig_centroid.y - candidate_centroid.y
-                dist = (dx*dx + dy*dy) ** 0.5
-                
-                if dist < best_distance:
-                    best_distance = dist
+                candidate_geom, replay_idx = replay_geoms[candidate_idx]
+
+                # Calculate Hausdorff distance (measures maximum deviation between geometries)
+                hausdorff_dist = orig_geom.hausdorff_distance(candidate_geom)
+
+                if hausdorff_dist < best_hausdorff:
+                    best_hausdorff = hausdorff_dist
                     best_match = candidate_geom
-            
-            if best_match is not None:
+                    best_candidate_idx = replay_idx
+
+            # Only accept matches within strict threshold
+            if best_match is not None and best_hausdorff <= strict_match_threshold:
                 matches.append((orig_geom, best_match))
-        
-        logger.info(f"Completed optimized matching: {len(matches)} matches found")
-        return matches
+                matched_replay_indices.add(best_candidate_idx)
+
+        # Calculate coverage statistics
+        original_coverage = len(matches) / len(orig_streets) if len(orig_streets) > 0 else 0
+        replay_coverage = len(matched_replay_indices) / len(replay_streets) if len(replay_streets) > 0 else 0
+
+        coverage_stats = {
+            'street_coverage': original_coverage,
+            'matched_streets': len(matches),
+            'total_original_streets': len(orig_streets),
+            'total_replayed_streets': len(replay_streets),
+            'replay_coverage': replay_coverage
+        }
+
+        logger.info(f"Geometric matching results:")
+        logger.info(f"  Original streets matched: {len(matches)}/{len(orig_streets)} ({original_coverage:.1%})")
+        logger.info(f"  Replay streets used: {len(matched_replay_indices)}/{len(replay_streets)} ({replay_coverage:.1%})")
+        logger.info(f"  Average Hausdorff distance: {sum(orig_geom.hausdorff_distance(replay_geom) for orig_geom, replay_geom in matches[:10])/min(10, len(matches)):.2f}m (sample)")
+
+        return matches, coverage_stats
     
     def _approximate_frechet_distance(self, geom1, geom2) -> float:
         """Approximate Fréchet distance between two geometries."""
@@ -252,23 +298,53 @@ class MorphologicalValidator:
         return max_min_dist
     
     def _calculate_overall_score(self, results: Dict[str, Any]) -> float:
-        """Calculate overall morphological fidelity score."""
+        """
+        FIXED: Calculate overall morphological fidelity score with proper coverage penalties.
+
+        Now uses actual coverage metrics to penalize poor street reproduction.
+        """
         scores = []
-        
-        # Geometric score
+
+        # Geometric score (only for matched streets)
         if results.get('geometric_valid', False):
             geom_score = 1.0 - min(1.0, results.get('avg_endpoint_error', 0) / self.endpoint_tolerance)
             scores.append(geom_score)
-        
+        else:
+            # No valid geometric matches found
+            scores.append(0.0)
+
         # Topological score
         if results.get('topological_valid', False):
             topo_score = 1.0 - results.get('block_count_error', 0) / self.block_count_tolerance
             scores.append(topo_score)
-        
-        # Morphological score
+        else:
+            scores.append(0.0)
+
+        # Coverage penalty: Use actual street coverage from geometric matching
+        street_coverage = results.get('street_coverage', 0.0)
+
+        if street_coverage < 0.1:  # Less than 10% coverage - critical failure
+            coverage_penalty = 0.0  # Maximum penalty
+        elif street_coverage < 0.3:  # Less than 30% coverage
+            coverage_penalty = 0.2  # Heavy penalty
+        elif street_coverage < 0.5:  # Less than 50% coverage
+            coverage_penalty = 0.5  # Moderate penalty
+        elif street_coverage < 0.7:  # Less than 70% coverage
+            coverage_penalty = 0.8  # Light penalty
+        else:
+            coverage_penalty = 1.0  # No penalty
+
+        scores.append(coverage_penalty)
+
+        # Morphological score (placeholder for now)
         scores.append(1.0 if results.get('morphological_valid', True) else 0.5)
-        
-        return sum(scores) / len(scores) if scores else 0.0
+
+        final_score = sum(scores) / len(scores) if scores else 0.0
+
+        logger.info(f"Overall morphological score: {final_score:.2f} (components: {scores})")
+        logger.info(f"Street coverage: {street_coverage:.1%} -> Coverage penalty: {coverage_penalty:.2f}")
+
+        return final_score
 
 
 def validate_trace_quality(

@@ -92,6 +92,35 @@ class TraceReplayEngine:
         logger.info(f"Trace replay validation complete: fidelity={validation_results['overall_score']:.2f}")
         return report
 
+    def replay_trace(self, trace: GrowthTrace, city_name: str = "unknown") -> Optional[GrowthState]:
+        """
+        Replay a growth trace and return the final replayed city state.
+
+        Args:
+            trace: Growth trace to replay
+            city_name: Name of city for logging
+
+        Returns:
+            Final replayed city state, or None if replay failed
+        """
+        logger.info(f"Replaying trace for {city_name}")
+
+        # Convert trace to replayable actions
+        replay_actions = self._convert_trace_to_replayable_actions(trace)
+
+        # Set up initial state for replay
+        initial_state = self._create_replay_initial_state(trace)
+
+        # Replay the trace
+        replayed_state, successful_actions = self._replay_actions(replay_actions, initial_state, city_name)
+
+        if replayed_state is None:
+            logger.error(f"Replay failed for {city_name}")
+            return None
+
+        logger.info(f"Replay complete: {successful_actions}/{len(trace.actions)} actions successful")
+        return replayed_state
+
     # OPTIMIZATION: Stable frontier identification using geometric hashing
     def _compute_stable_frontier_id(self, frontier) -> str:
         """

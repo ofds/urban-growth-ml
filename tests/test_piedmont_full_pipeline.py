@@ -11,9 +11,9 @@ if str(src_path) not in sys.path:
     sys.path.insert(0, str(src_path))
 
 import logging
-from core.growth.new.growth_engine import GrowthEngine
-from inverse.inference import BasicInferenceEngine
-from inverse.replay import TraceReplayEngine
+from src.core.growth.new.growth_engine import GrowthEngine
+from src.inverse.inference import BasicInferenceEngine
+from src.inverse.replay import TraceReplayEngine
 
 logging.basicConfig(
     level=logging.INFO,
