@@ -525,27 +525,27 @@ class BasicInferenceEngine:
             # Compute geometric signature for stable frontier matching
             geometric_signature = compute_frontier_signature(peripheral_frontier)
 
-        return InverseGrowthAction(
-            action_type=ActionType.REMOVE_STREET,
-            street_id=peripheral_frontier.frontier_id,  # Keep for debugging
-            intent_params={
-                "direction": "peripheral_expansion",
-                "edge_u": str(peripheral_frontier.edge_id[0]),
-                "edge_v": str(peripheral_frontier.edge_id[1]),
-                "stable_id": stable_id  # ← ADD THIS
-            },
-            confidence=0.8,
-            timestamp=len(state.streets),
-            state_diff={
-                "geometry_wkt": wkt.dumps(peripheral_frontier.geometry),
-                "edgeid": peripheral_frontier.edge_id,
-                "frontier_type": peripheral_frontier.frontier_type,
-                "stable_id": stable_id  # ← ADD THIS TOO
-            },
-            action_metadata={
-                "geometric_signature": geometric_signature  # ← ADD GEOMETRIC SIGNATURE
-            }
-        )
+            return InverseGrowthAction(
+                action_type=ActionType.REMOVE_STREET,
+                street_id=peripheral_frontier.frontier_id,  # Keep for debugging
+                intent_params={
+                    "direction": "peripheral_expansion",
+                    "edge_u": str(peripheral_frontier.edge_id[0]),
+                    "edge_v": str(peripheral_frontier.edge_id[1]),
+                    "stable_id": stable_id  # ← ADD THIS
+                },
+                confidence=0.8,
+                timestamp=len(state.streets),
+                state_diff={
+                    "geometry_wkt": wkt.dumps(peripheral_frontier.geometry),
+                    "edgeid": peripheral_frontier.edge_id,
+                    "frontier_type": peripheral_frontier.frontier_type,
+                    "stable_id": stable_id  # ← ADD THIS TOO
+                },
+                action_metadata={
+                    "geometric_signature": geometric_signature  # ← ADD GEOMETRIC SIGNATURE
+                }
+            )
 
         # Fallback for short streets
         candidate_streets = []
@@ -582,8 +582,8 @@ class BasicInferenceEngine:
             geometric_signature = compute_frontier_signature(frontier)
 
             return InverseGrowthAction(
-                action_type=ActionType.EXTEND_FRONTIER,
-                target_id=frontier.frontier_id,
+                action_type=ActionType.REMOVE_STREET,
+                street_id=frontier.frontier_id,
                 intent_params={
                     'strategy': 'short_segment',
                     'edge_u': str(frontier.edge_id[0]),
@@ -598,7 +598,9 @@ class BasicInferenceEngine:
                 },
                 confidence=0.6,
                 timestamp=len(state.streets),
-                geometric_signature=geometric_signature  # ← ADD GEOMETRIC SIGNATURE
+                action_metadata={
+                    'geometric_signature': geometric_signature  # ← ADD GEOMETRIC SIGNATURE
+                }
             )
 
         logger.warning(f"DEBUG: No actions found - cannot infer further")
@@ -723,12 +725,11 @@ class BasicInferenceEngine:
         """
         return InverseGrowthAction(
             action_type=action.action_type,
-            target_id=action.street_id,
+            street_id=action.street_id,
             intent_params=action.intent_params,
             realized_geometry=action.realized_geometry,
             confidence=action.confidence,
             timestamp=action.timestamp,
-            geometric_signature=action.geometric_signature,
             state_diff=state_diff,  # Add the state diff
             action_metadata=action.action_metadata
         )

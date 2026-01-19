@@ -1,0 +1,5342 @@
+{
+  "_type": "GrowthTrace",
+  "actions": [
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_269",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "567508.8_4185518.1",
+        "edge_v": "567147.8_4185527.5",
+        "stable_id": "dfe8a51f7f697773"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (567508.8338854685425758 4185518.0772242178209126, 567489.3338645986514166 4185520.5025290134362876, 567461.5080213996116072 4185521.6834263205528259, 567260.6244251106400043 4185499.0781676112674177, 567243.2245872468920425 4185501.9539677286520600, 567147.8247573998523876 4185527.5050197904929519)",
+        "edgeid": [
+          "567508.8_4185518.1",
+          "567147.8_4185527.5"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "dfe8a51f7f697773"
+      },
+      "confidence": 0.6,
+      "timestamp": 971,
+      "action_metadata": {
+        "geometric_signature": "828e072ac8190307"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_216",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566889.5_4185947.8",
+        "edge_v": "566599.1_4185906.6",
+        "stable_id": "50d1f5b773a7ea77"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566889.4927277342649177 4185947.8408827525563538, 566810.6147601726697758 4185878.7827439690008759, 566786.6826318780658767 4185846.1441244566813111, 566781.1565520833246410 4185842.6817315118387341, 566773.0283728386275470 4185840.9735491545870900, 566764.5135626939591020 4185842.4356458126567304, 566757.6391427046619356 4185845.6753048505634069, 566736.5898205706616864 4185865.5990288578905165, 566723.8946088147349656 4185873.4961178465746343, 566710.8712981175631285 4185878.4390718913637102, 566599.1460020693484694 4185906.6157258958555758)",
+        "edgeid": [
+          "566889.5_4185947.8",
+          "566599.1_4185906.6"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "50d1f5b773a7ea77"
+      },
+      "confidence": 0.6,
+      "timestamp": 975,
+      "action_metadata": {
+        "geometric_signature": "07b2db7c650c87e2"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1338",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "567105.4_4185936.8",
+        "edge_v": "567357.7_4186104.5",
+        "stable_id": "a2dec2f5aaaec534"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (567105.3844355114270002 4185936.7618031902238727, 567112.1439827033318579 4185940.0569510185159743, 567119.0722012756159529 4185948.5685306796804070, 567124.0247950694756582 4185952.1707209586165845, 567136.2029625131981447 4185954.8110799733549356, 567146.9040360999060795 4185959.4033622955903411, 567153.0623277806444094 4185963.0265109557658434, 567171.3391044121235609 4185984.1358389016240835, 567183.7641607254045084 4185993.1805934235453606, 567204.4258238449692726 4186002.4813029589131474, 567213.0943909329362214 4186008.0445953318849206, 567239.6719524291111156 4186035.5243759215809405, 567245.7953964951448143 4186041.2444282979704440, 567253.1275305444141850 4186045.5430047954432666, 567261.0096112694591284 4186048.2482827971689403, 567269.5616860934533179 4186049.7496007503941655, 567299.0601467435481027 4186049.3917782530188560, 567307.2223183574387804 4186051.2117245602421463, 567318.1952006843639538 4186055.9063226031139493, 567324.8992057481082156 4186060.5881774337030947, 567329.0809247342403978 4186064.7944563985802233, 567348.4214335063006729 4186087.0557786854915321, 567355.3306811412330717 4186095.6894663632847369, 567357.7496742566581815 4186104.4750090576708317)",
+        "edgeid": [
+          "567105.4_4185936.8",
+          "567357.7_4186104.5"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "a2dec2f5aaaec534"
+      },
+      "confidence": 0.6,
+      "timestamp": 976,
+      "action_metadata": {
+        "geometric_signature": "5247c850e4a2564d"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1246",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "567738.2_4185934.8",
+        "edge_v": "567738.2_4185934.8",
+        "stable_id": "454d3ffefafc9462"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (567738.2476127186091617 4185934.8044898216612637, 567744.9465971608879045 4185924.0522951632738113, 567750.1318791875382885 4185904.7216253983788192, 567751.1148406016873196 4185891.1816686876118183, 567749.3897418674314395 4185877.2754309689626098, 567742.9946771208196878 4185868.2240026793442667, 567732.5494153639301658 4185860.3819588227197528, 567721.1777096157893538 4185857.0816050237044692, 567691.5610952738206834 4185855.6616181372664869, 567681.3098595649935305 4185853.1139654852449894, 567672.8124462362611666 4185853.5100653842091560, 567663.6971702487207949 4185856.2534138089977205, 567656.5760759836994112 4185860.5444067209027708, 567650.4987202071351930 4185867.4293277072720230, 567645.3004305198555812 4185876.5961357783526182, 567641.9687303026439622 4185885.7006283793598413, 567640.9312317727599293 4185897.3316568438895047, 567643.5619037664728239 4185907.1065592556260526, 567649.1720738068688661 4185914.2096761544235051, 567657.1643288634950295 4185918.5029483344405890, 567688.8009921056218445 4185918.2972543835639954, 567704.6048018783330917 4185919.9585762866772711, 567717.2089187833480537 4185923.2357694916427135, 567738.2476127186091617 4185934.8044898216612637)",
+        "edgeid": [
+          "567738.2_4185934.8",
+          "567738.2_4185934.8"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "454d3ffefafc9462"
+      },
+      "confidence": 0.6,
+      "timestamp": 978,
+      "action_metadata": {
+        "geometric_signature": "7ea73f4f76a5d341"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_469",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "568254.7_4186897.8",
+        "edge_v": "568152.5_4187100.5",
+        "stable_id": "a7f9f4eb5f42cb91"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (568254.6594891070853919 4186897.7926156548783183, 568253.2738913553766906 4186910.9741374286822975, 568250.2808127548778430 4186915.2988821286708117, 568245.4112960037309676 4186919.8410650379955769, 568235.4434016925515607 4186925.7501123435795307, 568230.5396841363981366 4186933.3544883043505251, 568229.3717987941345200 4186940.4572675325907767, 568230.9966248163254932 4186949.3474725387059152, 568247.9141632188111544 4186981.9877899065613747, 568258.0375831478741020 4187005.0403531449846923, 568257.6681351031875238 4187016.6768868719227612, 568254.3458965804893523 4187025.6702718329615891, 568233.9085784835042432 4187041.7450167462229729, 568225.4062769175507128 4187050.2959672440774739, 568219.0009397745598108 4187061.7492616265080869, 568208.4838480554753914 4187096.7472357749938965, 568202.9261768470751122 4187104.6901744878850877, 568191.9259191520977765 4187112.0109811695292592, 568172.7564494487596676 4187113.2056902865879238, 568152.5143843760015443 4187100.4661965351551771)",
+        "edgeid": [
+          "568254.7_4186897.8",
+          "568152.5_4187100.5"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "a7f9f4eb5f42cb91"
+      },
+      "confidence": 0.6,
+      "timestamp": 980,
+      "action_metadata": {
+        "geometric_signature": "c7b08055668f4002"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_146",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "567698.4_4186361.6",
+        "edge_v": "567698.4_4186361.6",
+        "stable_id": "8e6b0c1fcf7cef74"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (567698.4428398514864966 4186361.5789714953862131, 567632.1313717922894284 4186329.4211506973952055, 567624.4761345325969160 4186327.0058655687607825, 567617.5183654353022575 4186326.4715252732858062, 567611.4925548759056255 4186327.1321119996719062, 567606.2815539134899154 4186329.3195366021245718, 567601.2994294253876433 4186332.5740496930666268, 567596.7557669073576108 4186339.2386025162413716, 567594.5631923329783604 4186347.9197411295026541, 567594.8640693017514423 4186354.1469981051050127, 567597.0397592483786866 4186362.5089787552133203, 567601.5798808238469064 4186370.1913587455637753, 567639.9476981082698330 4186411.7613391550257802, 567647.4758413926465437 4186415.7068257797509432, 567655.8155324208782986 4186415.1540720872581005, 567698.4428398514864966 4186361.5789714953862131)",
+        "edgeid": [
+          "567698.4_4186361.6",
+          "567698.4_4186361.6"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "8e6b0c1fcf7cef74"
+      },
+      "confidence": 0.6,
+      "timestamp": 982,
+      "action_metadata": {
+        "geometric_signature": "5f4511c0e35ef813"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_812",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "568109.9_4185367.1",
+        "edge_v": "567877.6_4185298.5",
+        "stable_id": "d0ea0e495731fcbe"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (568109.8749780496582389 4185367.1354283494874835, 568082.3354478115215898 4185355.9780041663907468, 567877.6082432314287871 4185298.5071116569451988)",
+        "edgeid": [
+          "568109.9_4185367.1",
+          "567877.6_4185298.5"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "d0ea0e495731fcbe"
+      },
+      "confidence": 0.6,
+      "timestamp": 984,
+      "action_metadata": {
+        "geometric_signature": "a70141f3f34e6f8f"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_518",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566396.5_4186944.6",
+        "edge_v": "566214.4_4186804.0",
+        "stable_id": "e8448c749d9e3954"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566396.4832948944531381 4186944.5682053361088037, 566223.1458671753061935 4186808.1559255681931973, 566214.4131818173918873 4186804.0245126974768937)",
+        "edgeid": [
+          "566396.5_4186944.6",
+          "566214.4_4186804.0"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "e8448c749d9e3954"
+      },
+      "confidence": 0.6,
+      "timestamp": 986,
+      "action_metadata": {
+        "geometric_signature": "05acb19d4a60fd16"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_972",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "567185.7_4187290.8",
+        "edge_v": "567020.2_4187152.9",
+        "stable_id": "35520cbf55edb27a"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (567185.7295295475050807 4187290.7580843321047723, 567176.4512223229976371 4187286.7432204019278288, 567116.0970807000994682 4187247.8252161275595427, 567106.3559549822239205 4187240.1228251019492745, 567023.7192603927105665 4187158.9037298378534615, 567020.1513027377659455 4187152.8717758785933256)",
+        "edgeid": [
+          "567185.7_4187290.8",
+          "567020.2_4187152.9"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "35520cbf55edb27a"
+      },
+      "confidence": 0.6,
+      "timestamp": 988,
+      "action_metadata": {
+        "geometric_signature": "0bfc4ec31ec61189"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1171",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566163.4_4187319.2",
+        "edge_v": "566015.4_4187175.3",
+        "stable_id": "b55b0a48f84fe311"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566163.3915597973391414 4187319.2264158632606268, 566015.3507845522835851 4187175.2770956796593964)",
+        "edgeid": [
+          "566163.4_4187319.2",
+          "566015.4_4187175.3"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "b55b0a48f84fe311"
+      },
+      "confidence": 0.6,
+      "timestamp": 990,
+      "action_metadata": {
+        "geometric_signature": "4d886be8ee99658b"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_526",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566788.4_4186499.5",
+        "edge_v": "566614.8_4186562.8",
+        "stable_id": "55a2f62b605e4a16"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566788.4003124494338408 4186499.4702922520227730, 566780.7807778241112828 4186505.6553672957234085, 566776.1595124457962811 4186507.8813885529525578, 566614.7878065559780225 4186562.8172604930587113)",
+        "edgeid": [
+          "566788.4_4186499.5",
+          "566614.8_4186562.8"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "55a2f62b605e4a16"
+      },
+      "confidence": 0.6,
+      "timestamp": 992,
+      "action_metadata": {
+        "geometric_signature": "ccaa994852479e55"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_333",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "568189.4_4186129.5",
+        "edge_v": "568026.1_4186127.1",
+        "stable_id": "ee06d14c05af7826"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (568189.3722298094071448 4186129.4706439985893667, 568163.2027235908899456 4186128.5657387305982411, 568026.0983532713726163 4186127.0642610322684050)",
+        "edgeid": [
+          "568189.4_4186129.5",
+          "568026.1_4186127.1"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "ee06d14c05af7826"
+      },
+      "confidence": 0.6,
+      "timestamp": 994,
+      "action_metadata": {
+        "geometric_signature": "9d1a5354d324ec83"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_821",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "567170.2_4186165.4",
+        "edge_v": "567032.6_4186172.8",
+        "stable_id": "49579bdb4601be96"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (567170.2021513261133805 4186165.3551320768892765, 567141.2317428499227390 4186200.2702108835801482, 567135.6533447976689786 4186204.3412278397008777, 567127.7257123044691980 4186206.1517079914920032, 567119.4720414585899562 4186205.8513221191242337, 567046.6047950363717973 4186173.0789108686149120, 567032.5589400941971689 4186172.8423479585908353)",
+        "edgeid": [
+          "567170.2_4186165.4",
+          "567032.6_4186172.8"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "49579bdb4601be96"
+      },
+      "confidence": 0.6,
+      "timestamp": 996,
+      "action_metadata": {
+        "geometric_signature": "1bfe84543937327e"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1054",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566501.2_4186093.5",
+        "edge_v": "566632.2_4186177.1",
+        "stable_id": "f4aa8188e33a4c6e"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566501.1722031338140368 4186093.4867195379920304, 566511.3152234614826739 4186092.0042376606725156, 566519.2266619593137875 4186092.1902836100198328, 566525.1906705638393760 4186093.7364663654007018, 566534.4011341865407303 4186098.7264368077740073, 566583.5432409240165725 4186136.6614033919759095, 566632.1632642252370715 4186177.0557215744629502)",
+        "edgeid": [
+          "566501.2_4186093.5",
+          "566632.2_4186177.1"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "f4aa8188e33a4c6e"
+      },
+      "confidence": 0.6,
+      "timestamp": 998,
+      "action_metadata": {
+        "geometric_signature": "2566de7914fa787e"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_869",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "568033.6_4186991.9",
+        "edge_v": "567935.3_4187094.1",
+        "stable_id": "4206f78d53ce6dd1"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (568033.6059862576657906 4186991.9065587571822107, 568026.7457219690550119 4186996.6765034426935017, 568012.5295374704292044 4186999.1109364409931004, 567996.1685936829308048 4187005.4777925196103752, 567980.6257239531259984 4187015.0914463982917368, 567969.1031138461548835 4187023.8617910807952285, 567959.3867059820331633 4187034.5222885059192777, 567952.4907500429544598 4187044.6846029157750309, 567947.1960135526023805 4187055.9808424008078873, 567943.7081147391581908 4187065.8939355532638729, 567935.3169424567604437 4187094.0525417891331017)",
+        "edgeid": [
+          "568033.6_4186991.9",
+          "567935.3_4187094.1"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "4206f78d53ce6dd1"
+      },
+      "confidence": 0.6,
+      "timestamp": 1000,
+      "action_metadata": {
+        "geometric_signature": "985080e7816266e1"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1142",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "568051.7_4186705.8",
+        "edge_v": "568177.7_4186704.4",
+        "stable_id": "02bbeb58dabc9cda"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (568051.7187826210865751 4186705.8490055347792804, 568077.8118131768424064 4186676.4389891549944878, 568084.6957398717058823 4186672.0354432780295610, 568091.4380858666263521 4186669.8499087328091264, 568101.2469418279360980 4186668.2889568163082004, 568111.2671353459591046 4186669.9031923022121191, 568119.7433980759233236 4186673.0247854348272085, 568177.6689338085707277 4186704.4180731656961143)",
+        "edgeid": [
+          "568051.7_4186705.8",
+          "568177.7_4186704.4"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "02bbeb58dabc9cda"
+      },
+      "confidence": 0.6,
+      "timestamp": 1002,
+      "action_metadata": {
+        "geometric_signature": "c51bb2f55b01aad1"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_846",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "567965.8_4185673.0",
+        "edge_v": "568085.1_4185628.4",
+        "stable_id": "a3b4172adc77b065"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (567965.8169038107153028 4185672.9664791538380086, 567970.2491898145526648 4185653.2302670213393867, 567979.3231896633515134 4185640.6115863570012152, 567990.3788200046401471 4185632.1258643688634038, 568004.6992191353347152 4185628.0167317637242377, 568015.4831759230000898 4185627.9061789475381374, 568066.9753282302990556 4185632.4487327383831143, 568077.1937719848938286 4185631.5346779371611774, 568085.0888283167732880 4185628.4377068518660963)",
+        "edgeid": [
+          "567965.8_4185673.0",
+          "568085.1_4185628.4"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "a3b4172adc77b065"
+      },
+      "confidence": 0.6,
+      "timestamp": 1004,
+      "action_metadata": {
+        "geometric_signature": "06929d163e6d77b4"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_780",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566474.8_4185983.1",
+        "edge_v": "566343.9_4186034.0",
+        "stable_id": "003e85f3dfdf7666"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566474.7872770921094343 4185983.1028672275133431, 566459.4485401095589623 4185982.7014980772510171, 566424.3125583879882470 4185991.1944258804433048, 566398.9530812558950856 4186003.2838113829493523, 566349.3918139975285158 4186030.1906312988139689, 566343.8951572377700359 4186033.9854419617913663)",
+        "edgeid": [
+          "566474.8_4185983.1",
+          "566343.9_4186034.0"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "003e85f3dfdf7666"
+      },
+      "confidence": 0.6,
+      "timestamp": 1006,
+      "action_metadata": {
+        "geometric_signature": "eefa9bd0c6f1017b"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_376",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "567969.8_4185815.9",
+        "edge_v": "568084.0_4185815.3",
+        "stable_id": "39d6d01229eeb7bc"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (567969.8466388150118291 4185815.9035112676210701, 567980.6919221667340025 4185830.7062787623144686, 567994.9990715044550598 4185841.9980991375632584, 568007.8390061596874148 4185846.5648082988336682, 568022.5895587101113051 4185846.8088535186834633, 568031.6675547783961520 4185845.3970965943299234, 568040.8019545765127987 4185842.4878730913624167, 568061.8205786341568455 4185827.7378410804085433, 568084.0262798090698197 4185815.2723432257771492)",
+        "edgeid": [
+          "567969.8_4185815.9",
+          "568084.0_4185815.3"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "39d6d01229eeb7bc"
+      },
+      "confidence": 0.6,
+      "timestamp": 1008,
+      "action_metadata": {
+        "geometric_signature": "561282498af17e45"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_441",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566284.9_4187001.2",
+        "edge_v": "566174.8_4186929.3",
+        "stable_id": "d5281c51b46a1e83"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566284.9311204119585454 4187001.2332697268575430, 566225.8159762694267556 4186956.3290928215719759, 566203.3390882196836174 4186950.7554806871339679, 566174.7765883348183706 4186929.2880841302685440)",
+        "edgeid": [
+          "566284.9_4187001.2",
+          "566174.8_4186929.3"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "d5281c51b46a1e83"
+      },
+      "confidence": 0.6,
+      "timestamp": 1010,
+      "action_metadata": {
+        "geometric_signature": "7bcc554f02980d59"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1092",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "567384.4_4186759.6",
+        "edge_v": "567267.7_4186707.3",
+        "stable_id": "61f04433e70eb0c2"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (567384.4193530993070453 4186759.6491987188346684, 567267.7379622062435374 4186707.3309366838075221)",
+        "edgeid": [
+          "567384.4_4186759.6",
+          "567267.7_4186707.3"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "61f04433e70eb0c2"
+      },
+      "confidence": 0.6,
+      "timestamp": 1012,
+      "action_metadata": {
+        "geometric_signature": "d7390573708d4392"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_556",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566567.9_4185569.8",
+        "edge_v": "566618.4_4185678.0",
+        "stable_id": "46b2f38e2d9119e5"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566567.9314017695141956 4185569.7598903519101441, 566565.4906825706129894 4185579.8484355378895998, 566565.7761302515864372 4185588.0838499101810157, 566618.3906924976035953 4185678.0199065557681024)",
+        "edgeid": [
+          "566567.9_4185569.8",
+          "566618.4_4185678.0"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "46b2f38e2d9119e5"
+      },
+      "confidence": 0.6,
+      "timestamp": 1014,
+      "action_metadata": {
+        "geometric_signature": "56ef3a7dfb4f86fd"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1307",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566085.0_4185673.3",
+        "edge_v": "566165.3_4185581.2",
+        "stable_id": "5afec744c6f76f40"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566085.0311010022414848 4185673.2842726157978177, 566165.3102248676586896 4185581.1908781114034355)",
+        "edgeid": [
+          "566085.0_4185673.3",
+          "566165.3_4185581.2"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "5afec744c6f76f40"
+      },
+      "confidence": 0.6,
+      "timestamp": 1016,
+      "action_metadata": {
+        "geometric_signature": "9a36500a2c5fa86a"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1228",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566883.0_4186317.6",
+        "edge_v": "566824.1_4186421.3",
+        "stable_id": "0c430cb8bf16493e"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566883.0169713516952470 4186317.6349659250117838, 566871.1198695206549019 4186328.1125500267371535, 566846.9852244453504682 4186363.8890553135424852, 566837.9949412834830582 4186381.6802904107607901, 566824.0828522815136239 4186421.3458373378962278)",
+        "edgeid": [
+          "566883.0_4186317.6",
+          "566824.1_4186421.3"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "0c430cb8bf16493e"
+      },
+      "confidence": 0.6,
+      "timestamp": 1018,
+      "action_metadata": {
+        "geometric_signature": "1559859110442705"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_890",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "565986.9_4186426.9",
+        "edge_v": "566064.2_4186516.3",
+        "stable_id": "c5c5d4185d33058d"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (565986.8666869836160913 4186426.9230253170244396, 566037.8276345480699092 4186485.0193588398396969, 566064.2447714741574600 4186516.3109871568158269)",
+        "edgeid": [
+          "565986.9_4186426.9",
+          "566064.2_4186516.3"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "c5c5d4185d33058d"
+      },
+      "confidence": 0.6,
+      "timestamp": 1020,
+      "action_metadata": {
+        "geometric_signature": "67df406991afb7ae"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1222",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566675.1_4186101.0",
+        "edge_v": "566786.5_4186092.3",
+        "stable_id": "5bc00d410e83269b"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566675.0732078280998394 4186100.9531898368149996, 566726.5559164248406887 4186097.6758559346199036, 566774.5404077229322866 4186090.5423712930642068, 566786.4528362595010549 4186092.2923898329026997)",
+        "edgeid": [
+          "566675.1_4186101.0",
+          "566786.5_4186092.3"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "5bc00d410e83269b"
+      },
+      "confidence": 0.6,
+      "timestamp": 1021,
+      "action_metadata": {
+        "geometric_signature": "aed6c64f351e3e82"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_921",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "567974.3_4185077.8",
+        "edge_v": "567898.3_4185146.4",
+        "stable_id": "59ae57b086fbe9b5"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (567974.2565319818677381 4185077.7541459887288511, 567973.5839757011272013 4185084.5725426091812551, 567970.4714960654964671 4185095.8313143053092062, 567963.6396333397133276 4185109.7667468036524951, 567952.8903382609132677 4185120.5185986631549895, 567939.1973999806214124 4185131.6899862228892744, 567928.5671505396021530 4185137.6272488953545690, 567914.9177853791043162 4185143.5285022961907089, 567898.2739463379839435 4185146.4091785913333297)",
+        "edgeid": [
+          "567974.3_4185077.8",
+          "567898.3_4185146.4"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "59ae57b086fbe9b5"
+      },
+      "confidence": 0.6,
+      "timestamp": 1023,
+      "action_metadata": {
+        "geometric_signature": "d3d10fba4dd82120"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1250",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "567098.0_4185972.1",
+        "edge_v": "567025.1_4186054.0",
+        "stable_id": "627cf6b2b3a61b5d"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (567097.9577937346184626 4185972.0747747020795941, 567091.2834455643314868 4185976.6805779859423637, 567026.4106416505528614 4186049.2177479420788586, 567025.0950993610313162 4186054.0337200271897018)",
+        "edgeid": [
+          "567098.0_4185972.1",
+          "567025.1_4186054.0"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "627cf6b2b3a61b5d"
+      },
+      "confidence": 0.6,
+      "timestamp": 1024,
+      "action_metadata": {
+        "geometric_signature": "c9b0e25cde402537"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1069",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "568318.4_4186444.4",
+        "edge_v": "568387.9_4186506.3",
+        "stable_id": "c1b75bc28844ea28"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (568318.4329018263379112 4186444.4002323001623154, 568342.7412185373250395 4186442.4940191339701414, 568357.8007768489187583 4186447.7898901295848191, 568369.5354920038953424 4186455.9985549473203719, 568380.6028117780806497 4186470.3710051514208317, 568386.0447268115822226 4186482.7659967150539160, 568387.8906385549344122 4186506.3379386961460114)",
+        "edgeid": [
+          "568318.4_4186444.4",
+          "568387.9_4186506.3"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "c1b75bc28844ea28"
+      },
+      "confidence": 0.6,
+      "timestamp": 1026,
+      "action_metadata": {
+        "geometric_signature": "0e576bb22a3b4b7f"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_362",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "567722.5_4185023.8",
+        "edge_v": "567615.3_4185004.1",
+        "stable_id": "d7f6a76e06ce4de9"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (567722.4751015366055071 4185023.8154659667052329, 567701.8159056761069223 4185017.1876307325437665, 567680.2744549284689128 4185011.8618999035097659, 567615.3445155806839466 4185004.1267532398924232)",
+        "edgeid": [
+          "567722.5_4185023.8",
+          "567615.3_4185004.1"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "d7f6a76e06ce4de9"
+      },
+      "confidence": 0.6,
+      "timestamp": 1028,
+      "action_metadata": {
+        "geometric_signature": "8ba15e093765f5b8"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_231",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566204.6_4185705.7",
+        "edge_v": "566124.5_4185773.7",
+        "stable_id": "6dc2c1d757354c8e"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566204.5617649905616418 4185705.6911341357044876, 566197.9951676564523950 4185708.9781190538778901, 566124.4509865673026070 4185773.6520952861756086)",
+        "edgeid": [
+          "566204.6_4185705.7",
+          "566124.5_4185773.7"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "6dc2c1d757354c8e"
+      },
+      "confidence": 0.6,
+      "timestamp": 1030,
+      "action_metadata": {
+        "geometric_signature": "774cd0c3d7763756"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_657",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566048.6_4185989.3",
+        "edge_v": "565971.0_4186058.8",
+        "stable_id": "d8063022dfa1d193"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566048.6040535450447351 4185989.2890188079327345, 565970.9760670094983652 4186058.7692950610071421)",
+        "edgeid": [
+          "566048.6_4185989.3",
+          "565971.0_4186058.8"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "d8063022dfa1d193"
+      },
+      "confidence": 0.6,
+      "timestamp": 1032,
+      "action_metadata": {
+        "geometric_signature": "0593c3bc6795241a"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_936",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566959.8_4185159.5",
+        "edge_v": "566942.8_4185057.2",
+        "stable_id": "e524772ca724f827"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566959.7612653954420239 4185159.4542107260785997, 566955.1042132845614105 4185146.5118510480970144, 566942.8117845298256725 4185057.1569467349909246)",
+        "edgeid": [
+          "566959.8_4185159.5",
+          "566942.8_4185057.2"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "e524772ca724f827"
+      },
+      "confidence": 0.6,
+      "timestamp": 1034,
+      "action_metadata": {
+        "geometric_signature": "0644b83a7034cb7a"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_397",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566507.3_4185681.2",
+        "edge_v": "566406.3_4185705.7",
+        "stable_id": "5516c170813c39c7"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566507.3313140851678327 4185681.2487274901941419, 566406.3203737813746557 4185705.6866236375644803)",
+        "edgeid": [
+          "566507.3_4185681.2",
+          "566406.3_4185705.7"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "5516c170813c39c7"
+      },
+      "confidence": 0.6,
+      "timestamp": 1036,
+      "action_metadata": {
+        "geometric_signature": "f82c364269f705ab"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1405",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566751.3_4187058.5",
+        "edge_v": "566650.1_4187040.3",
+        "stable_id": "8a3303c704057a4d"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566751.3482354051666334 4187058.5446826596744359, 566650.0831458580214530 4187040.3136608386412263)",
+        "edgeid": [
+          "566751.3_4187058.5",
+          "566650.1_4187040.3"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "8a3303c704057a4d"
+      },
+      "confidence": 0.6,
+      "timestamp": 1038,
+      "action_metadata": {
+        "geometric_signature": "d7b2bb5ac15505d3"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1008",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566447.4_4185145.9",
+        "edge_v": "566541.3_4185187.1",
+        "stable_id": "5adf17b777bc8bb1"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566447.3813652390381321 4185145.8568075355142355, 566541.2572432559682056 4185187.0599149391055107)",
+        "edgeid": [
+          "566447.4_4185145.9",
+          "566541.3_4185187.1"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "5adf17b777bc8bb1"
+      },
+      "confidence": 0.6,
+      "timestamp": 1040,
+      "action_metadata": {
+        "geometric_signature": "8611118b153764c1"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_815",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "568194.1_4185499.4",
+        "edge_v": "568193.1_4185600.1",
+        "stable_id": "926e7f1498bcacc9"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (568194.1301270370604470 4185499.3862002417445183, 568193.1187169670592993 4185600.1394542120397091)",
+        "edgeid": [
+          "568194.1_4185499.4",
+          "568193.1_4185600.1"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "926e7f1498bcacc9"
+      },
+      "confidence": 0.6,
+      "timestamp": 1042,
+      "action_metadata": {
+        "geometric_signature": "bbd331b25451554e"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1446",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566429.7_4186221.8",
+        "edge_v": "566526.2_4186197.8",
+        "stable_id": "03fee41b51ec3814"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566429.6847838291432709 4186221.8203212516382337, 566435.6872746180742979 4186219.6829347517341375, 566515.1770549059147015 4186201.0964447502046824, 566526.2236826283624396 4186197.7904798053205013)",
+        "edgeid": [
+          "566429.7_4186221.8",
+          "566526.2_4186197.8"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "03fee41b51ec3814"
+      },
+      "confidence": 0.6,
+      "timestamp": 1044,
+      "action_metadata": {
+        "geometric_signature": "e562d923d3dfbad7"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1160",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "568301.6_4185748.8",
+        "edge_v": "568400.2_4185749.3",
+        "stable_id": "7b5e885babf36673"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (568301.5634375665104017 4185748.8142398404888809, 568400.2162081291899085 4185749.3123415955342352)",
+        "edgeid": [
+          "568301.6_4185748.8",
+          "568400.2_4185749.3"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "7b5e885babf36673"
+      },
+      "confidence": 0.6,
+      "timestamp": 1046,
+      "action_metadata": {
+        "geometric_signature": "c1db6a3fc847b39c"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_388",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566792.9_4185416.4",
+        "edge_v": "566754.4_4185506.3",
+        "stable_id": "b5a590ab96d207c2"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566792.9191878332057968 4185416.3532163300551474, 566782.9128226104658097 4185438.8408866897225380, 566771.8815968534909189 4185473.7253887136466801, 566754.4167005968047306 4185506.3274246579967439)",
+        "edgeid": [
+          "566792.9_4185416.4",
+          "566754.4_4185506.3"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "b5a590ab96d207c2"
+      },
+      "confidence": 0.6,
+      "timestamp": 1048,
+      "action_metadata": {
+        "geometric_signature": "a9539ea1ee756914"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_839",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "568303.0_4185601.8",
+        "edge_v": "568400.8_4185602.3",
+        "stable_id": "0952e017b5376b15"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (568302.9955549550941214 4185601.8057195763103664, 568400.7964878450147808 4185602.2745234160684049)",
+        "edgeid": [
+          "568303.0_4185601.8",
+          "568400.8_4185602.3"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "0952e017b5376b15"
+      },
+      "confidence": 0.6,
+      "timestamp": 1050,
+      "action_metadata": {
+        "geometric_signature": "461b2a2099e92cea"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1189",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566674.1_4185769.3",
+        "edge_v": "566738.9_4185696.2",
+        "stable_id": "d48f5f9a379291da"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566674.0825996930943802 4185769.3238803129643202, 566738.8538802656112239 4185696.1506964005529881)",
+        "edgeid": [
+          "566674.1_4185769.3",
+          "566738.9_4185696.2"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "d48f5f9a379291da"
+      },
+      "confidence": 0.6,
+      "timestamp": 1052,
+      "action_metadata": {
+        "geometric_signature": "b50c6f19fc76b448"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1073",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566579.9_4186418.6",
+        "edge_v": "566670.3_4186454.2",
+        "stable_id": "3ecfb66e015f5519"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566579.9315704881446436 4186418.5663615763187408, 566670.3252276858547702 4186454.2285183598287404)",
+        "edgeid": [
+          "566579.9_4186418.6",
+          "566670.3_4186454.2"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "3ecfb66e015f5519"
+      },
+      "confidence": 0.6,
+      "timestamp": 1054,
+      "action_metadata": {
+        "geometric_signature": "256c720345ff527c"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1148",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "568242.1_4186279.4",
+        "edge_v": "568147.6_4186258.6",
+        "stable_id": "9d4846b0bfd37eca"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (568242.1366559923626482 4186279.4143349095247686, 568155.2024115353124216 4186259.1090887011960149, 568147.5664566315244883 4186258.6241589840501547)",
+        "edgeid": [
+          "568242.1_4186279.4",
+          "568147.6_4186258.6"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "9d4846b0bfd37eca"
+      },
+      "confidence": 0.6,
+      "timestamp": 1056,
+      "action_metadata": {
+        "geometric_signature": "d5c719de727c8bd7"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_851",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566945.6_4186722.8",
+        "edge_v": "567030.0_4186769.7",
+        "stable_id": "e296a448bbb60b40"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566945.5897900445852429 4186722.8321805731393397, 567030.0077304990263656 4186769.7342494367621839)",
+        "edgeid": [
+          "566945.6_4186722.8",
+          "567030.0_4186769.7"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "e296a448bbb60b40"
+      },
+      "confidence": 0.6,
+      "timestamp": 1058,
+      "action_metadata": {
+        "geometric_signature": "b784bfeefa44bdc3"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_737",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566435.8_4186474.8",
+        "edge_v": "566374.5_4186546.5",
+        "stable_id": "784a661b9e0b118f"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566435.7826473863096908 4186474.7770005934871733, 566427.9929370016325265 4186494.4313709666021168, 566415.7780714184045792 4186511.6643975833430886, 566403.9564910103799775 4186522.7091395980678499, 566385.1975568105699494 4186536.1611602571792901, 566374.5258089764975011 4186546.5161892166361213)",
+        "edgeid": [
+          "566435.8_4186474.8",
+          "566374.5_4186546.5"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "784a661b9e0b118f"
+      },
+      "confidence": 0.6,
+      "timestamp": 1060,
+      "action_metadata": {
+        "geometric_signature": "9e7362aca13fc159"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_693",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "567604.6_4187065.8",
+        "edge_v": "567514.1_4187036.9",
+        "stable_id": "865a55946466239b"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (567604.6173377417726442 4187065.8279956458136439, 567514.0911810712423176 4187036.8672215803526342)",
+        "edgeid": [
+          "567604.6_4187065.8",
+          "567514.1_4187036.9"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "865a55946466239b"
+      },
+      "confidence": 0.6,
+      "timestamp": 1062,
+      "action_metadata": {
+        "geometric_signature": "74e53445b57bd30b"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1186",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "567407.3_4187276.7",
+        "edge_v": "567490.5_4187320.9",
+        "stable_id": "9a52718343588a91"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (567407.3318781857378781 4187276.6607804247178137, 567490.4781972093041986 4187320.9387410939671099)",
+        "edgeid": [
+          "567407.3_4187276.7",
+          "567490.5_4187320.9"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "9a52718343588a91"
+      },
+      "confidence": 0.6,
+      "timestamp": 1064,
+      "action_metadata": {
+        "geometric_signature": "4bc152ab1ae1fc53"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_504",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "567643.8_4187208.4",
+        "edge_v": "567558.6_4187169.3",
+        "stable_id": "6cc9c63864cd18b5"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (567643.7877419561846182 4187208.3883722908794880, 567558.6008234431501478 4187169.2738833702169359)",
+        "edgeid": [
+          "567643.8_4187208.4",
+          "567558.6_4187169.3"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "6cc9c63864cd18b5"
+      },
+      "confidence": 0.6,
+      "timestamp": 1066,
+      "action_metadata": {
+        "geometric_signature": "cc8b45bbc99d6acb"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1005",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "567228.6_4187177.8",
+        "edge_v": "567260.8_4187095.0",
+        "stable_id": "d3920a271e163556"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (567228.6147990291938186 4187177.8198177269659936, 567262.5733626659493893 4187126.6460326490923762, 567264.1847481429576874 4187121.1667594164609909, 567262.8316882760263979 4187102.6033863984048367, 567260.8432218648958951 4187095.0086348112672567)",
+        "edgeid": [
+          "567228.6_4187177.8",
+          "567260.8_4187095.0"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "d3920a271e163556"
+      },
+      "confidence": 0.6,
+      "timestamp": 1068,
+      "action_metadata": {
+        "geometric_signature": "719d2d56e7c118dc"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_713",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "567494.6_4186519.7",
+        "edge_v": "567454.9_4186603.1",
+        "stable_id": "8340e7de22e01a23"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (567494.5561751752393320 4186519.7388818403705955, 567454.9341221069917083 4186603.1320738075301051)",
+        "edgeid": [
+          "567494.6_4186519.7",
+          "567454.9_4186603.1"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "8340e7de22e01a23"
+      },
+      "confidence": 0.6,
+      "timestamp": 1069,
+      "action_metadata": {
+        "geometric_signature": "02dc9df6804fdff9"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1242",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "567829.1_4186012.6",
+        "edge_v": "567917.5_4186025.9",
+        "stable_id": "3c0c6a3636abab27"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (567829.1131536166649312 4186012.5920682568103075, 567849.7906627843622118 4186007.0815567141398787, 567861.3577220994047821 4186006.9439861793071032, 567917.4640859150094911 4186025.8928924677893519)",
+        "edgeid": [
+          "567829.1_4186012.6",
+          "567917.5_4186025.9"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "3c0c6a3636abab27"
+      },
+      "confidence": 0.6,
+      "timestamp": 1071,
+      "action_metadata": {
+        "geometric_signature": "b1c9cd82f2654e95"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1197",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566982.7_4187286.3",
+        "edge_v": "566931.8_4187213.5",
+        "stable_id": "9eaa08966998c300"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566982.6899785589193925 4187286.3382353615015745, 566983.3611643975600600 4187277.4115298790857196, 566982.8473220026353374 4187274.5889920829795301, 566931.7730431862873957 4187213.4563883114606142)",
+        "edgeid": [
+          "566982.7_4187286.3",
+          "566931.8_4187213.5"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "9eaa08966998c300"
+      },
+      "confidence": 0.6,
+      "timestamp": 1073,
+      "action_metadata": {
+        "geometric_signature": "1bd4058560ff6d09"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_482",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "567168.5_4187100.0",
+        "edge_v": "567077.4_4187105.0",
+        "stable_id": "0b96ebcd0300f648"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (567168.4550739692058414 4187099.9565277905203402, 567077.3690496712224558 4187104.9715604032389820)",
+        "edgeid": [
+          "567168.5_4187100.0",
+          "567077.4_4187105.0"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "0b96ebcd0300f648"
+      },
+      "confidence": 0.6,
+      "timestamp": 1075,
+      "action_metadata": {
+        "geometric_signature": "01ddb86492386c08"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_319",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "567165.3_4186661.6",
+        "edge_v": "567081.7_4186625.9",
+        "stable_id": "b3a20501f71db28f"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (567165.3476174260722473 4186661.5888911462388933, 567081.7180337205063552 4186625.8876035669818521)",
+        "edgeid": [
+          "567165.3_4186661.6",
+          "567081.7_4186625.9"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "b3a20501f71db28f"
+      },
+      "confidence": 0.6,
+      "timestamp": 1077,
+      "action_metadata": {
+        "geometric_signature": "8c1f2b4d94cacf19"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_574",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566886.1_4185622.9",
+        "edge_v": "566921.2_4185702.4",
+        "stable_id": "3fea272f1ab832ca"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566886.0703925564885139 4185622.9379337201826274, 566903.5319036762230098 4185644.8943738560192287, 566905.5851857766974717 4185653.2662431709468365, 566906.0964085079031065 4185678.0696020708419383, 566907.4541994343744591 4185685.3706141696311533, 566912.2270848291227594 4185692.6994101935997605, 566921.2409784691408277 4185702.4039388219825923)",
+        "edgeid": [
+          "566886.1_4185622.9",
+          "566921.2_4185702.4"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "3fea272f1ab832ca"
+      },
+      "confidence": 0.6,
+      "timestamp": 1079,
+      "action_metadata": {
+        "geometric_signature": "58ae3ea849ccdd4f"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_433",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566355.4_4185106.9",
+        "edge_v": "566287.8_4185165.0",
+        "stable_id": "e90c5673957789ef"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566355.4494244025554508 4185106.9118288345634937, 566287.8495028424076736 4185165.0303695034235716)",
+        "edgeid": [
+          "566355.4_4185106.9",
+          "566287.8_4185165.0"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "e90c5673957789ef"
+      },
+      "confidence": 0.6,
+      "timestamp": 1081,
+      "action_metadata": {
+        "geometric_signature": "732c9f900479ce36"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_512",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566351.0_4186331.1",
+        "edge_v": "566267.9_4186299.6",
+        "stable_id": "79a66a8b4f0d96cd"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566351.0389414329547435 4186331.1228789989836514, 566267.9412318833637983 4186299.5841657668352127)",
+        "edgeid": [
+          "566351.0_4186331.1",
+          "566267.9_4186299.6"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "79a66a8b4f0d96cd"
+      },
+      "confidence": 0.6,
+      "timestamp": 1083,
+      "action_metadata": {
+        "geometric_signature": "0d8184bb896b2ad6"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_124",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566414.6_4186711.9",
+        "edge_v": "566346.8_4186655.3",
+        "stable_id": "4859417a3a70dfe0"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566414.5740132447099313 4186711.9346031579189003, 566346.8038560865679756 4186655.2646820917725563)",
+        "edgeid": [
+          "566414.6_4186711.9",
+          "566346.8_4186655.3"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "4859417a3a70dfe0"
+      },
+      "confidence": 0.6,
+      "timestamp": 1085,
+      "action_metadata": {
+        "geometric_signature": "537ba6b4eee74fab"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1062",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "568032.5_4186493.9",
+        "edge_v": "567983.3_4186565.4",
+        "stable_id": "7c0292661d66c07c"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (568032.4634280620375648 4186493.9357210090383887, 568025.0258784992620349 4186503.5387024777010083, 568006.4478040057001635 4186538.4147358383052051, 567995.4406785254832357 4186556.0771209113299847, 567990.0851239350158721 4186560.8484482625499368, 567983.3233615700155497 4186565.3751383377239108)",
+        "edgeid": [
+          "568032.5_4186493.9",
+          "567983.3_4186565.4"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "7c0292661d66c07c"
+      },
+      "confidence": 0.6,
+      "timestamp": 1087,
+      "action_metadata": {
+        "geometric_signature": "cde044b2435ec0d9"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1081",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566994.3_4186587.2",
+        "edge_v": "566915.1_4186552.3",
+        "stable_id": "d6ba46d7551ba48d"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566994.2746201392728835 4186587.2046097693964839, 566915.1081807706505060 4186552.3070337199606001)",
+        "edgeid": [
+          "566994.3_4186587.2",
+          "566915.1_4186552.3"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "d6ba46d7551ba48d"
+      },
+      "confidence": 0.6,
+      "timestamp": 1089,
+      "action_metadata": {
+        "geometric_signature": "7c4890c13d516196"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1101",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "567814.5_4185449.5",
+        "edge_v": "567780.1_4185377.4",
+        "stable_id": "664b936520abe5e7"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (567814.5238319925265387 4185449.4563715900294483, 567816.6381921087158844 4185436.4361665947362781, 567815.2421474647708237 4185422.1220907401293516, 567807.8201945349574089 4185406.2603954235091805, 567794.3759291165042669 4185387.3420905647799373, 567780.1001931811915711 4185377.4489876125007868)",
+        "edgeid": [
+          "567814.5_4185449.5",
+          "567780.1_4185377.4"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "664b936520abe5e7"
+      },
+      "confidence": 0.6,
+      "timestamp": 1091,
+      "action_metadata": {
+        "geometric_signature": "d38e66809a422c2f"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1192",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566993.8_4185242.6",
+        "edge_v": "566935.3_4185303.8",
+        "stable_id": "7f63c35bf8f155a1"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566993.7501621112460271 4185242.5946388151496649, 566935.3471403776202351 4185303.7676343554630876)",
+        "edgeid": [
+          "566993.8_4185242.6",
+          "566935.3_4185303.8"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "7f63c35bf8f155a1"
+      },
+      "confidence": 0.6,
+      "timestamp": 1093,
+      "action_metadata": {
+        "geometric_signature": "6a0c7480ec87abfc"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_773",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566271.0_4185933.5",
+        "edge_v": "566352.3_4185913.3",
+        "stable_id": "4e424dd161ae59dc"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566270.9616121093276888 4185933.5238419431261718, 566352.3421587405027822 4185913.2533104172907770)",
+        "edgeid": [
+          "566271.0_4185933.5",
+          "566352.3_4185913.3"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "4e424dd161ae59dc"
+      },
+      "confidence": 0.6,
+      "timestamp": 1095,
+      "action_metadata": {
+        "geometric_signature": "73135a0cf2366caf"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_711",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "567368.8_4186475.2",
+        "edge_v": "567336.4_4186551.2",
+        "stable_id": "4df674ec51d5a6d1"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (567368.7516190180322155 4186475.1780634541064501, 567336.3726842517498881 4186551.2413002615794539)",
+        "edgeid": [
+          "567368.8_4186475.2",
+          "567336.4_4186551.2"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "4df674ec51d5a6d1"
+      },
+      "confidence": 0.6,
+      "timestamp": 1097,
+      "action_metadata": {
+        "geometric_signature": "4b9b4e9e715c4ca6"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_771",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "567541.0_4186739.4",
+        "edge_v": "567507.6_4186814.5",
+        "stable_id": "23996517f4e43a74"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (567541.0018135749269277 4186739.3747473820112646, 567507.5560341116506606 4186814.5187274203635752)",
+        "edgeid": [
+          "567541.0_4186739.4",
+          "567507.6_4186814.5"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "23996517f4e43a74"
+      },
+      "confidence": 0.6,
+      "timestamp": 1099,
+      "action_metadata": {
+        "geometric_signature": "b2b3f42391681124"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_787",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566490.3_4185351.0",
+        "edge_v": "566551.8_4185298.2",
+        "stable_id": "0fc34745fb90145d"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566490.3452750148717314 4185350.9995176000520587, 566551.7580459481105208 4185298.1696548373438418)",
+        "edgeid": [
+          "566490.3_4185351.0",
+          "566551.8_4185298.2"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "0fc34745fb90145d"
+      },
+      "confidence": 0.6,
+      "timestamp": 1101,
+      "action_metadata": {
+        "geometric_signature": "c8fa6fcff51958af"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1035",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "567425.6_4185916.4",
+        "edge_v": "567348.5_4185910.1",
+        "stable_id": "548fdee5090aedb7"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (567425.6407961855875328 4185916.4017619080841541, 567379.9183149593882263 4185921.1976917008869350, 567364.9419074330944568 4185918.4563785116188228, 567348.4531353270867839 4185910.1436834316700697)",
+        "edgeid": [
+          "567425.6_4185916.4",
+          "567348.5_4185910.1"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "548fdee5090aedb7"
+      },
+      "confidence": 0.6,
+      "timestamp": 1103,
+      "action_metadata": {
+        "geometric_signature": "798c822007f3be59"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_563",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566682.3_4185442.9",
+        "edge_v": "566629.8_4185502.3",
+        "stable_id": "02488dcff54f0cf2"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566682.2657194734783843 4185442.8953836676664650, 566629.7784257533494383 4185502.3098293100483716)",
+        "edgeid": [
+          "566682.3_4185442.9",
+          "566629.8_4185502.3"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "02488dcff54f0cf2"
+      },
+      "confidence": 0.6,
+      "timestamp": 1105,
+      "action_metadata": {
+        "geometric_signature": "9e4bba702346f7d5"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_999",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566647.2_4187169.2",
+        "edge_v": "566600.9_4187227.8",
+        "stable_id": "298a8680b148b7a0"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566647.2163290528114885 4187169.2131734462454915, 566611.1886619561119005 4187211.2296639299020171, 566604.2368929930962622 4187220.9044024669565260, 566600.8987018729094416 4187227.7567874989472330)",
+        "edgeid": [
+          "566647.2_4187169.2",
+          "566600.9_4187227.8"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "298a8680b148b7a0"
+      },
+      "confidence": 0.6,
+      "timestamp": 1107,
+      "action_metadata": {
+        "geometric_signature": "e147cde169a2455f"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_887",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "568022.5_4186752.6",
+        "edge_v": "567949.6_4186748.0",
+        "stable_id": "7774d6098b626ce4"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (568022.4902232096064836 4186752.5760362497530878, 568000.5728546055033803 4186753.9037719741463661, 567977.2102125629317015 4186746.9420828912407160, 567962.4720939468825236 4186746.4540765467099845, 567949.6362011692253873 4186747.9568858323618770)",
+        "edgeid": [
+          "568022.5_4186752.6",
+          "567949.6_4186748.0"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "7774d6098b626ce4"
+      },
+      "confidence": 0.6,
+      "timestamp": 1109,
+      "action_metadata": {
+        "geometric_signature": "4400207dc4166943"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_519",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566460.0_4186839.7",
+        "edge_v": "566490.7_4186772.7",
+        "stable_id": "35249dfc6503284e"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566459.9592682012589648 4186839.6816486399620771, 566490.7415871375706047 4186772.7119038281962276)",
+        "edgeid": [
+          "566460.0_4186839.7",
+          "566490.7_4186772.7"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "35249dfc6503284e"
+      },
+      "confidence": 0.6,
+      "timestamp": 1111,
+      "action_metadata": {
+        "geometric_signature": "2ca14fae1504212c"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_875",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566386.3_4185200.2",
+        "edge_v": "566330.6_4185247.9",
+        "stable_id": "ab48ac9ee899d22f"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566386.2644349507754669 4185200.1544821504503489, 566330.6236456019105390 4185247.9058408988639712)",
+        "edgeid": [
+          "566386.3_4185200.2",
+          "566330.6_4185247.9"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "ab48ac9ee899d22f"
+      },
+      "confidence": 0.6,
+      "timestamp": 1113,
+      "action_metadata": {
+        "geometric_signature": "73fdf42c07ca7532"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_206",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566531.8_4185917.8",
+        "edge_v": "566462.6_4185934.3",
+        "stable_id": "75d0458a6ec954c9"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566531.8249677267158404 4185917.7769238427281380, 566462.6037835635943338 4185934.2715027998201549)",
+        "edgeid": [
+          "566531.8_4185917.8",
+          "566462.6_4185934.3"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "75d0458a6ec954c9"
+      },
+      "confidence": 0.6,
+      "timestamp": 1115,
+      "action_metadata": {
+        "geometric_signature": "a03797fa82fc59e6"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_990",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566147.2_4186252.8",
+        "edge_v": "566082.5_4186227.6",
+        "stable_id": "a7aead0511fe4ba9"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566147.2409484395757318 4186252.8420418803580105, 566082.5217898853588849 4186227.6334732072427869)",
+        "edgeid": [
+          "566147.2_4186252.8",
+          "566082.5_4186227.6"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "a7aead0511fe4ba9"
+      },
+      "confidence": 0.6,
+      "timestamp": 1117,
+      "action_metadata": {
+        "geometric_signature": "134f1a247a1d3173"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_405",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566897.2_4185401.7",
+        "edge_v": "566844.7_4185356.7",
+        "stable_id": "945620c23079d180"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566897.2180864519905299 4185401.6888597668148577, 566844.6971310793887824 4185356.7010050970129669)",
+        "edgeid": [
+          "566897.2_4185401.7",
+          "566844.7_4185356.7"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "945620c23079d180"
+      },
+      "confidence": 0.6,
+      "timestamp": 1119,
+      "action_metadata": {
+        "geometric_signature": "8927bc0fb7fdc429"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_863",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "567371.4_4186935.8",
+        "edge_v": "567308.6_4186909.5",
+        "stable_id": "ce250d8faf83a17c"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (567371.4376725602196530 4186935.7674666931852698, 567308.6109037040732801 4186909.4771385546773672)",
+        "edgeid": [
+          "567371.4_4186935.8",
+          "567308.6_4186909.5"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "ce250d8faf83a17c"
+      },
+      "confidence": 0.6,
+      "timestamp": 1121,
+      "action_metadata": {
+        "geometric_signature": "b745de1bacc4b9d0"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1107",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "567420.2_4186126.6",
+        "edge_v": "567484.1_4186109.3",
+        "stable_id": "c1d40ad588d07e77"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (567420.2292839756701142 4186126.6128507107496262, 567440.9424273658078164 4186116.6854615523479879, 567457.4021164538571611 4186110.2406194698996842, 567484.0886830494273454 4186109.2834143037907779)",
+        "edgeid": [
+          "567420.2_4186126.6",
+          "567484.1_4186109.3"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "c1d40ad588d07e77"
+      },
+      "confidence": 0.6,
+      "timestamp": 1123,
+      "action_metadata": {
+        "geometric_signature": "5de90cadf7830621"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_827",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "567228.5_4185755.5",
+        "edge_v": "567207.2_4185818.2",
+        "stable_id": "693483eb69dd4197"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (567228.4760977210244164 4185755.5288689248263836, 567224.3115320564247668 4185779.3509050137363374, 567216.4549007122404873 4185801.5005816021002829, 567207.2172312166076154 4185818.1576295290142298)",
+        "edgeid": [
+          "567228.5_4185755.5",
+          "567207.2_4185818.2"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "693483eb69dd4197"
+      },
+      "confidence": 0.6,
+      "timestamp": 1125,
+      "action_metadata": {
+        "geometric_signature": "4e00b48e7e196ac8"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_904",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "567693.8_4185372.5",
+        "edge_v": "567735.5_4185320.6",
+        "stable_id": "825a879eef657d1e"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (567693.8302115496480837 4185372.4777319040149450, 567735.4722187983570620 4185320.5590565167367458)",
+        "edgeid": [
+          "567693.8_4185372.5",
+          "567735.5_4185320.6"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "825a879eef657d1e"
+      },
+      "confidence": 0.6,
+      "timestamp": 1127,
+      "action_metadata": {
+        "geometric_signature": "4360b6262a9e48c4"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_403",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566761.9_4185614.0",
+        "edge_v": "566712.3_4185569.9",
+        "stable_id": "dbc05f12e8c4de52"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566761.8525552905630320 4185613.9729744582436979, 566712.3438595300540328 4185569.9313420536927879)",
+        "edgeid": [
+          "566761.9_4185614.0",
+          "566712.3_4185569.9"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "dbc05f12e8c4de52"
+      },
+      "confidence": 0.6,
+      "timestamp": 1129,
+      "action_metadata": {
+        "geometric_signature": "06db4b4acf293c9f"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1131",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566743.8_4186797.1",
+        "edge_v": "566684.5_4186773.3",
+        "stable_id": "6a32dad471689fde"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566743.7724196492927149 4186797.0648034252226353, 566715.1059688695240766 4186787.4228515503928065, 566684.5308695220155641 4186773.2827960280701518)",
+        "edgeid": [
+          "566743.8_4186797.1",
+          "566684.5_4186773.3"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "6a32dad471689fde"
+      },
+      "confidence": 0.6,
+      "timestamp": 1131,
+      "action_metadata": {
+        "geometric_signature": "98c36f8a4ca4540b"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_616",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "568131.1_4186347.8",
+        "edge_v": "568193.9_4186348.1",
+        "stable_id": "3e4cccb45bce6a71"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (568131.0897686540847644 4186347.8206043420359492, 568193.8524408794473857 4186348.1078612753190100)",
+        "edgeid": [
+          "568131.1_4186347.8",
+          "568193.9_4186348.1"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "3e4cccb45bce6a71"
+      },
+      "confidence": 0.6,
+      "timestamp": 1133,
+      "action_metadata": {
+        "geometric_signature": "48c366f54c1f73f1"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_807",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "567389.8_4185147.7",
+        "edge_v": "567346.9_4185103.2",
+        "stable_id": "4ce93fdf8f041057"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (567389.7851547437021509 4185147.7091024969704449, 567346.9361298060975969 4185103.1523435856215656)",
+        "edgeid": [
+          "567389.8_4185147.7",
+          "567346.9_4185103.2"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "4ce93fdf8f041057"
+      },
+      "confidence": 0.6,
+      "timestamp": 1135,
+      "action_metadata": {
+        "geometric_signature": "652cae2983276034"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1118",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "567527.6_4185674.0",
+        "edge_v": "567475.5_4185691.0",
+        "stable_id": "2d32e0a5312f49ca"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (567527.6144713275134563 4185674.0394027736037970, 567524.3664500419981778 4185681.5357268080115318, 567518.4171321541070938 4185687.8337146979756653, 567511.9079167406307533 4185689.4224672904238105, 567475.4879793046275154 4185691.0320775369182229)",
+        "edgeid": [
+          "567527.6_4185674.0",
+          "567475.5_4185691.0"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "2d32e0a5312f49ca"
+      },
+      "confidence": 0.6,
+      "timestamp": 1137,
+      "action_metadata": {
+        "geometric_signature": "6ea0173da75a472d"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_493",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "567383.0_4187094.0",
+        "edge_v": "567324.5_4187091.7",
+        "stable_id": "02d27cd3bd4e2bed"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (567383.0080423272447661 4187093.9785287957638502, 567371.7890981773380190 4187089.4149397574365139, 567324.5095453346148133 4187091.7017112192697823)",
+        "edgeid": [
+          "567383.0_4187094.0",
+          "567324.5_4187091.7"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "02d27cd3bd4e2bed"
+      },
+      "confidence": 0.6,
+      "timestamp": 1139,
+      "action_metadata": {
+        "geometric_signature": "0377faed5453041c"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1099",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "567225.9_4185409.9",
+        "edge_v": "567170.5_4185429.8",
+        "stable_id": "fc614437ce294622"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (567225.9403099089395255 4185409.9168929061852396, 567207.9631014335900545 4185415.5620129979215562, 567170.5408454032149166 4185429.8251641029492021)",
+        "edgeid": [
+          "567225.9_4185409.9",
+          "567170.5_4185429.8"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "fc614437ce294622"
+      },
+      "confidence": 0.6,
+      "timestamp": 1141,
+      "action_metadata": {
+        "geometric_signature": "4836b3c4a1298ffc"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_344",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "568192.7_4185747.7",
+        "edge_v": "568192.5_4185805.2",
+        "stable_id": "19992e7f693d3ba9"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (568192.7400832201819867 4185747.7225747178308666, 568192.4572715323884040 4185805.1857858230359852)",
+        "edgeid": [
+          "568192.7_4185747.7",
+          "568192.5_4185805.2"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "19992e7f693d3ba9"
+      },
+      "confidence": 0.6,
+      "timestamp": 1143,
+      "action_metadata": {
+        "geometric_signature": "8bbf1cab41053801"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_196",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "568043.1_4186262.7",
+        "edge_v": "568043.4_4186317.0",
+        "stable_id": "dbc5ac07c958ea0d"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (568043.1433586073108017 4186262.6859940453432500, 568047.2039930130122229 4186271.8958909586071968, 568049.9533200832083821 4186282.1490471209399402, 568051.1649141046218574 4186292.0898895384743810, 568050.6202345183119178 4186300.4738698350265622, 568047.7143675220431760 4186309.1378989298827946, 568043.4329699445515871 4186317.0360264042392373)",
+        "edgeid": [
+          "568043.1_4186262.7",
+          "568043.4_4186317.0"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "dbc5ac07c958ea0d"
+      },
+      "confidence": 0.6,
+      "timestamp": 1145,
+      "action_metadata": {
+        "geometric_signature": "8f898a3397027e80"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_222",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566989.8_4185835.3",
+        "edge_v": "566953.6_4185877.4",
+        "stable_id": "34bbeda7308e9c38"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566989.7674310954753309 4185835.3241275562904775, 566953.5906121258158237 4185877.4489381550811231)",
+        "edgeid": [
+          "566989.8_4185835.3",
+          "566953.6_4185877.4"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "34bbeda7308e9c38"
+      },
+      "confidence": 0.6,
+      "timestamp": 1147,
+      "action_metadata": {
+        "geometric_signature": "3d341c7b45f36195"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1399",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "565979.6_4186213.4",
+        "edge_v": "565960.0_4186265.2",
+        "stable_id": "092dfc2dcf39fbf3"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (565979.5579833374358714 4186213.4473061165772378, 565959.9551553989294916 4186265.1741040293127298)",
+        "edgeid": [
+          "565979.6_4186213.4",
+          "565960.0_4186265.2"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "092dfc2dcf39fbf3"
+      },
+      "confidence": 0.6,
+      "timestamp": 1148,
+      "action_metadata": {
+        "geometric_signature": "1a1f17bcccfd06db"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1286",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566343.1_4186038.9",
+        "edge_v": "566343.1_4186038.9",
+        "stable_id": "ed6fb001a19a09d6"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566343.1077418026980013 4186038.8501584725454450, 566345.0678586470894516 4186045.7342901239171624, 566344.5696366508491337 4186050.7566813179291785, 566341.8428708720020950 4186055.9830104582943022, 566338.0227657278301194 4186058.1713591553270817, 566333.6625530753517523 4186057.4815331175923347, 566330.7665625406662002 4186055.3166785794310272, 566329.2659350766334683 4186052.5750007559545338, 566330.0373492584330961 4186047.5104290358722210, 566332.5739725030725822 4186045.1230946234427392, 566343.1077418026980013 4186038.8501584725454450)",
+        "edgeid": [
+          "566343.1_4186038.9",
+          "566343.1_4186038.9"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "ed6fb001a19a09d6"
+      },
+      "confidence": 0.6,
+      "timestamp": 1149,
+      "action_metadata": {
+        "geometric_signature": "32a67c40a789c8f2"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1312",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566410.5_4187074.2",
+        "edge_v": "566460.8_4187054.9",
+        "stable_id": "1343c7e4d87356f9"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566410.5033343010582030 4187074.2143746949732304, 566419.0967682173941284 4187069.3905304381623864, 566460.8242292639333755 4187054.9369999645277858)",
+        "edgeid": [
+          "566410.5_4187074.2",
+          "566460.8_4187054.9"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "1343c7e4d87356f9"
+      },
+      "confidence": 0.6,
+      "timestamp": 1151,
+      "action_metadata": {
+        "geometric_signature": "a11eb2a6fcc8c867"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1309",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "567865.7_4186355.0",
+        "edge_v": "567919.4_4186356.5",
+        "stable_id": "ca25b834e265dcaa"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (567865.6587573799770325 4186355.0127276466228068, 567919.4339507319964468 4186356.4664576658979058)",
+        "edgeid": [
+          "567865.7_4186355.0",
+          "567919.4_4186356.5"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "ca25b834e265dcaa"
+      },
+      "confidence": 0.6,
+      "timestamp": 1153,
+      "action_metadata": {
+        "geometric_signature": "44af8783ef7b8011"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_429",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566189.7_4187207.7",
+        "edge_v": "566152.3_4187171.2",
+        "stable_id": "f80778189c9d4c66"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566189.7498938520438969 4187207.6812553056515753, 566152.2969682359835133 4187171.2184217488393188)",
+        "edgeid": [
+          "566189.7_4187207.7",
+          "566152.3_4187171.2"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "f80778189c9d4c66"
+      },
+      "confidence": 0.6,
+      "timestamp": 1155,
+      "action_metadata": {
+        "geometric_signature": "147a5b5df12f3ca3"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_478",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "567875.8_4186976.7",
+        "edge_v": "567826.8_4186992.7",
+        "stable_id": "bff0d197833b7736"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (567875.8147974956082180 4186976.6991142793558538, 567826.8190234155626968 4186992.7499388288706541)",
+        "edgeid": [
+          "567875.8_4186976.7",
+          "567826.8_4186992.7"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "bff0d197833b7736"
+      },
+      "confidence": 0.6,
+      "timestamp": 1157,
+      "action_metadata": {
+        "geometric_signature": "6efe32b1d73cccd1"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1000",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566872.4_4187126.8",
+        "edge_v": "566842.0_4187087.4",
+        "stable_id": "6aa14a2c6f307d04"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566872.3515777254942805 4187126.7579234526492655, 566841.9658301081508398 4187087.3535048514604568)",
+        "edgeid": [
+          "566872.4_4187126.8",
+          "566842.0_4187087.4"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "6aa14a2c6f307d04"
+      },
+      "confidence": 0.6,
+      "timestamp": 1159,
+      "action_metadata": {
+        "geometric_signature": "12d96df36b441edf"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1121",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "568345.9_4186300.3",
+        "edge_v": "568346.8_4186349.3",
+        "stable_id": "c881e94c3f9d7f7b"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (568345.8942650286480784 4186300.3485423014499247, 568346.7904188982211053 4186349.2555904826149344)",
+        "edgeid": [
+          "568345.9_4186300.3",
+          "568346.8_4186349.3"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "c881e94c3f9d7f7b"
+      },
+      "confidence": 0.6,
+      "timestamp": 1161,
+      "action_metadata": {
+        "geometric_signature": "dba6ca63a2f6a0e4"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_937",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "567295.4_4185222.5",
+        "edge_v": "567314.0_4185177.4",
+        "stable_id": "3aa071611c108388"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (567295.3776805143570527 4185222.4878149540163577, 567313.9775124532170594 4185177.3911550627090037)",
+        "edgeid": [
+          "567295.4_4185222.5",
+          "567314.0_4185177.4"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "3aa071611c108388"
+      },
+      "confidence": 0.6,
+      "timestamp": 1163,
+      "action_metadata": {
+        "geometric_signature": "41f35defd7c006ab"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_817",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "567147.4_4186852.2",
+        "edge_v": "567112.4_4186818.8",
+        "stable_id": "f1bc78ffcead7e37"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (567147.3586250606458634 4186852.2131624612957239, 567112.4442529149819165 4186818.8180157402530313)",
+        "edgeid": [
+          "567147.4_4186852.2",
+          "567112.4_4186818.8"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "f1bc78ffcead7e37"
+      },
+      "confidence": 0.6,
+      "timestamp": 1165,
+      "action_metadata": {
+        "geometric_signature": "753b31b1545ea918"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1268",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566349.4_4185043.0",
+        "edge_v": "566314.2_4185021.2",
+        "stable_id": "c7ca5e0a2cadfc1e"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566349.3626224955078214 4185043.0063299955800176, 566346.4129659775644541 4185036.5358730354346335, 566345.0491859588073567 4185029.9006743063218892, 566343.0150821146089584 4185026.6997714857570827, 566339.2521068120840937 4185023.9287593360058963, 566333.4242427890421823 4185021.7735595186240971, 566314.1502424768405035 4185021.1854276303201914)",
+        "edgeid": [
+          "566349.4_4185043.0",
+          "566314.2_4185021.2"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "c7ca5e0a2cadfc1e"
+      },
+      "confidence": 0.6,
+      "timestamp": 1166,
+      "action_metadata": {
+        "geometric_signature": "f87f7243e829acad"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_848",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "568513.1_4185648.4",
+        "edge_v": "568498.3_4185603.1",
+        "stable_id": "62a7844f6d9aa772"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (568513.1458049726206809 4185648.4475655076093972, 568498.2865037899464369 4185603.0858731674961746)",
+        "edgeid": [
+          "568513.1_4185648.4",
+          "568498.3_4185603.1"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "62a7844f6d9aa772"
+      },
+      "confidence": 0.6,
+      "timestamp": 1168,
+      "action_metadata": {
+        "geometric_signature": "7068d5bdb20bb92e"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_752",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "567811.7_4186400.9",
+        "edge_v": "567810.2_4186353.5",
+        "stable_id": "5cafdfd438a2d3b8"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (567811.6783081847243011 4186400.8593841861002147, 567810.2118922795634717 4186353.4789884756319225)",
+        "edgeid": [
+          "567811.7_4186400.9",
+          "567810.2_4186353.5"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "5cafdfd438a2d3b8"
+      },
+      "confidence": 0.6,
+      "timestamp": 1170,
+      "action_metadata": {
+        "geometric_signature": "d2239674e84b3719"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_608",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "565925.7_4186482.6",
+        "edge_v": "565883.9_4186462.3",
+        "stable_id": "1ab59fdf6cedcc6d"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (565925.6894993238383904 4186482.5993603789247572, 565908.6367742975708097 4186475.4389953780919313, 565883.9302164823748171 4186462.3476443546824157)",
+        "edgeid": [
+          "565925.7_4186482.6",
+          "565883.9_4186462.3"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "1ab59fdf6cedcc6d"
+      },
+      "confidence": 0.6,
+      "timestamp": 1172,
+      "action_metadata": {
+        "geometric_signature": "e14b34a8bb23dff3"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_831",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "567453.4_4185782.6",
+        "edge_v": "567487.6_4185752.3",
+        "stable_id": "7f48b637f5aa8616"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (567453.4172634161077440 4185782.6359573709778488, 567463.6101156387012452 4185770.8580916612409055, 567475.7386219381587580 4185760.2611838560551405, 567487.5550332991406322 4185752.3025465072132647)",
+        "edgeid": [
+          "567453.4_4185782.6",
+          "567487.6_4185752.3"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "7f48b637f5aa8616"
+      },
+      "confidence": 0.6,
+      "timestamp": 1174,
+      "action_metadata": {
+        "geometric_signature": "ebbd5c1c781582c8"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_277",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "567637.8_4185475.1",
+        "edge_v": "567596.7_4185492.8",
+        "stable_id": "4a5b603acd1d2683"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (567637.8372273023705930 4185475.0865147463046014, 567625.9202625930774957 4185481.2909725238569081, 567596.7326143220998347 4185492.8459405209869146)",
+        "edgeid": [
+          "567637.8_4185475.1",
+          "567596.7_4185492.8"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "4a5b603acd1d2683"
+      },
+      "confidence": 0.6,
+      "timestamp": 1176,
+      "action_metadata": {
+        "geometric_signature": "0cfb347a5e22e875"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_749",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "567812.2_4186478.2",
+        "edge_v": "567811.5_4186521.4",
+        "stable_id": "9d051e8d8d968868"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (567812.2021762182703242 4186478.2130766226910055, 567811.5025297697866336 4186521.4257589424960315)",
+        "edgeid": [
+          "567812.2_4186478.2",
+          "567811.5_4186521.4"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "9d051e8d8d968868"
+      },
+      "confidence": 0.6,
+      "timestamp": 1178,
+      "action_metadata": {
+        "geometric_signature": "479188d9bbe9aaa2"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1144",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "568175.8_4186846.7",
+        "edge_v": "568217.6_4186855.2",
+        "stable_id": "9bcc69b24eb2bde0"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (568175.7846413636580110 4186846.7405958441086113, 568217.6169049522140995 4186855.1986957318149507)",
+        "edgeid": [
+          "568175.8_4186846.7",
+          "568217.6_4186855.2"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "9bcc69b24eb2bde0"
+      },
+      "confidence": 0.6,
+      "timestamp": 1180,
+      "action_metadata": {
+        "geometric_signature": "2aa820b96b3ad474"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_675",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566757.9_4186335.0",
+        "edge_v": "566747.6_4186372.2",
+        "stable_id": "d6f435fd5fc6ea91"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566757.9007824100553989 4186334.9707744061015546, 566757.7490964862518013 4186364.4955904483795166, 566755.0944896527798846 4186368.4019686202518642, 566747.6442045097937807 4186372.1584588121622801)",
+        "edgeid": [
+          "566757.9_4186335.0",
+          "566747.6_4186372.2"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "d6f435fd5fc6ea91"
+      },
+      "confidence": 0.6,
+      "timestamp": 1182,
+      "action_metadata": {
+        "geometric_signature": "b3c46c48602f4198"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1279",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "567956.9_4185202.5",
+        "edge_v": "567983.6_4185234.0",
+        "stable_id": "30208eca6175458c"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (567956.9494035168318078 4185202.4617774891667068, 567983.5639820508658886 4185234.0164118930697441)",
+        "edgeid": [
+          "567956.9_4185202.5",
+          "567983.6_4185234.0"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "30208eca6175458c"
+      },
+      "confidence": 0.6,
+      "timestamp": 1184,
+      "action_metadata": {
+        "geometric_signature": "f3a4f0ff534b3820"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1188",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "568146.4_4185996.9",
+        "edge_v": "568142.6_4185956.4",
+        "stable_id": "f4730c91c70c6107"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (568146.3555470022838563 4185996.8844249611720443, 568147.5286509639117867 4185983.8453898881562054, 568145.8569372931960970 4185971.0157947093248367, 568142.5626587651204318 4185956.4196063713170588)",
+        "edgeid": [
+          "568146.4_4185996.9",
+          "568142.6_4185956.4"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "f4730c91c70c6107"
+      },
+      "confidence": 0.6,
+      "timestamp": 1186,
+      "action_metadata": {
+        "geometric_signature": "f5227ce1c0dd70f2"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_728",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "567112.2_4186338.0",
+        "edge_v": "567077.9_4186316.8",
+        "stable_id": "bfb00af741d0039b"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (567112.1619833084987476 4186337.9765849811956286, 567077.8934013644466177 4186316.8367568664252758)",
+        "edgeid": [
+          "567112.2_4186338.0",
+          "567077.9_4186316.8"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "bfb00af741d0039b"
+      },
+      "confidence": 0.6,
+      "timestamp": 1188,
+      "action_metadata": {
+        "geometric_signature": "a4c1b87d8dab7391"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1397",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "568438.0_4185878.5",
+        "edge_v": "568399.3_4185874.5",
+        "stable_id": "00b39ac732d18fdb"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (568438.0038407945539802 4185878.4721364947035909, 568418.6916036551119760 4185875.3155584111809731, 568399.2544470101129264 4185874.4770273454487324)",
+        "edgeid": [
+          "568438.0_4185878.5",
+          "568399.3_4185874.5"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "00b39ac732d18fdb"
+      },
+      "confidence": 0.6,
+      "timestamp": 1190,
+      "action_metadata": {
+        "geometric_signature": "f2a8ea264b422771"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_418",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "565935.2_4186960.1",
+        "edge_v": "565962.9_4186987.0",
+        "stable_id": "78dba42c7260ec44"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (565935.2030394752509892 4186960.1069803466089070, 565962.8861106142867357 4186987.0367248496040702)",
+        "edgeid": [
+          "565935.2_4186960.1",
+          "565962.9_4186987.0"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "78dba42c7260ec44"
+      },
+      "confidence": 0.6,
+      "timestamp": 1192,
+      "action_metadata": {
+        "geometric_signature": "06c9dc1fff9e088e"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_423",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566084.1_4187105.0",
+        "edge_v": "566056.8_4187078.3",
+        "stable_id": "4a9c157ac3d9ff07"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566084.1394867465132847 4187104.9717557849362493, 566056.7717053182423115 4187078.3326064762659371)",
+        "edgeid": [
+          "566084.1_4187105.0",
+          "566056.8_4187078.3"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "4a9c157ac3d9ff07"
+      },
+      "confidence": 0.6,
+      "timestamp": 1194,
+      "action_metadata": {
+        "geometric_signature": "726ce9ab682bd805"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1236",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "567903.6_4186089.4",
+        "edge_v": "567895.4_4186126.4",
+        "stable_id": "ced22d6f3e0c801d"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (567903.5960332406684756 4186089.3688301057554781, 567895.9414874316425994 4186116.7013445189222693, 567895.4386838849168271 4186126.4282763293012977)",
+        "edgeid": [
+          "567903.6_4186089.4",
+          "567895.4_4186126.4"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "ced22d6f3e0c801d"
+      },
+      "confidence": 0.6,
+      "timestamp": 1196,
+      "action_metadata": {
+        "geometric_signature": "3af47afdbb6c4e71"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1256",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566391.2_4187108.0",
+        "edge_v": "566353.5_4187105.8",
+        "stable_id": "5308d45d9db84a6e"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566391.2117619249038398 4187108.0007544159889221, 566373.4246419988339767 4187104.8057650248520076, 566353.5177224163198844 4187105.8212222266010940)",
+        "edgeid": [
+          "566391.2_4187108.0",
+          "566353.5_4187105.8"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "5308d45d9db84a6e"
+      },
+      "confidence": 0.6,
+      "timestamp": 1197,
+      "action_metadata": {
+        "geometric_signature": "c3937c847df8b4f5"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_339",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "568190.9_4185964.0",
+        "edge_v": "568191.2_4186001.6",
+        "stable_id": "40729dc9f5fb1145"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (568190.8940525939688087 4185963.9881628784351051, 568191.1718716241884977 4186001.6055074492469430)",
+        "edgeid": [
+          "568190.9_4185964.0",
+          "568191.2_4186001.6"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "40729dc9f5fb1145"
+      },
+      "confidence": 0.6,
+      "timestamp": 1199,
+      "action_metadata": {
+        "geometric_signature": "7871ff73d2951b6b"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_135",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566272.9_4186547.9",
+        "edge_v": "566251.9_4186579.1",
+        "stable_id": "a193c749c49638dd"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566272.8930243842769414 4186547.9155450477264822, 566251.9321028215344995 4186579.0812614476308227)",
+        "edgeid": [
+          "566272.9_4186547.9",
+          "566251.9_4186579.1"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "a193c749c49638dd"
+      },
+      "confidence": 0.6,
+      "timestamp": 1201,
+      "action_metadata": {
+        "geometric_signature": "4add2a1bd732ed24"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1418",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566231.8_4187248.6",
+        "edge_v": "566254.4_4187220.6",
+        "stable_id": "60d0ae179618d33e"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566231.8043949275743216 4187248.6196811678819358, 566254.4017088891705498 4187220.5850408435799181)",
+        "edgeid": [
+          "566231.8_4187248.6",
+          "566254.4_4187220.6"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "60d0ae179618d33e"
+      },
+      "confidence": 0.6,
+      "timestamp": 1203,
+      "action_metadata": {
+        "geometric_signature": "9d6449a381d4a4ac"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_474",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "567887.7_4186882.5",
+        "edge_v": "567894.2_4186847.3",
+        "stable_id": "8a09e6f0aa0b201c"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (567887.6904512457549572 4186882.5375895588658750, 567894.2388214843813330 4186847.3289310624822974)",
+        "edgeid": [
+          "567887.7_4186882.5",
+          "567894.2_4186847.3"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "8a09e6f0aa0b201c"
+      },
+      "confidence": 0.6,
+      "timestamp": 1205,
+      "action_metadata": {
+        "geometric_signature": "f1582ee31abe2812"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1325",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566671.9_4185196.7",
+        "edge_v": "566701.3_4185177.5",
+        "stable_id": "8a8d780e028eb1b0"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566671.8846751761157066 4185196.7058041901327670, 566686.2988167414441705 4185183.2080697976052761, 566701.2926003619795665 4185177.4821372390724719)",
+        "edgeid": [
+          "566671.9_4185196.7",
+          "566701.3_4185177.5"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "8a8d780e028eb1b0"
+      },
+      "confidence": 0.6,
+      "timestamp": 1207,
+      "action_metadata": {
+        "geometric_signature": "dcde83fe9ef07cef"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1382",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566644.0_4185136.1",
+        "edge_v": "566612.4_4185119.9",
+        "stable_id": "d0e58d252657eb17"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566643.9953397100325674 4185136.0741436150856316, 566621.0762070158962160 4185123.6498016151599586, 566612.4094429260585457 4185119.8736112569458783)",
+        "edgeid": [
+          "566644.0_4185136.1",
+          "566612.4_4185119.9"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "d0e58d252657eb17"
+      },
+      "confidence": 0.6,
+      "timestamp": 1209,
+      "action_metadata": {
+        "geometric_signature": "f1613349065c2956"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1025",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566881.0_4186720.9",
+        "edge_v": "566849.3_4186705.6",
+        "stable_id": "21547580ed15e0a1"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566881.0045174194965512 4186720.8529913835227489, 566849.2770370808430016 4186705.5600768225267529)",
+        "edgeid": [
+          "566881.0_4186720.9",
+          "566849.3_4186705.6"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "21547580ed15e0a1"
+      },
+      "confidence": 0.6,
+      "timestamp": 1211,
+      "action_metadata": {
+        "geometric_signature": "d0f40f691580e288"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1287",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566288.1_4185710.0",
+        "edge_v": "566304.4_4185679.5",
+        "stable_id": "aba80745667e7299"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566288.1313128926558420 4185710.0480832825414836, 566304.4156351087149233 4185679.4772096704691648)",
+        "edgeid": [
+          "566288.1_4185710.0",
+          "566304.4_4185679.5"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "aba80745667e7299"
+      },
+      "confidence": 0.6,
+      "timestamp": 1213,
+      "action_metadata": {
+        "geometric_signature": "6498710f1bbd2250"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1367",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566140.1_4185216.0",
+        "edge_v": "566115.1_4185238.4",
+        "stable_id": "28daa6092f4076ce"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566140.1224970648763701 4185216.0359312789514661, 566115.1183681343682110 4185238.4370827986858785)",
+        "edgeid": [
+          "566140.1_4185216.0",
+          "566115.1_4185238.4"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "28daa6092f4076ce"
+      },
+      "confidence": 0.6,
+      "timestamp": 1214,
+      "action_metadata": {
+        "geometric_signature": "da4822886837e663"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1347",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "567701.8_4186667.0",
+        "edge_v": "567694.5_4186637.0",
+        "stable_id": "6427cb31bc757964"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (567701.7547180557157844 4186666.9980610967613757, 567692.0630199331790209 4186650.0636218255385756, 567694.4854191860649735 4186636.9904288141988218)",
+        "edgeid": [
+          "567701.8_4186667.0",
+          "567694.5_4186637.0"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "6427cb31bc757964"
+      },
+      "confidence": 0.6,
+      "timestamp": 1216,
+      "action_metadata": {
+        "geometric_signature": "c27b2ef8f08ff783"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1402",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "567193.6_4186426.3",
+        "edge_v": "567200.8_4186457.7",
+        "stable_id": "617c00a49596f1e7"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (567193.5952649584505707 4186426.2989178542047739, 567196.5641494294395670 4186433.5022016121074557, 567200.8201431566849351 4186457.6815774892456830)",
+        "edgeid": [
+          "567193.6_4186426.3",
+          "567200.8_4186457.7"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "617c00a49596f1e7"
+      },
+      "confidence": 0.6,
+      "timestamp": 1218,
+      "action_metadata": {
+        "geometric_signature": "485843a929147b6d"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_940",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "568055.0_4185096.9",
+        "edge_v": "568074.6_4185122.0",
+        "stable_id": "32d7705fcd6b4f58"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (568054.9721807284513488 4185096.8739312696270645, 568074.6065914267674088 4185121.9687972115352750)",
+        "edgeid": [
+          "568055.0_4185096.9",
+          "568074.6_4185122.0"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "32d7705fcd6b4f58"
+      },
+      "confidence": 0.6,
+      "timestamp": 1220,
+      "action_metadata": {
+        "geometric_signature": "9099c9d8daaf8709"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1018",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566735.9_4186651.6",
+        "edge_v": "566707.2_4186638.0",
+        "stable_id": "b3d612da0b025479"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566735.9320974240545183 4186651.5789176509715617, 566707.1652505008969456 4186637.9749734005890787)",
+        "edgeid": [
+          "566735.9_4186651.6",
+          "566707.2_4186638.0"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "b3d612da0b025479"
+      },
+      "confidence": 0.6,
+      "timestamp": 1222,
+      "action_metadata": {
+        "geometric_signature": "77c3a1612cf481da"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1375",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "567164.8_4185656.3",
+        "edge_v": "567136.7_4185662.1",
+        "stable_id": "fa4b607934d1b89b"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (567164.8273161123506725 4185656.2668836722150445, 567154.2246947265230119 4185653.5838779103942215, 567148.7939582444960251 4185653.5395374977961183, 567143.8193187022116035 4185655.8512434363365173, 567136.6820327963214368 4185662.1398029583506286)",
+        "edgeid": [
+          "567164.8_4185656.3",
+          "567136.7_4185662.1"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "fa4b607934d1b89b"
+      },
+      "confidence": 0.6,
+      "timestamp": 1224,
+      "action_metadata": {
+        "geometric_signature": "af91874d591e75d6"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_654",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "565891.8_4186155.5",
+        "edge_v": "565920.8_4186166.8",
+        "stable_id": "ff58c5fe517680fa"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (565891.8368945429101586 4186155.5338865793310106, 565920.7752174524357542 4186166.7839648621156812)",
+        "edgeid": [
+          "565891.8_4186155.5",
+          "565920.8_4186166.8"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "ff58c5fe517680fa"
+      },
+      "confidence": 0.6,
+      "timestamp": 1225,
+      "action_metadata": {
+        "geometric_signature": "7dd90ac985d3c589"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1265",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566000.0_4185782.1",
+        "edge_v": "565977.6_4185802.8",
+        "stable_id": "65ff435d9a326351"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (565999.9635665423702449 4185782.0502938460558653, 565977.6066408813931048 4185802.7976147113367915)",
+        "edgeid": [
+          "566000.0_4185782.1",
+          "565977.6_4185802.8"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "65ff435d9a326351"
+      },
+      "confidence": 0.6,
+      "timestamp": 1227,
+      "action_metadata": {
+        "geometric_signature": "dce7cc86a958c223"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_578",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566983.0_4185478.0",
+        "edge_v": "566961.8_4185456.9",
+        "stable_id": "97e5be927ed64108"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566983.0036277162143961 4185478.0273357224650681, 566961.7502109409542754 4185456.8831480485387146)",
+        "edgeid": [
+          "566983.0_4185478.0",
+          "566961.8_4185456.9"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "97e5be927ed64108"
+      },
+      "confidence": 0.6,
+      "timestamp": 1229,
+      "action_metadata": {
+        "geometric_signature": "99a6a696bbe5bba8"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1059",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "567792.9_4186754.8",
+        "edge_v": "567763.6_4186753.9",
+        "stable_id": "6e368f16ffacd625"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (567792.9342410835670307 4186754.8409539968706667, 567781.6535556917078793 4186756.6675331010483205, 567772.0919827678008005 4186756.0117245088331401, 567763.6069950194796547 4186753.9445272758603096)",
+        "edgeid": [
+          "567792.9_4186754.8",
+          "567763.6_4186753.9"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "6e368f16ffacd625"
+      },
+      "confidence": 0.6,
+      "timestamp": 1231,
+      "action_metadata": {
+        "geometric_signature": "180a2a3ee3b5feca"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_897",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566201.2_4186665.4",
+        "edge_v": "566181.1_4186687.2",
+        "stable_id": "b6ea5d3c85a16c48"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566201.2188749279594049 4186665.3756380137056112, 566181.0727948000421748 4186687.2275875722989440)",
+        "edgeid": [
+          "566201.2_4186665.4",
+          "566181.1_4186687.2"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "b6ea5d3c85a16c48"
+      },
+      "confidence": 0.6,
+      "timestamp": 1233,
+      "action_metadata": {
+        "geometric_signature": "cd79a991d18407b9"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_795",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566634.2_4185227.5",
+        "edge_v": "566612.1_4185246.4",
+        "stable_id": "4846ddd435a45148"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566634.1961051914840937 4185227.5463930070400238, 566612.0801208701450378 4185246.4187959576956928)",
+        "edgeid": [
+          "566634.2_4185227.5",
+          "566612.1_4185246.4"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "4846ddd435a45148"
+      },
+      "confidence": 0.6,
+      "timestamp": 1235,
+      "action_metadata": {
+        "geometric_signature": "a748b5c5c4c04bce"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_880",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566770.4_4185662.2",
+        "edge_v": "566789.1_4185640.0",
+        "stable_id": "226e526ce8aaa26e"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566770.4131443409714848 4185662.1983893350698054, 566789.1223605890991166 4185640.0143830291926861)",
+        "edgeid": [
+          "566770.4_4185662.2",
+          "566789.1_4185640.0"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "226e526ce8aaa26e"
+      },
+      "confidence": 0.6,
+      "timestamp": 1237,
+      "action_metadata": {
+        "geometric_signature": "f0dfbd5c2fb908eb"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_584",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566249.4_4185484.3",
+        "edge_v": "566268.1_4185462.8",
+        "stable_id": "87989c3a25a627b4"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566249.4234922861214727 4185484.3246347224339843, 566268.1438194642541930 4185462.8164055743254721)",
+        "edgeid": [
+          "566249.4_4185484.3",
+          "566268.1_4185462.8"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "87989c3a25a627b4"
+      },
+      "confidence": 0.6,
+      "timestamp": 1239,
+      "action_metadata": {
+        "geometric_signature": "2ebe7137db3265a1"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_594",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "567566.6_4186683.1",
+        "edge_v": "567578.4_4186657.1",
+        "stable_id": "235e211551f9c581"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (567566.6274416097439826 4186683.0629064650274813, 567578.4143646147567779 4186657.1288538100197911)",
+        "edgeid": [
+          "567566.6_4186683.1",
+          "567578.4_4186657.1"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "235e211551f9c581"
+      },
+      "confidence": 0.6,
+      "timestamp": 1241,
+      "action_metadata": {
+        "geometric_signature": "acebbcc0d95fd337"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1393",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "567999.9_4186350.7",
+        "edge_v": "567972.2_4186356.1",
+        "stable_id": "9e94b86498970a2f"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (567999.9294155646348372 4186350.6739370245486498, 567982.7776866848580539 4186354.5932077011093497, 567972.1683174381032586 4186356.0589234335348010)",
+        "edgeid": [
+          "567999.9_4186350.7",
+          "567972.2_4186356.1"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "9e94b86498970a2f"
+      },
+      "confidence": 0.6,
+      "timestamp": 1243,
+      "action_metadata": {
+        "geometric_signature": "72fd8588abb77bde"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1077",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566870.3_4186531.7",
+        "edge_v": "566879.0_4186505.6",
+        "stable_id": "4dcda2836b890ea4"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566870.2825086287921295 4186531.7257048403844237, 566878.9976079654879868 4186505.5548957544378936)",
+        "edgeid": [
+          "566870.3_4186531.7",
+          "566879.0_4186505.6"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "4dcda2836b890ea4"
+      },
+      "confidence": 0.6,
+      "timestamp": 1245,
+      "action_metadata": {
+        "geometric_signature": "722ea7da47f15e88"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_899",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "567577.2_4185044.4",
+        "edge_v": "567564.2_4185068.4",
+        "stable_id": "a4de5cf7ba90a19b"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (567577.2390308764297515 4185044.4466320788487792, 567564.1984367700060830 4185068.4175055096857250)",
+        "edgeid": [
+          "567577.2_4185044.4",
+          "567564.2_4185068.4"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "a4de5cf7ba90a19b"
+      },
+      "confidence": 0.6,
+      "timestamp": 1247,
+      "action_metadata": {
+        "geometric_signature": "1cc2adfd16543068"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1437",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566774.3_4186138.2",
+        "edge_v": "566748.7_4186130.0",
+        "stable_id": "c2c629ff0f2dd753"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566774.2591637078439817 4186138.1856370624154806, 566761.8738966800738126 4186135.0559113519266248, 566748.7207028430420905 4186130.0225821482017636)",
+        "edgeid": [
+          "566774.3_4186138.2",
+          "566748.7_4186130.0"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "c2c629ff0f2dd753"
+      },
+      "confidence": 0.6,
+      "timestamp": 1249,
+      "action_metadata": {
+        "geometric_signature": "9bb884c8e3168119"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_262",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "567061.8_4185573.3",
+        "edge_v": "567044.6_4185553.3",
+        "stable_id": "d7275b995b61661d"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (567061.8023885813308880 4185573.3058608123101294, 567044.6069700970547274 4185553.2930225688032806)",
+        "edgeid": [
+          "567061.8_4185573.3",
+          "567044.6_4185553.3"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "d7275b995b61661d"
+      },
+      "confidence": 0.6,
+      "timestamp": 1251,
+      "action_metadata": {
+        "geometric_signature": "3a45fb6316c7338f"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1390",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566805.1_4186144.7",
+        "edge_v": "566791.5_4186166.7",
+        "stable_id": "188a5beb7f0044c0"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566805.1270865821279585 4186144.7276901025325060, 566796.8904572646133602 4186161.8260517544113100, 566791.4729452213505283 4186166.6975064342841506)",
+        "edgeid": [
+          "566805.1_4186144.7",
+          "566791.5_4186166.7"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "188a5beb7f0044c0"
+      },
+      "confidence": 0.6,
+      "timestamp": 1252,
+      "action_metadata": {
+        "geometric_signature": "0bd6df18f9b285e7"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1327",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566783.4_4185327.0",
+        "edge_v": "566803.4_4185310.6",
+        "stable_id": "bdeda9dcf7d087b2"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566783.3987228607293218 4185326.9544765497557819, 566795.0443164117168635 4185315.0877319807186723, 566803.3990687511395663 4185310.6395780816674232)",
+        "edgeid": [
+          "566783.4_4185327.0",
+          "566803.4_4185310.6"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "bdeda9dcf7d087b2"
+      },
+      "confidence": 0.6,
+      "timestamp": 1254,
+      "action_metadata": {
+        "geometric_signature": "fe55a821e4190244"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_646",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566611.1_4187033.1",
+        "edge_v": "566586.1_4187028.4",
+        "stable_id": "46fa88ebc8828995"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566611.1357316403882578 4187033.1185614368878305, 566586.0909290359122679 4187028.4440416935831308)",
+        "edgeid": [
+          "566611.1_4187033.1",
+          "566586.1_4187028.4"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "46fa88ebc8828995"
+      },
+      "confidence": 0.6,
+      "timestamp": 1256,
+      "action_metadata": {
+        "geometric_signature": "14ab12f39dea4b41"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1304",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "567589.8_4185818.9",
+        "edge_v": "567565.3_4185814.2",
+        "stable_id": "84fefef8c403ece0"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (567589.8281841269927099 4185818.8521082787774503, 567565.3081638448638842 4185814.1900923280045390)",
+        "edgeid": [
+          "567589.8_4185818.9",
+          "567565.3_4185814.2"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "84fefef8c403ece0"
+      },
+      "confidence": 0.6,
+      "timestamp": 1258,
+      "action_metadata": {
+        "geometric_signature": "fe3e5d6bb95f03c7"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1273",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "568361.8_4186916.6",
+        "edge_v": "568337.8_4186911.1",
+        "stable_id": "9b63af49d4c6738d"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (568361.8154974798671901 4186916.5806346903555095, 568337.7813002350740135 4186911.0880735227838159)",
+        "edgeid": [
+          "568361.8_4186916.6",
+          "568337.8_4186911.1"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "9b63af49d4c6738d"
+      },
+      "confidence": 0.6,
+      "timestamp": 1260,
+      "action_metadata": {
+        "geometric_signature": "c7216c3253830051"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1424",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566458.2_4187017.4",
+        "edge_v": "566482.1_4187014.1",
+        "stable_id": "81be2cf2cbde49f7"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566458.2409736218396574 4187017.4010485773906112, 566482.0653536046156660 4187014.1095825494267046)",
+        "edgeid": [
+          "566458.2_4187017.4",
+          "566482.1_4187014.1"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "81be2cf2cbde49f7"
+      },
+      "confidence": 0.6,
+      "timestamp": 1262,
+      "action_metadata": {
+        "geometric_signature": "9730034850ea73b2"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1340",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "568189.8_4186885.0",
+        "edge_v": "568172.5_4186901.2",
+        "stable_id": "66d3d54afda36461"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (568189.8044021498644724 4186885.0045615220442414, 568172.4726286471122876 4186901.2050825082696974)",
+        "edgeid": [
+          "568189.8_4186885.0",
+          "568172.5_4186901.2"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "66d3d54afda36461"
+      },
+      "confidence": 0.6,
+      "timestamp": 1264,
+      "action_metadata": {
+        "geometric_signature": "ee51482b94378297"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_678",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566828.9_4186255.6",
+        "edge_v": "566833.6_4186235.5",
+        "stable_id": "1d7f47990ea63f6a"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566828.9150498581584543 4186255.6353266993537545, 566827.3650992529001087 4186251.4063084647059441, 566827.0934853027574718 4186246.9213789966888726, 566828.1149270533351228 4186242.5357248452492058, 566830.3383485755184665 4186238.6258650394156575, 566833.6027142517268658 4186235.5122712342999876)",
+        "edgeid": [
+          "566828.9_4186255.6",
+          "566833.6_4186235.5"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "1d7f47990ea63f6a"
+      },
+      "confidence": 0.6,
+      "timestamp": 1265,
+      "action_metadata": {
+        "geometric_signature": "61a5677cf35c2f3e"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1421",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566622.1_4186590.1",
+        "edge_v": "566627.4_4186610.4",
+        "stable_id": "9dc8e9c146a0adf9"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566622.0565415886230767 4186590.1275528296828270, 566627.4109384847106412 4186610.3764776559546590)",
+        "edgeid": [
+          "566622.1_4186590.1",
+          "566627.4_4186610.4"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "9dc8e9c146a0adf9"
+      },
+      "confidence": 0.6,
+      "timestamp": 1267,
+      "action_metadata": {
+        "geometric_signature": "69ac5f41b17e66c8"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_680",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566858.2_4186245.7",
+        "edge_v": "566850.1_4186262.0",
+        "stable_id": "9bbfdbb733ee7f8e"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566858.2437759959138930 4186245.7432269640266895, 566858.2660527338739485 4186250.5811976687982678, 566856.7939306352054700 4186255.1851011579856277, 566853.9892612934345379 4186259.1346118338406086, 566850.1017264128895476 4186262.0323103326372802)",
+        "edgeid": [
+          "566858.2_4186245.7",
+          "566850.1_4186262.0"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "9bbfdbb733ee7f8e"
+      },
+      "confidence": 0.6,
+      "timestamp": 1268,
+      "action_metadata": {
+        "geometric_signature": "e02edf82e2e274df"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1316",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566628.8_4186683.2",
+        "edge_v": "566644.2_4186692.5",
+        "stable_id": "107dd07d9af7efee"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566628.8012932338751853 4186683.1765066031366587, 566639.6670135365566239 4186686.9151024380698800, 566644.1628625231096521 4186692.5438513550907373)",
+        "edgeid": [
+          "566628.8_4186683.2",
+          "566644.2_4186692.5"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "107dd07d9af7efee"
+      },
+      "confidence": 0.6,
+      "timestamp": 1270,
+      "action_metadata": {
+        "geometric_signature": "71db37871bf9a4cc"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_161",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "565953.3_4186283.4",
+        "edge_v": "565937.6_4186276.2",
+        "stable_id": "40855dd73e14023e"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (565953.3487966848770157 4186283.3626454733312130, 565948.8467898529488593 4186282.8050339063629508, 565943.1691726861754432 4186280.6734861223958433, 565937.6249180466402322 4186276.1796017382293940)",
+        "edgeid": [
+          "565953.3_4186283.4",
+          "565937.6_4186276.2"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "40855dd73e14023e"
+      },
+      "confidence": 0.6,
+      "timestamp": 1271,
+      "action_metadata": {
+        "geometric_signature": "c4de8bbbdb0855fe"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1379",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566356.5_4187091.1",
+        "edge_v": "566372.9_4187094.9",
+        "stable_id": "40f1a16fe037020c"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566356.5320358210010454 4187091.0991710885427892, 566372.9059495198307559 4187094.9262721883133054)",
+        "edgeid": [
+          "566356.5_4187091.1",
+          "566372.9_4187094.9"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "40f1a16fe037020c"
+      },
+      "confidence": 0.6,
+      "timestamp": 1272,
+      "action_metadata": {
+        "geometric_signature": "40a160f0acda4e73"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1298",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566829.7_4187072.9",
+        "edge_v": "566845.3_4187068.6",
+        "stable_id": "92028108401a0b00"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566829.7182087624678388 4187072.8847900377586484, 566838.5984914330765605 4187071.7808243017643690, 566845.3309488053200766 4187068.5622855555266142)",
+        "edgeid": [
+          "566829.7_4187072.9",
+          "566845.3_4187068.6"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "92028108401a0b00"
+      },
+      "confidence": 0.6,
+      "timestamp": 1273,
+      "action_metadata": {
+        "geometric_signature": "f2287cfee85aa857"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1331",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566742.3_4185375.4",
+        "edge_v": "566731.5_4185387.2",
+        "stable_id": "da5a498d95d178be"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566742.3365011543501168 4185375.4428375386632979, 566731.4927811805391684 4185387.2273932341486216)",
+        "edgeid": [
+          "566742.3_4185375.4",
+          "566731.5_4185387.2"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "da5a498d95d178be"
+      },
+      "confidence": 0.6,
+      "timestamp": 1275,
+      "action_metadata": {
+        "geometric_signature": "25b5336e8bbc27ea"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1442",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "567441.4_4186964.5",
+        "edge_v": "567447.7_4186950.2",
+        "stable_id": "e77f0c0cc085cd82"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (567441.3900763900019228 4186964.5467333337292075, 567447.7299599590478465 4186950.2184878727421165)",
+        "edgeid": [
+          "567441.4_4186964.5",
+          "567447.7_4186950.2"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "e77f0c0cc085cd82"
+      },
+      "confidence": 0.6,
+      "timestamp": 1277,
+      "action_metadata": {
+        "geometric_signature": "ad55f4adf5ed4a70"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1290",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566559.1_4185911.5",
+        "edge_v": "566562.4_4185896.6",
+        "stable_id": "4be3e8b406867820"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566559.1444322332972661 4185911.5402106004767120, 566562.3991974677192047 4185896.5649868738837540)",
+        "edgeid": [
+          "566559.1_4185911.5",
+          "566562.4_4185896.6"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "4be3e8b406867820"
+      },
+      "confidence": 0.6,
+      "timestamp": 1279,
+      "action_metadata": {
+        "geometric_signature": "40816c7848ea574b"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_784",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566430.9_4185401.5",
+        "edge_v": "566419.3_4185411.3",
+        "stable_id": "0f749a044b4e9500"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566430.9147992793004960 4185401.5379051552154124, 566419.2602980685187504 4185411.3190666236914694)",
+        "edgeid": [
+          "566430.9_4185401.5",
+          "566419.3_4185411.3"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "0f749a044b4e9500"
+      },
+      "confidence": 0.6,
+      "timestamp": 1281,
+      "action_metadata": {
+        "geometric_signature": "91646205deb694af"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1394",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "567994.4_4186375.5",
+        "edge_v": "568005.2_4186385.4",
+        "stable_id": "b675080e236de0b0"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (567994.3815384450135753 4186375.4939332571811974, 568005.2228386265924200 4186385.3590619345195591)",
+        "edgeid": [
+          "567994.4_4186375.5",
+          "568005.2_4186385.4"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "b675080e236de0b0"
+      },
+      "confidence": 0.6,
+      "timestamp": 1283,
+      "action_metadata": {
+        "geometric_signature": "bd94c652029b68b7"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1369",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566348.3_4185007.6",
+        "edge_v": "566338.4_4184998.8",
+        "stable_id": "07d67c2e658b83c5"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566348.3185510567855090 4185007.6466526729054749, 566338.3804094586521387 4184998.8451963071711361)",
+        "edgeid": [
+          "566348.3_4185007.6",
+          "566338.4_4184998.8"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "07d67c2e658b83c5"
+      },
+      "confidence": 0.6,
+      "timestamp": 1284,
+      "action_metadata": {
+        "geometric_signature": "d761050b69f15754"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1344",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "567810.3_4187178.1",
+        "edge_v": "567816.9_4187188.0",
+        "stable_id": "e7b53801a71f6dc2"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (567810.2758320637512952 4187178.0701735774055123, 567814.2701521178241819 4187180.3555892524309456, 567815.9590882381889969 4187182.5887004630640149, 567816.8734611796680838 4187188.0332307685166597)",
+        "edgeid": [
+          "567810.3_4187178.1",
+          "567816.9_4187188.0"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "e7b53801a71f6dc2"
+      },
+      "confidence": 0.6,
+      "timestamp": 1285,
+      "action_metadata": {
+        "geometric_signature": "910ff103a650fbc3"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1354",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "567155.2_4186382.4",
+        "edge_v": "567162.7_4186391.6",
+        "stable_id": "7d8d150121b12677"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (567155.1559632497373968 4186382.4447356145828962, 567162.6859493523370475 4186391.5826497371308506)",
+        "edgeid": [
+          "567155.2_4186382.4",
+          "567162.7_4186391.6"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "7d8d150121b12677"
+      },
+      "confidence": 0.6,
+      "timestamp": 1287,
+      "action_metadata": {
+        "geometric_signature": "14837045c1047857"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1449",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "567101.1_4185947.4",
+        "edge_v": "567099.4_4185958.6",
+        "stable_id": "cc901d8f1529e7d3"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (567101.1429300757590681 4185947.4124972494319081, 567099.3706778533523902 4185958.5715575329959393)",
+        "edgeid": [
+          "567101.1_4185947.4",
+          "567099.4_4185958.6"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "cc901d8f1529e7d3"
+      },
+      "confidence": 0.6,
+      "timestamp": 1289,
+      "action_metadata": {
+        "geometric_signature": "e0b982129d4e6585"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1377",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566295.0_4187156.1",
+        "edge_v": "566303.7_4187163.3",
+        "stable_id": "c636263debcce647"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566294.9912579209776595 4187156.1236283462494612, 566303.6641626622295007 4187163.2505345321260393)",
+        "edgeid": [
+          "566295.0_4187156.1",
+          "566303.7_4187163.3"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "c636263debcce647"
+      },
+      "confidence": 0.6,
+      "timestamp": 1291,
+      "action_metadata": {
+        "geometric_signature": "671df5095e33bd14"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_447",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566219.6_4185130.1",
+        "edge_v": "566228.6_4185136.8",
+        "stable_id": "cd53321224c2f709"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566219.6354608539259061 4185130.0617507379502058, 566228.5779051738791168 4185136.7912288601510227)",
+        "edgeid": [
+          "566219.6_4185130.1",
+          "566228.6_4185136.8"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "cd53321224c2f709"
+      },
+      "confidence": 0.6,
+      "timestamp": 1292,
+      "action_metadata": {
+        "geometric_signature": "08e918ede7f3264b"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_355",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "567562.9_4184999.8",
+        "edge_v": "567552.3_4184999.0",
+        "stable_id": "7ed76d2d6df9619c"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (567562.8867505477974191 4184999.8232999467290938, 567552.2678155872272328 4184999.0370553000830114)",
+        "edgeid": [
+          "567562.9_4184999.8",
+          "567552.3_4184999.0"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "7ed76d2d6df9619c"
+      },
+      "confidence": 0.6,
+      "timestamp": 1294,
+      "action_metadata": {
+        "geometric_signature": "470e45d4dd933153"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1066",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "568260.8_4186465.3",
+        "edge_v": "568251.0_4186469.2",
+        "stable_id": "58250bd3c949ca14"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (568260.8114758010488003 4186465.2701713116839528, 568251.0351654569385573 4186469.2390172267332673)",
+        "edgeid": [
+          "568260.8_4186465.3",
+          "568251.0_4186469.2"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "58250bd3c949ca14"
+      },
+      "confidence": 0.6,
+      "timestamp": 1296,
+      "action_metadata": {
+        "geometric_signature": "5af4185dc46d0b1a"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1352",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "567810.4_4186234.7",
+        "edge_v": "567810.3_4186244.7",
+        "stable_id": "affde4322301c2ab"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (567810.3814682948868722 4186234.7212220663204789, 567810.3077413934515789 4186244.7290937285870314)",
+        "edgeid": [
+          "567810.4_4186234.7",
+          "567810.3_4186244.7"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "affde4322301c2ab"
+      },
+      "confidence": 0.6,
+      "timestamp": 1298,
+      "action_metadata": {
+        "geometric_signature": "5eb8d4f90e9f8505"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1371",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566389.0_4185017.3",
+        "edge_v": "566395.7_4185024.5",
+        "stable_id": "b6a25c8743975400"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566388.9548201727448031 4185017.3171741110272706, 566395.6665499823866412 4185024.4837589659728110)",
+        "edgeid": [
+          "566389.0_4185017.3",
+          "566395.7_4185024.5"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "b6a25c8743975400"
+      },
+      "confidence": 0.6,
+      "timestamp": 1299,
+      "action_metadata": {
+        "geometric_signature": "020b0a20870b504f"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1362",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566197.7_4185164.1",
+        "edge_v": "566189.4_4185159.1",
+        "stable_id": "71616d90e5850fe3"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566197.6537662282353267 4185164.0599196776747704, 566189.4367987141013145 4185159.0672585503198206)",
+        "edgeid": [
+          "566197.7_4185164.1",
+          "566189.4_4185159.1"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "71616d90e5850fe3"
+      },
+      "confidence": 0.6,
+      "timestamp": 1300,
+      "action_metadata": {
+        "geometric_signature": "0d7e9eec8a1f22dd"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1348",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "567740.1_4186234.3",
+        "edge_v": "567738.4_4186243.4",
+        "stable_id": "3ced6b08b51580c0"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (567740.0672586392611265 4186234.2859319434501231, 567738.3636283352971077 4186243.4259933885186911)",
+        "edgeid": [
+          "567740.1_4186234.3",
+          "567738.4_4186243.4"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "3ced6b08b51580c0"
+      },
+      "confidence": 0.6,
+      "timestamp": 1302,
+      "action_metadata": {
+        "geometric_signature": "e76d14701efb0250"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1433",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566545.0_4187020.1",
+        "edge_v": "566537.8_4187016.3",
+        "stable_id": "86ec65885ab61808"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566544.9968382532242686 4187020.0557109359651804, 566537.7579051535576582 4187016.2689119800925255)",
+        "edgeid": [
+          "566545.0_4187020.1",
+          "566537.8_4187016.3"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "86ec65885ab61808"
+      },
+      "confidence": 0.6,
+      "timestamp": 1304,
+      "action_metadata": {
+        "geometric_signature": "8509b0f3bc7b47ee"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1425",
+      "intent_params": {
+        "strategy": "short_segment",
+        "edge_u": "566053.3_4185695.7",
+        "edge_v": "566051.5_4185701.1",
+        "stable_id": "05a36d8e25d6c604"
+      },
+      "realized_geometry": {
+        "geometry_wkt": "LINESTRING (566053.3036504819756374 4185695.6648622867651284, 566051.4734944208757952 4185701.0538257709704340)",
+        "edgeid": [
+          "566053.3_4185695.7",
+          "566051.5_4185701.1"
+        ],
+        "frontier_type": "block_edge",
+        "stable_id": "05a36d8e25d6c604"
+      },
+      "confidence": 0.6,
+      "timestamp": 1306,
+      "action_metadata": {
+        "geometric_signature": "3fd127827a33d557"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_85",
+      "intent_params": {
+        "direction": "peripheral_expansion",
+        "edge_u": "567235.8_4186148.0",
+        "edge_v": "567187.8_4186142.7",
+        "stable_id": "7c7a060904d7b3bd"
+      },
+      "realized_geometry": null,
+      "confidence": 0.8,
+      "timestamp": 1308,
+      "action_metadata": {
+        "geometric_signature": "9d675bf321ea844a"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_39",
+      "intent_params": {
+        "direction": "peripheral_expansion",
+        "edge_u": "567060.1_4186287.7",
+        "edge_v": "567104.4_4186261.1",
+        "stable_id": "e2f6249f0392261b"
+      },
+      "realized_geometry": null,
+      "confidence": 0.8,
+      "timestamp": 1310,
+      "action_metadata": {
+        "geometric_signature": "c17a4663292385d8"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_66",
+      "intent_params": {
+        "direction": "peripheral_expansion",
+        "edge_u": "567237.2_4186341.7",
+        "edge_v": "567254.9_4186306.9",
+        "stable_id": "5dd5d7919413e794"
+      },
+      "realized_geometry": null,
+      "confidence": 0.8,
+      "timestamp": 1312,
+      "action_metadata": {
+        "geometric_signature": "ee839d9f11f8fc14"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_30",
+      "intent_params": {
+        "direction": "peripheral_expansion",
+        "edge_u": "567335.9_4185989.9",
+        "edge_v": "567325.9_4186055.5",
+        "stable_id": "a9c69698579ee935"
+      },
+      "realized_geometry": null,
+      "confidence": 0.8,
+      "timestamp": 1314,
+      "action_metadata": {
+        "geometric_signature": "552d169fa8cad33f"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_38",
+      "intent_params": {
+        "direction": "peripheral_expansion",
+        "edge_u": "566938.6_4186141.7",
+        "edge_v": "566931.9_4186201.5",
+        "stable_id": "b556548b68d7397a"
+      },
+      "realized_geometry": null,
+      "confidence": 0.8,
+      "timestamp": 1316,
+      "action_metadata": {
+        "geometric_signature": "523075cbea5cc94a"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_37",
+      "intent_params": {
+        "direction": "peripheral_expansion",
+        "edge_u": "567298.7_4186456.8",
+        "edge_v": "567273.4_4186411.0",
+        "stable_id": "7239485038107516"
+      },
+      "realized_geometry": null,
+      "confidence": 0.8,
+      "timestamp": 1318,
+      "action_metadata": {
+        "geometric_signature": "87de5b189ab0c3ab"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_59",
+      "intent_params": {
+        "direction": "peripheral_expansion",
+        "edge_u": "567440.3_4186048.0",
+        "edge_v": "567478.2_4186028.8",
+        "stable_id": "18c416c8c6a3ba6c"
+      },
+      "realized_geometry": null,
+      "confidence": 0.8,
+      "timestamp": 1320,
+      "action_metadata": {
+        "geometric_signature": "16b84079eebe88bf"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_65",
+      "intent_params": {
+        "direction": "peripheral_expansion",
+        "edge_u": "566997.2_4186411.6",
+        "edge_v": "566966.9_4186479.2",
+        "stable_id": "15c7a4634e61a263"
+      },
+      "realized_geometry": null,
+      "confidence": 0.8,
+      "timestamp": 1322,
+      "action_metadata": {
+        "geometric_signature": "38e67dccd158f7dd"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_93",
+      "intent_params": {
+        "direction": "peripheral_expansion",
+        "edge_u": "567497.8_4185804.1",
+        "edge_v": "567573.3_4185843.9",
+        "stable_id": "f79b5bca805f2f01"
+      },
+      "realized_geometry": null,
+      "confidence": 0.8,
+      "timestamp": 1324,
+      "action_metadata": {
+        "geometric_signature": "e1ce112f929b86da"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_1",
+      "intent_params": {
+        "direction": "peripheral_expansion",
+        "edge_u": "567651.7_4186229.4",
+        "edge_v": "567644.8_4186256.9",
+        "stable_id": "6b94fe4a94dc4ec5"
+      },
+      "realized_geometry": null,
+      "confidence": 0.8,
+      "timestamp": 1326,
+      "action_metadata": {
+        "geometric_signature": "276c69a3b342cfaf"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_74",
+      "intent_params": {
+        "direction": "peripheral_expansion",
+        "edge_u": "567580.4_4185698.5",
+        "edge_v": "567574.6_4185713.1",
+        "stable_id": "79ba1f1e3d1e59c1"
+      },
+      "realized_geometry": null,
+      "confidence": 0.8,
+      "timestamp": 1328,
+      "action_metadata": {
+        "geometric_signature": "1da6eb19feb37eb7"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_73",
+      "intent_params": {
+        "direction": "peripheral_expansion",
+        "edge_u": "567646.9_4185721.5",
+        "edge_v": "567638.1_4185730.4",
+        "stable_id": "928084ce3b9dac40"
+      },
+      "realized_geometry": null,
+      "confidence": 0.8,
+      "timestamp": 1330,
+      "action_metadata": {
+        "geometric_signature": "1d124397cb1b026e"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_58",
+      "intent_params": {
+        "direction": "peripheral_expansion",
+        "edge_u": "566836.1_4186815.1",
+        "edge_v": "566959.1_4186887.5",
+        "stable_id": "312375cc23d64438"
+      },
+      "realized_geometry": null,
+      "confidence": 0.8,
+      "timestamp": 1332,
+      "action_metadata": {
+        "geometric_signature": "0c37329312028f64"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_9",
+      "intent_params": {
+        "direction": "peripheral_expansion",
+        "edge_u": "567719.7_4186640.0",
+        "edge_v": "567790.0_4186694.9",
+        "stable_id": "83f84815786d62e0"
+      },
+      "realized_geometry": null,
+      "confidence": 0.8,
+      "timestamp": 1334,
+      "action_metadata": {
+        "geometric_signature": "88d2962a93e7d847"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_50",
+      "intent_params": {
+        "direction": "peripheral_expansion",
+        "edge_u": "567689.0_4185633.8",
+        "edge_v": "567853.6_4185562.2",
+        "stable_id": "0935c6414e7c54b0"
+      },
+      "realized_geometry": null,
+      "confidence": 0.8,
+      "timestamp": 1336,
+      "action_metadata": {
+        "geometric_signature": "b663937c6cccc8de"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_12",
+      "intent_params": {
+        "direction": "peripheral_expansion",
+        "edge_u": "567669.1_4185491.5",
+        "edge_v": "567690.1_4185499.9",
+        "stable_id": "baebcfacb9835d99"
+      },
+      "realized_geometry": null,
+      "confidence": 0.8,
+      "timestamp": 1338,
+      "action_metadata": {
+        "geometric_signature": "ddeca1510ddb21de"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_7",
+      "intent_params": {
+        "direction": "peripheral_expansion",
+        "edge_u": "567565.7_4186916.1",
+        "edge_v": "567622.4_4186931.1",
+        "stable_id": "d63442cdfd0988a7"
+      },
+      "realized_geometry": null,
+      "confidence": 0.8,
+      "timestamp": 1340,
+      "action_metadata": {
+        "geometric_signature": "2e5966807016e601"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_53",
+      "intent_params": {
+        "direction": "peripheral_expansion",
+        "edge_u": "567826.3_4185503.6",
+        "edge_v": "567752.5_4185486.9",
+        "stable_id": "1672f6d7c343fdd1"
+      },
+      "realized_geometry": null,
+      "confidence": 0.8,
+      "timestamp": 1342,
+      "action_metadata": {
+        "geometric_signature": "08ebff2ff7f45483"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_18",
+      "intent_params": {
+        "direction": "peripheral_expansion",
+        "edge_u": "566859.1_4186997.0",
+        "edge_v": "566920.8_4187095.3",
+        "stable_id": "a8655055588eb23d"
+      },
+      "realized_geometry": null,
+      "confidence": 0.8,
+      "timestamp": 1344,
+      "action_metadata": {
+        "geometric_signature": "2077b214a2cc6bed"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_34",
+      "intent_params": {
+        "direction": "peripheral_expansion",
+        "edge_u": "566122.3_4185923.4",
+        "edge_v": "566232.9_4186048.5",
+        "stable_id": "12cee36421375f82"
+      },
+      "realized_geometry": null,
+      "confidence": 0.8,
+      "timestamp": 1346,
+      "action_metadata": {
+        "geometric_signature": "68751d827f5e2ccf"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_21",
+      "intent_params": {
+        "direction": "peripheral_expansion",
+        "edge_u": "568080.5_4186536.5",
+        "edge_v": "568076.2_4186591.2",
+        "stable_id": "f8684d8e937fb726"
+      },
+      "realized_geometry": null,
+      "confidence": 0.8,
+      "timestamp": 1348,
+      "action_metadata": {
+        "geometric_signature": "3987a75d54ef80a5"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_76",
+      "intent_params": {
+        "direction": "peripheral_expansion",
+        "edge_u": "568192.9_4186396.9",
+        "edge_v": "568162.4_4186397.0",
+        "stable_id": "11bb74003795f511"
+      },
+      "realized_geometry": null,
+      "confidence": 0.8,
+      "timestamp": 1350,
+      "action_metadata": {
+        "geometric_signature": "3e80369a799b4d05"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_94",
+      "intent_params": {
+        "direction": "peripheral_expansion",
+        "edge_u": "566511.9_4187055.9",
+        "edge_v": "566615.3_4187109.0",
+        "stable_id": "6445c6c975379c29"
+      },
+      "realized_geometry": null,
+      "confidence": 0.8,
+      "timestamp": 1352,
+      "action_metadata": {
+        "geometric_signature": "8db00cf9f97607da"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_20",
+      "intent_params": {
+        "direction": "peripheral_expansion",
+        "edge_u": "567880.3_4185225.5",
+        "edge_v": "567820.3_4185264.9",
+        "stable_id": "b2d1d8987e41add3"
+      },
+      "realized_geometry": null,
+      "confidence": 0.8,
+      "timestamp": 1354,
+      "action_metadata": {
+        "geometric_signature": "078ad70e7f394f97"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_24",
+      "intent_params": {
+        "direction": "peripheral_expansion",
+        "edge_u": "566657.7_4185144.9",
+        "edge_v": "566906.8_4184993.2",
+        "stable_id": "1bd506b366d98307"
+      },
+      "realized_geometry": null,
+      "confidence": 0.8,
+      "timestamp": 1356,
+      "action_metadata": {
+        "geometric_signature": "0f0cc84887dbc778"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_44",
+      "intent_params": {
+        "direction": "peripheral_expansion",
+        "edge_u": "566321.1_4186958.8",
+        "edge_v": "566308.7_4186973.1",
+        "stable_id": "4a36767615a2b5af"
+      },
+      "realized_geometry": null,
+      "confidence": 0.8,
+      "timestamp": 1358,
+      "action_metadata": {
+        "geometric_signature": "edb85fc00ff72162"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_36",
+      "intent_params": {
+        "direction": "peripheral_expansion",
+        "edge_u": "566761.8_4184976.0",
+        "edge_v": "566700.1_4185031.7",
+        "stable_id": "ba23a0c6dad4f5f7"
+      },
+      "realized_geometry": null,
+      "confidence": 0.8,
+      "timestamp": 1360,
+      "action_metadata": {
+        "geometric_signature": "989f422a524d3ff0"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_101",
+      "intent_params": {
+        "direction": "peripheral_expansion",
+        "edge_u": "566549.2_4187254.3",
+        "edge_v": "566566.4_4187229.7",
+        "stable_id": "00b713e9802d418c"
+      },
+      "realized_geometry": null,
+      "confidence": 0.8,
+      "timestamp": 1361,
+      "action_metadata": {
+        "geometric_signature": "e72e68996c4842e5"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_15",
+      "intent_params": {
+        "direction": "peripheral_expansion",
+        "edge_u": "565998.1_4186584.2",
+        "edge_v": "565961.5_4186565.3",
+        "stable_id": "beffcd39724182d8"
+      },
+      "realized_geometry": null,
+      "confidence": 0.8,
+      "timestamp": 1363,
+      "action_metadata": {
+        "geometric_signature": "df8646d8f5be9398"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_42",
+      "intent_params": {
+        "direction": "peripheral_expansion",
+        "edge_u": "565957.1_4185537.4",
+        "edge_v": "566044.4_4185658.0",
+        "stable_id": "9de1ce63f8830f8d"
+      },
+      "realized_geometry": null,
+      "confidence": 0.8,
+      "timestamp": 1365,
+      "action_metadata": {
+        "geometric_signature": "bc4c9b5bf9a7966d"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_40",
+      "intent_params": {
+        "direction": "peripheral_expansion",
+        "edge_u": "565924.9_4185847.2",
+        "edge_v": "565896.9_4185872.4",
+        "stable_id": "ed44e5a9f5239921"
+      },
+      "realized_geometry": null,
+      "confidence": 0.8,
+      "timestamp": 1367,
+      "action_metadata": {
+        "geometric_signature": "2c078662e529cb3d"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_6",
+      "intent_params": {
+        "direction": "peripheral_expansion",
+        "edge_u": "566103.9_4186882.8",
+        "edge_v": "566049.3_4186839.9",
+        "stable_id": "b6776e300ab2b56c"
+      },
+      "realized_geometry": null,
+      "confidence": 0.8,
+      "timestamp": 1369,
+      "action_metadata": {
+        "geometric_signature": "6aabb136f1d4c08b"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_16",
+      "intent_params": {
+        "direction": "peripheral_expansion",
+        "edge_u": "566109.0_4185524.0",
+        "edge_v": "566001.0_4185401.6",
+        "stable_id": "d010bec5b159a88b"
+      },
+      "realized_geometry": null,
+      "confidence": 0.8,
+      "timestamp": 1371,
+      "action_metadata": {
+        "geometric_signature": "35ed3cf879b17369"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_0",
+      "intent_params": {
+        "direction": "peripheral_expansion",
+        "edge_u": "565940.1_4186729.9",
+        "edge_v": "566014.5_4186814.8",
+        "stable_id": "4a5a3a62cdda7140"
+      },
+      "realized_geometry": null,
+      "confidence": 0.8,
+      "timestamp": 1373,
+      "action_metadata": {
+        "geometric_signature": "3abb66ab7c98f006"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_82",
+      "intent_params": {
+        "direction": "peripheral_expansion",
+        "edge_u": "568319.5_4186779.3",
+        "edge_v": "568397.5_4186757.4",
+        "stable_id": "fbf543c06320cd35"
+      },
+      "realized_geometry": null,
+      "confidence": 0.8,
+      "timestamp": 1375,
+      "action_metadata": {
+        "geometric_signature": "931373120d0ab32f"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_10",
+      "intent_params": {
+        "direction": "peripheral_expansion",
+        "edge_u": "566334.7_4187192.4",
+        "edge_v": "566427.7_4187328.7",
+        "stable_id": "74905fd173d3143e"
+      },
+      "realized_geometry": null,
+      "confidence": 0.8,
+      "timestamp": 1377,
+      "action_metadata": {
+        "geometric_signature": "6e003bb623ef6cd0"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_4",
+      "intent_params": {
+        "direction": "peripheral_expansion",
+        "edge_u": "566027.2_4186922.6",
+        "edge_v": "566008.8_4186889.5",
+        "stable_id": "c3cd3cc55ea845ea"
+      },
+      "realized_geometry": null,
+      "confidence": 0.8,
+      "timestamp": 1379,
+      "action_metadata": {
+        "geometric_signature": "df2f985c93dfc88e"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_86",
+      "intent_params": {
+        "direction": "peripheral_expansion",
+        "edge_u": "565929.2_4185518.8",
+        "edge_v": "565888.5_4185679.6",
+        "stable_id": "47e305a518e58ae9"
+      },
+      "realized_geometry": null,
+      "confidence": 0.8,
+      "timestamp": 1380,
+      "action_metadata": {
+        "geometric_signature": "52fe1c2001756f61"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_63",
+      "intent_params": {
+        "direction": "peripheral_expansion",
+        "edge_u": "568489.5_4185903.7",
+        "edge_v": "568572.5_4185966.0",
+        "stable_id": "46c57ef7f28e5b45"
+      },
+      "realized_geometry": null,
+      "confidence": 0.8,
+      "timestamp": 1382,
+      "action_metadata": {
+        "geometric_signature": "5064bc59f76fae51"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_70",
+      "intent_params": {
+        "direction": "peripheral_expansion",
+        "edge_u": "568492.2_4186521.2",
+        "edge_v": "568403.9_4186583.2",
+        "stable_id": "2ff593ef0d6e19d4"
+      },
+      "realized_geometry": null,
+      "confidence": 0.8,
+      "timestamp": 1384,
+      "action_metadata": {
+        "geometric_signature": "8377de9e6acc60bd"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_29",
+      "intent_params": {
+        "direction": "peripheral_expansion",
+        "edge_u": "566040.3_4186982.0",
+        "edge_v": "565999.8_4187022.9",
+        "stable_id": "a76ecd77b4e944ff"
+      },
+      "realized_geometry": null,
+      "confidence": 0.8,
+      "timestamp": 1386,
+      "action_metadata": {
+        "geometric_signature": "1e96e23ed52bf567"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_79",
+      "intent_params": {
+        "direction": "peripheral_expansion",
+        "edge_u": "565902.0_4185531.9",
+        "edge_v": "565946.2_4185348.7",
+        "stable_id": "c67e5d962ced824a"
+      },
+      "realized_geometry": null,
+      "confidence": 0.8,
+      "timestamp": 1387,
+      "action_metadata": {
+        "geometric_signature": "a4352760273dac0a"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_52",
+      "intent_params": {
+        "direction": "peripheral_expansion",
+        "edge_u": "568157.1_4185164.3",
+        "edge_v": "568179.6_4185101.1",
+        "stable_id": "27fa048207ad8e51"
+      },
+      "realized_geometry": null,
+      "confidence": 0.8,
+      "timestamp": 1389,
+      "action_metadata": {
+        "geometric_signature": "c5b36a41b147aa55"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_71",
+      "intent_params": {
+        "direction": "peripheral_expansion",
+        "edge_u": "568447.1_4185362.5",
+        "edge_v": "568401.9_4185424.2",
+        "stable_id": "029d39f01662355b"
+      },
+      "realized_geometry": null,
+      "confidence": 0.8,
+      "timestamp": 1391,
+      "action_metadata": {
+        "geometric_signature": "71675d729d434ccc"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_68",
+      "intent_params": {
+        "direction": "peripheral_expansion",
+        "edge_u": "568303.9_4185188.2",
+        "edge_v": "568299.2_4185241.1",
+        "stable_id": "f6ed3e33ad61931d"
+      },
+      "realized_geometry": null,
+      "confidence": 0.8,
+      "timestamp": 1393,
+      "action_metadata": {
+        "geometric_signature": "e193459e322a1a98"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_46",
+      "intent_params": {
+        "direction": "peripheral_expansion",
+        "edge_u": "568401.8_4186924.3",
+        "edge_v": "568463.2_4186934.5",
+        "stable_id": "7cc5e62b075ac4ee"
+      },
+      "realized_geometry": null,
+      "confidence": 0.8,
+      "timestamp": 1395,
+      "action_metadata": {
+        "geometric_signature": "388f616014749aa4"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_97",
+      "intent_params": {
+        "direction": "peripheral_expansion",
+        "edge_u": "566167.9_4185000.4",
+        "edge_v": "566253.0_4184971.0",
+        "stable_id": "30e823f0a53b4ee5"
+      },
+      "realized_geometry": null,
+      "confidence": 0.8,
+      "timestamp": 1396,
+      "action_metadata": {
+        "geometric_signature": "327e4aede3bf07af"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_28",
+      "intent_params": {
+        "direction": "peripheral_expansion",
+        "edge_u": "568360.1_4185290.6",
+        "edge_v": "568359.1_4185170.5",
+        "stable_id": "5738a3c9af0d5cbc"
+      },
+      "realized_geometry": null,
+      "confidence": 0.8,
+      "timestamp": 1398,
+      "action_metadata": {
+        "geometric_signature": "a922752138235302"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_88",
+      "intent_params": {
+        "direction": "peripheral_expansion",
+        "edge_u": "568318.8_4187181.2",
+        "edge_v": "568432.8_4186970.6",
+        "stable_id": "aa65e03b629b952f"
+      },
+      "realized_geometry": null,
+      "confidence": 0.8,
+      "timestamp": 1400,
+      "action_metadata": {
+        "geometric_signature": "73346a2f3d385497"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_25",
+      "intent_params": {
+        "direction": "peripheral_expansion",
+        "edge_u": "565972.6_4185009.9",
+        "edge_v": "566021.7_4185050.4",
+        "stable_id": "62b293b18182c379"
+      },
+      "realized_geometry": null,
+      "confidence": 0.8,
+      "timestamp": 1402,
+      "action_metadata": {
+        "geometric_signature": "33772f041b1d9c3e"
+      }
+    },
+    {
+      "_type": "InverseGrowthAction",
+      "action_type": "remove_street",
+      "target_id": "frontier_23",
+      "intent_params": {
+        "direction": "peripheral_expansion",
+        "edge_u": "565879.2_4187316.2",
+        "edge_v": "565944.5_4187247.1",
+        "stable_id": "004d9fb937d530fc"
+      },
+      "realized_geometry": null,
+      "confidence": 0.8,
+      "timestamp": 1404,
+      "action_metadata": {
+        "geometric_signature": "bf30f06e7406ef0b"
+      }
+    }
+  ],
+  "initial_state": {
+    "iteration": 0,
+    "streets_count": 50,
+    "blocks_count": 0,
+    "frontiers_count": 21,
+    "city_bounds": "POLYGON ((566079.9449915036 4184967.416796104, 565924.5571303811 4184978.885873019, 565882.4319940191 4184983.5636993796, 565866.1086721693 4187030.133704225, 565879.2176104799 4187316.211707711, 566427.6767706381 4187328.703332338, 567490.4781972093 4187320.938741094, 567699.5260385739 4187307.412004277, 568318.7795301739 4187181.1598030184, 568397.8685236486 4187117.1283248663, 568409.2909220635 4187106.6933523924, 568439.9469418033 4187053.543906989, 568447.3038195182 4187039.89061468, 568450.2120006902 4187030.9715267187, 568536.1640938731 4186631.70237822, 568572.4854064513 4185965.9627833166, 568513.1458049726 4185648.4475655076, 568447.0770280584 4185362.533577814, 568359.0782197417 4185170.4977927315, 568179.6061959936 4185101.079398259, 567680.2744549285 4185011.8618999035, 567615.3445155807 4185004.12675324, 567562.8867505478 4184999.8232999467, 567552.2678155872 4184999.0370553, 566761.8371571931 4184975.973811512, 566079.9449915036 4184967.416796104))"
+  },
+  "final_state": {
+    "iteration": 0,
+    "streets_count": 1404,
+    "blocks_count": 226,
+    "frontiers_count": 7,
+    "city_bounds": "POLYGON ((566079.9449915036 4184967.416796104, 565924.5571303811 4184978.885873019, 565882.4319940191 4184983.5636993796, 565866.1086721693 4187030.133704225, 565879.2176104799 4187316.211707711, 566427.6767706381 4187328.703332338, 567490.4781972093 4187320.938741094, 567699.5260385739 4187307.412004277, 568318.7795301739 4187181.1598030184, 568397.8685236486 4187117.1283248663, 568409.2909220635 4187106.6933523924, 568439.9469418033 4187053.543906989, 568447.3038195182 4187039.89061468, 568450.2120006902 4187030.9715267187, 568536.1640938731 4186631.70237822, 568572.4854064513 4185965.9627833166, 568513.1458049726 4185648.4475655076, 568447.0770280584 4185362.533577814, 568359.0782197417 4185170.4977927315, 568179.6061959936 4185101.079398259, 567680.2744549285 4185011.8618999035, 567615.3445155807 4185004.12675324, 567562.8867505478 4184999.8232999467, 567552.2678155872 4184999.0370553, 566761.8371571931 4184975.973811512, 566079.9449915036 4184967.416796104))"
+  },
+  "metadata": {
+    "inference_method": "basic_peeling",
+    "max_steps": 10000000,
+    "steps_taken": 229,
+    "skeleton_streets": 29
+  }
+}
