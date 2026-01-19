@@ -9,6 +9,10 @@ from typing import List, Set, Tuple, Any
 from shapely.geometry import LineString
 import logging
 import math
+import hashlib
+import geopandas as gpd
+
+from src.core.contracts import GrowthState, FrontierEdge
 
 logger = logging.getLogger(__name__)
 
@@ -28,6 +32,27 @@ class ArterialSkeletonExtractor:
         self.min_length = min_length
         self.betweenness_threshold = betweenness_threshold
         self.max_curvature = max_curvature
+
+        # CACHING: Cache expensive computations
+        self._cached_betweenness = {}
+        self._cached_graph_hash = None
+
+    def _get_cached_betweenness(self, graph: nx.Graph) -> dict:
+        """Get cached betweenness centrality, computing if needed."""
+        import hashlib
+
+        # Create a simple hash of the graph structure
+        graph_str = f"{len(graph.nodes())}_{len(graph.edges())}_{sorted(graph.nodes())[:10]}"
+        graph_hash = hashlib.md5(graph_str.encode()).hexdigest()[:16]
+
+        if graph_hash != self._cached_graph_hash or not self._cached_betweenness:
+            logger.info("Computing betweenness centrality (cached for future use)")
+            self._cached_betweenness = nx.betweenness_centrality(graph, normalized=True)
+            self._cached_graph_hash = graph_hash
+        else:
+            logger.debug("Using cached betweenness centrality")
+
+        return self._cached_betweenness
     
     def extract_skeleton(self, streets_gdf, graph: nx.Graph) -> Tuple[Set[str], List[dict]]:
         """
@@ -42,8 +67,8 @@ class ArterialSkeletonExtractor:
         """
         logger.info("Extracting arterial skeleton...")
 
-        # Calculate betweenness centrality once
-        betweenness = nx.betweenness_centrality(graph, normalized=True)
+        # Calculate betweenness centrality (cached)
+        betweenness = self._get_cached_betweenness(graph)
 
         skeleton_edges = set()
         skeleton_streets = []
@@ -118,14 +143,41 @@ class ArterialSkeletonExtractor:
 
         Since the streets GDF may use renumbered node IDs, we need to match
         streets to graph edges by geometry proximity.
+
+        OPTIMIZATION: Use STRtree spatial indexing for O(n log m) instead of O(n*m)
         """
         from shapely.geometry import Point
         from shapely.wkt import loads
+        from shapely.strtree import STRtree
         import numpy as np
+
+        # Build spatial index on graph edges
+        edge_geoms = []
+        edge_lookup = []
+        for u, v, edge_data in graph.edges(data=True):
+            edge_geom = edge_data.get('geometry')
+
+            # Handle geometry stored as WKT string
+            if edge_geom and isinstance(edge_geom, str):
+                try:
+                    edge_geom = loads(edge_geom)
+                except:
+                    continue
+
+            if edge_geom and isinstance(edge_geom, LineString):
+                edge_geoms.append(edge_geom)
+                edge_lookup.append((u, v))
+
+        if not edge_geoms:
+            logger.warning("No valid edge geometries found in graph")
+            return {}
+
+        # Create STRtree spatial index
+        tree = STRtree(edge_geoms)
 
         mapping = {}
 
-        # For each street, find the closest graph edge by geometry
+        # For each street, query nearby edges using spatial index
         for idx, street in streets_gdf.iterrows():
             if not isinstance(street.geometry, LineString):
                 continue
@@ -134,38 +186,35 @@ class ArterialSkeletonExtractor:
             street_start = Point(street_geom.coords[0])
             street_end = Point(street_geom.coords[-1])
 
+            # Query edges within 10m buffer of street geometry
+            # This reduces from checking all edges to checking only nearby ones
+            nearby_indices = tree.query(street_geom.buffer(10.0))
+
             best_match = None
             best_distance = float('inf')
 
-            # Check each graph edge
-            for u, v, edge_data in graph.edges(data=True):
-                edge_geom = edge_data.get('geometry')
+            # Check only nearby edges (should be much fewer than all edges)
+            for edge_idx in nearby_indices:
+                u, v = edge_lookup[edge_idx]
+                edge_geom = edge_geoms[edge_idx]
 
-                # Handle geometry stored as WKT string
-                if edge_geom and isinstance(edge_geom, str):
-                    try:
-                        edge_geom = loads(edge_geom)
-                    except:
-                        continue
+                # Calculate distance between start/end points
+                graph_start = Point(edge_geom.coords[0])
+                graph_end = Point(edge_geom.coords[-1])
 
-                if edge_geom and isinstance(edge_geom, LineString):
-                    # Calculate distance between start/end points
-                    graph_start = Point(edge_geom.coords[0])
-                    graph_end = Point(edge_geom.coords[-1])
+                # Check if start/end points match (within tolerance)
+                start_dist = street_start.distance(graph_start)
+                end_dist = street_end.distance(graph_end)
 
-                    # Check if start/end points match (within tolerance)
-                    start_dist = street_start.distance(graph_start)
-                    end_dist = street_end.distance(graph_end)
+                # Also check reverse direction
+                rev_start_dist = street_start.distance(graph_end)
+                rev_end_dist = street_end.distance(graph_start)
 
-                    # Also check reverse direction
-                    rev_start_dist = street_start.distance(graph_end)
-                    rev_end_dist = street_end.distance(graph_start)
+                min_dist = min(start_dist + end_dist, rev_start_dist + rev_end_dist)
 
-                    min_dist = min(start_dist + end_dist, rev_start_dist + rev_end_dist)
-
-                    if min_dist < best_distance and min_dist < 1.0:  # 1 meter tolerance
-                        best_distance = min_dist
-                        best_match = (u, v)
+                if min_dist < best_distance and min_dist < 1.0:  # 1 meter tolerance
+                    best_distance = min_dist
+                    best_match = (u, v)
 
             if best_match:
                 mapping[idx] = best_match
@@ -206,8 +255,8 @@ class ArterialSkeletonExtractor:
         streets_gdf = original_state.streets
         graph = original_state.graph
 
-        # Calculate betweenness centrality
-        betweenness = nx.betweenness_centrality(graph, normalized=True)
+        # Calculate betweenness centrality (cached)
+        betweenness = self._get_cached_betweenness(graph)
 
         # Calculate city center
         city_center = self._get_city_center(streets_gdf)
@@ -255,19 +304,23 @@ class ArterialSkeletonExtractor:
         # Sort by score and select diverse seeds
         seed_candidates.sort(key=lambda x: x['score'], reverse=True)
 
-        # Select seeds ensuring geographic diversity
+        # Select seeds ensuring geographic diversity using KD-tree optimization
         selected_seeds = []
         min_distance = 100  # Minimum distance between seeds in meters
 
         for candidate in seed_candidates:
-            # Check distance from already selected seeds
-            too_close = False
-            for selected in selected_seeds:
-                dist = ((candidate['centroid'][0] - selected['centroid'][0])**2 +
-                       (candidate['centroid'][1] - selected['centroid'][1])**2)**0.5
-                if dist < min_distance:
-                    too_close = True
-                    break
+            # KD-TREE OPTIMIZATION: Use cKDTree for O(n log k) distance checking instead of O(n²)
+            if selected_seeds:
+                # Build KD-tree from selected centroids
+                from scipy.spatial import cKDTree
+                selected_centroids = np.array([s['centroid'] for s in selected_seeds])
+                tree = cKDTree(selected_centroids)
+
+                # Query distance to nearest selected seed
+                distances, _ = tree.query(candidate['centroid'], k=1)
+                too_close = distances < min_distance
+            else:
+                too_close = False
 
             if not too_close:
                 selected_seeds.append(candidate)
@@ -290,10 +343,14 @@ class ArterialSkeletonExtractor:
             selected_seeds = seed_candidates[:max(2, min(4, len(seed_candidates)))]
 
         # Create seed streets GeoDataFrame
-        seed_streets = gpd.GeoDataFrame(
-            [s['street'] for s in selected_seeds],
-            crs=original_state.streets.crs
-        )
+        # Use fallback CRS if original streets GeoDataFrame is empty
+        fallback_crs = original_state.streets.crs if len(original_state.streets) > 0 else 'EPSG:4326'
+        if selected_seeds:
+            # Convert Series to dict to ensure geometry column is preserved
+            seed_data = [s['street'].to_dict() for s in selected_seeds]
+            seed_streets = gpd.GeoDataFrame(seed_data, crs=fallback_crs)
+        else:
+            seed_streets = gpd.GeoDataFrame(columns=['geometry'], crs=fallback_crs)
 
         # Build graph from seed streets
         seed_graph = nx.Graph()
@@ -339,7 +396,7 @@ class ArterialSkeletonExtractor:
 
         return GrowthState(
             streets=seed_streets,
-            blocks=gpd.GeoDataFrame(columns=['geometry'], crs=original_state.streets.crs),
+            blocks=gpd.GeoDataFrame(columns=['geometry'], crs=fallback_crs),
             frontiers=seed_frontiers,
             graph=seed_graph,
             iteration=0,
@@ -347,18 +404,13 @@ class ArterialSkeletonExtractor:
         )
 
     def _get_city_center(self, streets_gdf) -> Tuple[float, float]:
-        """Calculate approximate city center."""
-        centroids = []
-        for idx, street in streets_gdf.iterrows():
-            if hasattr(street.geometry, 'centroid'):
-                centroid = street.geometry.centroid
-                centroids.append((centroid.x, centroid.y))
+        """Calculate approximate city center using vectorized operations."""
+        # VECTORIZED OPTIMIZATION: Use geometry.centroid directly instead of iterrows()
+        if len(streets_gdf) == 0:
+            return (0.0, 0.0)
 
-        if centroids:
-            x_coords = [c[0] for c in centroids]
-            y_coords = [c[1] for c in centroids]
-            return (sum(x_coords) / len(x_coords), sum(y_coords) / len(y_coords))
-        return (0.0, 0.0)
+        centroids = streets_gdf.geometry.centroid
+        return (centroids.x.mean(), centroids.y.mean())
 
     def _calculate_curvature(self, geometry: LineString) -> float:
         """
@@ -432,11 +484,7 @@ class ArterialSkeletonExtractor:
         Returns:
             Minimal GrowthState with skeleton as initial conditions
         """
-        import geopandas as gpd
-        import pandas as pd
-        from src.core.contracts import GrowthState, FrontierEdge
-        import hashlib
-        from shapely.geometry import LineString
+
         
         if not skeleton_streets:
             # Multi-seed initialization: Use diverse, well-connected streets as seed

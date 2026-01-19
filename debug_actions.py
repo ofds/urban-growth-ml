@@ -16,7 +16,7 @@ trace = inference.infer_trace(city, max_steps=5)  # Just 5 steps
 
 print(f'Inferred {len(trace.actions)} actions')
 for i, action in enumerate(trace.actions[:3]):
-    print(f'Action {i}: type={action.action_type}, target_id={action.target_id}')
+    print(f'Action {i}: type={action.action_type}, street_id={action.street_id}')
     if hasattr(action, 'intent_params') and action.intent_params:
         print(f'  intent stable_id: {action.intent_params.get("stable_id")}')
     if hasattr(action, 'realized_geometry') and action.realized_geometry:

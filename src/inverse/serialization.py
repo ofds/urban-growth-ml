@@ -27,7 +27,7 @@ class TraceEncoder(json.JSONEncoder):
             return {
                 '_type': 'InverseGrowthAction',
                 'action_type': obj.action_type.value,
-                'target_id': obj.target_id,
+                'target_id': obj.street_id,
                 'intent_params': obj.intent_params,
                 'realized_geometry': obj.realized_geometry,
                 'confidence': obj.confidence,
@@ -68,7 +68,7 @@ def trace_decoder(obj: Dict[str, Any]):
         elif obj['_type'] == 'InverseGrowthAction':
             return InverseGrowthAction(
                 action_type=ActionType(obj['action_type']),
-                target_id=obj['target_id'],
+                street_id=obj['target_id'],
                 intent_params=obj['intent_params'],
                 realized_geometry=obj['realized_geometry'],
                 confidence=obj['confidence'],

@@ -21,3 +21,7 @@ flake8>=4.0.0
 # Optional ML dependencies
 torch>=1.11.0
 scikit-learn>=1.0.0
+scipy>=1.7.0
+
+# Spatial indexing
+rtree>=1.0.0

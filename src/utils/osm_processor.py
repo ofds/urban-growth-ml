@@ -190,16 +190,10 @@ class OSMProcessor:
             preserve_topology=True
         )
         
-        # Reset index
-        cleaned.reset_index(drop=True, inplace=True)
-        
-        # OPTIMIZED: Pre-convert u,v to strings once
-        if 'u' not in cleaned.columns:
-            cleaned['u'] = range(len(cleaned))
-        if 'v' not in cleaned.columns:
-            cleaned['v'] = range(1, len(cleaned) + 1)
-        
-        # Vectorized string conversion
+        # Reset index to get u,v as columns
+        cleaned = cleaned.reset_index()
+
+        # Ensure u,v are strings (preserve original OSM node IDs)
         cleaned['u'] = cleaned['u'].astype(str)
         cleaned['v'] = cleaned['v'].astype(str)
         

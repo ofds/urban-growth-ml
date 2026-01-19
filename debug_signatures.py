@@ -18,7 +18,7 @@ trace = inference.infer_trace(city, max_steps=3)  # Just 3 steps
 
 print(f'Inferred {len(trace.actions)} actions')
 for i, action in enumerate(trace.actions[:3]):
-    print(f'Action {i}: type={action.action_type}, target_id={action.target_id}')
+    print(f'Action {i}: type={action.action_type}, street_id={action.street_id}')
     print(f'  geometric_signature: {action.geometric_signature}')
     print(f'  state_diff: {action.state_diff is not None}')
     if action.state_diff:

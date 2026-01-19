@@ -97,14 +97,32 @@ class GrowthEngine:
         # Convert to canonical IDs
         graph, node_id_mapping = self._convert_to_canonical_ids(graph)
         logger.info("Converted graph to canonical node IDs")
-        
-        # Update streets u/v to canonical IDs
-        streets['u'] = streets['u'].apply(
-            lambda x: node_id_mapping.get(str(int(x)), str(x))
-        )
-        streets['v'] = streets['v'].apply(
-            lambda x: node_id_mapping.get(str(int(x)), str(x))
-        )
+
+        # Update streets u/v to canonical IDs - handle both integer and string node IDs
+        def map_node_id(node_id):
+            if pd.isna(node_id):
+                return node_id
+            # Try integer conversion first, then string lookup
+            str_id = str(node_id)
+            if str_id in node_id_mapping:
+                logger.debug(f"Mapped {str_id} -> {node_id_mapping[str_id]}")
+                return node_id_mapping[str_id]
+            # If not found, try as integer
+            try:
+                int_id = str(int(float(node_id)))
+                if int_id in node_id_mapping:
+                    logger.debug(f"Mapped {int_id} (from {str_id}) -> {node_id_mapping[int_id]}")
+                    return node_id_mapping[int_id]
+            except (ValueError, TypeError):
+                pass
+            # If still not found, assume it's already canonical or return as-is
+            logger.debug(f"No mapping found for {str_id}, using as-is")
+            return str_id
+
+        logger.info("Updating streets u/v columns to canonical IDs...")
+        streets['u'] = streets['u'].apply(map_node_id)
+        streets['v'] = streets['v'].apply(map_node_id)
+        logger.info("Street u/v columns updated")
         
         # Update frontier edge_ids to canonical IDs
         updated_frontiers = []
@@ -112,7 +130,7 @@ class GrowthEngine:
             edge_u, edge_v = frontier.edge_id
             new_edge_u = node_id_mapping.get(str(edge_u), str(edge_u))
             new_edge_v = node_id_mapping.get(str(edge_v), str(edge_v))
-            
+
             updated_frontier = FrontierEdge(
                 frontier_id=frontier.frontier_id,
                 edge_id=(new_edge_u, new_edge_v),
@@ -123,9 +141,29 @@ class GrowthEngine:
                 spatial_hash=frontier.spatial_hash
             )
             updated_frontiers.append(updated_frontier)
-        
+
+        # Synchronize streets with graph: only keep streets whose edges exist in the graph
+        original_count = len(streets)
+        valid_indices = []
+        for idx, street in streets.iterrows():
+            u, v = street.get('u'), street.get('v')
+            if u is not None and v is not None and graph.has_edge(u, v):
+                valid_indices.append(idx)
+            else:
+                logger.debug(f"Removing street {idx}: edge ({u}, {v}) not in graph")
+
+        # Filter streets GeoDataFrame to only valid indices
+        streets = streets.loc[valid_indices]
+        removed_count = original_count - len(streets)
+        logger.info(f"Filtered to {len(streets)} streets with valid graph edges (removed {removed_count} invalid streets)")
+
         # Compute city bounds
-        city_bounds = streets.unary_union.convex_hull
+        if len(streets) == 0:
+            # Create a minimal valid polygon for empty streets
+            from shapely.geometry import Polygon
+            city_bounds = Polygon([(0, 0), (1, 0), (1, 1), (0, 1), (0, 0)])
+        else:
+            city_bounds = streets.unary_union.convex_hull
         
         return GrowthState(
             streets=streets,

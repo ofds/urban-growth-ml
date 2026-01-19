@@ -615,7 +615,7 @@ class TraceReplayEngine:
             if inverse_action.action_type == ActionType.EXTEND_FRONTIER:
                 action = {
                     'action_type': 'grow_trajectory',
-                    'target_id': inverse_action.target_id,
+                    'target_id': inverse_action.street_id,
                     'stable_frontier_id': stable_id,  # Use stored stable_id, not recomputed
                     'geometric_signature': inverse_action.geometric_signature,  # Include geometric signature
                     'state_diff': inverse_action.state_diff,  # PHASE 2: Include complete state diff
@@ -629,7 +629,7 @@ class TraceReplayEngine:
             elif inverse_action.action_type == ActionType.SUBDIVIDE_BLOCK:
                 action = {
                     'action_type': 'subdivide_block',
-                    'target_id': inverse_action.target_id,
+                    'target_id': inverse_action.street_id,
                     'stable_frontier_id': stable_id,  # Use stored stable_id, not recomputed
                     'geometric_signature': inverse_action.geometric_signature,  # Include geometric signature
                     'state_diff': inverse_action.state_diff,  # PHASE 2: Include complete state diff
@@ -755,7 +755,10 @@ class TraceReplayEngine:
 
             success_rate = successful_actions / len(actions) if actions else 0
             logger.info(f"Replay complete: {successful_actions}/{len(actions)} actions successful ({success_rate:.1%})")
-            logger.info(f"Failed frontier matches: {failed_matches}/{len(actions)} ({failed_matches/len(actions):.1%})")
+            if actions:
+                logger.info(f"Failed frontier matches: {failed_matches}/{len(actions)} ({failed_matches/len(actions):.1%})")
+            else:
+                logger.info(f"Failed frontier matches: {failed_matches}/0 (N/A)")
 
             return current_state, successful_actions
 

@@ -59,29 +59,71 @@ class ActionType(Enum):
 @dataclass(frozen=True)
 class InverseGrowthAction:
     """
-    Represents an inferred growth action, separating decision intent from geometric realization.
+    Represents an inferred growth action that removes an existing street.
 
-    PHASE 2: Now stores complete state diffs to eliminate frontier matching dependency.
+    INVARIANT: May only reference entities that already exist in the current GrowthState.
+    This includes: street IDs, graph edges, frontiers.
+    No synthetic geometry, invented IDs, or centroid endpoints allowed.
+
+    Represents: "Remove this existing street that was most likely added last"
     """
     action_type: ActionType
-    target_id: str                           # frontier/block/street identifier (legacy)
-    intent_params: Dict[str, Any]            # decision parameters (e.g., {'direction': 'follow_density'})
-    realized_geometry: Optional[Dict[str, Any]] = None  # geometric params for replay (legacy)
-    confidence: float = 1.0                  # inference certainty 0-1
-    timestamp: Optional[float] = None         # temporal ordering
-    geometric_signature: Optional[str] = None  # stable geometric signature for replay matching (legacy)
+    street_id: str                        # EXISTING street ID to remove (must be in state.streets)
+    intent_params: Dict[str, Any]         # decision parameters (e.g., {'strategy': 'block_centroid'})
+    confidence: float = 1.0               # inference certainty 0-1
+    timestamp: Optional[float] = None      # temporal ordering
 
-    # PHASE 2: Complete state diff storage
+    # Complete state diff derived ONLY from existing state
     state_diff: Optional[Dict[str, Any]] = None  # Complete geometric changes
     # Structure:
     # {
-    #   'added_streets': List[Dict],     # Complete street geometries to add
-    #   'removed_streets': List[str],    # Street IDs to remove
-    #   'graph_changes': Dict,           # Node/edge additions/removals
-    #   'frontier_changes': Dict,        # Frontier state before/after
+    #   'removed_streets': List[str],    # Street IDs to remove (only existing ones)
+    #   'graph_changes': Dict,           # Node/edge removals
+    #   'frontier_changes': Dict,        # Frontier state changes
     # }
 
+    realized_geometry: Optional[Dict[str, Any]] = None  # Geometry information for replay
     action_metadata: Dict[str, Any] = field(default_factory=dict)  # inference artifacts
+
+    def __post_init__(self):
+        """Validate action contract invariants."""
+        if self.action_type != ActionType.REMOVE_STREET:
+            raise ValueError(f"Invalid action_type: {self.action_type}. Only REMOVE_STREET allowed.")
+
+        if not self.street_id:
+            raise ValueError("street_id cannot be empty")
+
+        if not (0.0 <= self.confidence <= 1.0):
+            raise ValueError(f"confidence must be in [0, 1], got {self.confidence}")
+
+
+def validate_action(action: InverseGrowthAction, state) -> bool:
+    """
+    Hard validator for action contract.
+
+    Checks that action only references existing entities in GrowthState.
+    If validation fails: action is invalid by definition.
+
+    Args:
+        action: Action to validate
+        state: GrowthState to check against
+
+    Returns:
+        True if valid, False if invalid
+    """
+    # Check street_id exists in state
+    if action.street_id not in state.streets.index:
+        return False
+
+    # Check action type is REMOVE_STREET
+    if action.action_type != ActionType.REMOVE_STREET:
+        return False
+
+    # Check confidence is valid
+    if not (0.0 <= action.confidence <= 1.0):
+        return False
+
+    return True
 
 
 @dataclass(frozen=True)

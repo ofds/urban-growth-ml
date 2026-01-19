@@ -111,10 +111,17 @@ class RewindEngine:
 
         try:
             new_state = handler(action, current_state)
-            # Verify state actually changed
-            if len(new_state.streets) >= len(current_state.streets):
-                logger.warning(f"Rewind failed to remove street - state unchanged")
-                return current_state
+            # Verify state actually changed (different logic for different action types)
+            if action.action_type == ActionType.REMOVE_STREET:
+                # REMOVE_STREET rewind should remove streets
+                if len(new_state.streets) >= len(current_state.streets):
+                    logger.warning(f"Rewind failed to remove street - state unchanged")
+                    return current_state
+            else:
+                # Other rewinds (like EXTEND_FRONTIER) should remove streets
+                if len(new_state.streets) >= len(current_state.streets):
+                    logger.warning(f"Rewind failed to remove street - state unchanged")
+                    return current_state
             return new_state
         except Exception as e:
             logger.error(f"Failed to rewind action {action.action_type}: {e}")
@@ -123,18 +130,30 @@ class RewindEngine:
     def _rewind_extend_frontier(self, action: InverseGrowthAction, state: GrowthState) -> GrowthState:
         """Rewind an EXTEND_FRONTIER action by removing the added street segment."""
 
-        # Get edge info from action
-        edge_u = action.realized_geometry.get('edgeid', (None, None))[0] if action.realized_geometry else None
-        edge_v = action.realized_geometry.get('edgeid', (None, None))[1] if action.realized_geometry else None
+        # Get edge info from action - check both realized_geometry and intent_params
+        edge_u = None
+        edge_v = None
+
+        if action.intent_params and 'edgeid' in action.intent_params:
+            edge_u, edge_v = action.intent_params['edgeid']
+        elif hasattr(action, 'realized_geometry') and action.realized_geometry and 'edgeid' in action.realized_geometry:
+            edge_u, edge_v = action.realized_geometry['edgeid']
 
         if edge_u is None or edge_v is None:
             logger.warning(f"Cannot rewind: no edge_id in action")
             return state
 
-        # OPTIMIZATION: Single boolean array for edge matching (replaces 4 arrays + drop operation)
-        # Convert to strings to match DataFrame dtypes
-        edge_u_str = str(edge_u)
-        edge_v_str = str(edge_v)
+        # FIX: Ensure consistent string typing for node IDs throughout
+        # The graph uses integer node IDs, but actions may store them as strings
+        # Convert everything to integers for graph operations, strings for DataFrame operations
+        try:
+            edge_u_int = int(edge_u)
+            edge_v_int = int(edge_v)
+            edge_u_str = str(edge_u)
+            edge_v_str = str(edge_v)
+        except (ValueError, TypeError):
+            logger.warning(f"Cannot rewind: invalid edge IDs {edge_u}, {edge_v}")
+            return state
 
         # Create single boolean mask for matching edges (bidirectional)
         edge_mask = ((state.streets['u'] == edge_u_str) & (state.streets['v'] == edge_v_str)) | \
@@ -151,22 +170,49 @@ class RewindEngine:
         # INCREMENTAL GRAPH UPDATE: Modify graph in-place (assumes throw-away state)
         new_graph = state.graph
 
-        # Safely remove the edge using has_edge check
-        if new_graph.has_edge(edge_u, edge_v):
-            new_graph.remove_edge(edge_u, edge_v)
+        # DEBUG: Log graph state for troubleshooting
+        if logger.isEnabledFor(logging.DEBUG):
+            logger.debug(f"Graph has {new_graph.number_of_edges()} edges, {new_graph.number_of_nodes()} nodes")
+            # Sample some existing edges
+            sample_edges = list(new_graph.edges())[:3]
+            logger.debug(f"Sample graph edges: {sample_edges}")
+
+        # Safely remove the edge using integer node IDs (graph uses integers)
+        if new_graph.has_edge(edge_u_int, edge_v_int):
+            new_graph.remove_edge(edge_u_int, edge_v_int)
 
             # Remove isolated nodes (nodes with no edges)
-            nodes_to_remove = [node for node in [edge_u, edge_v]
+            nodes_to_remove = [node for node in [edge_u_int, edge_v_int]
                              if node in new_graph and new_graph.degree[node] == 0]
             for node in nodes_to_remove:
                 new_graph.remove_node(node)
 
-            logger.info(f"Incremental graph update: removed edge ({edge_u}, {edge_v}), removed {len(nodes_to_remove)} isolated nodes")
+            logger.debug(f"Incremental graph update: removed edge ({edge_u_int}, {edge_v_int}), removed {len(nodes_to_remove)} isolated nodes")
         else:
-            logger.warning(f"Edge ({edge_u}, {edge_v}) not found in graph during incremental update")
+            # Try alternative: maybe the graph uses string node IDs
+            if new_graph.has_edge(edge_u_str, edge_v_str):
+                new_graph.remove_edge(edge_u_str, edge_v_str)
+
+                # Remove isolated nodes (nodes with no edges)
+                nodes_to_remove = [node for node in [edge_u_str, edge_v_str]
+                                 if node in new_graph and new_graph.degree[node] == 0]
+                for node in nodes_to_remove:
+                    new_graph.remove_node(node)
+
+                logger.debug(f"Incremental graph update (string keys): removed edge ({edge_u_str}, {edge_v_str}), removed {len(nodes_to_remove)} isolated nodes")
+            else:
+                logger.warning(f"Edge ({edge_u_int}, {edge_v_int}) or ({edge_u_str}, {edge_v_str}) not found in graph during incremental update")
+                # DEBUG: Show what edges DO exist near these node IDs
+                if logger.isEnabledFor(logging.DEBUG):
+                    nearby_edges = []
+                    for u, v in new_graph.edges():
+                        if (isinstance(u, int) and abs(u - edge_u_int) <= 5) or (isinstance(v, int) and abs(v - edge_v_int) <= 5):
+                            nearby_edges.append((u, v))
+                    if nearby_edges:
+                        logger.debug(f"Nearby edges in graph: {nearby_edges[:5]}")
 
         # DELTA-BASED FRONTIER UPDATE: Only update affected frontiers
-        new_frontiers = self._update_frontiers_delta(state.frontiers, new_graph, edge_u, edge_v)
+        new_frontiers = self._update_frontiers_delta(state.frontiers, new_graph, edge_u_int, edge_v_int)
 
         # Keep iteration at 0 during inference rewind
         new_iteration = max(0, state.iteration - 1)
@@ -194,11 +240,100 @@ class RewindEngine:
         return state
     
     def _rewind_remove_street(self, action: InverseGrowthAction, state: GrowthState) -> GrowthState:
-        """Rewind a REMOVE_STREET action by restoring the removed street."""
-        # This is the inverse of EXTEND_FRONTIER rewind
-        # Would need stored geometry in action metadata
-        logger.warning("REMOVE_STREET rewind not fully implemented")
-        return state
+        """Rewind a REMOVE_STREET action by removing the street that was added during forward growth."""
+        # REMOVE_STREET means this street was added during forward growth,
+        # so during rewind we need to remove it from the current state
+
+        # Get edge info from action's intent_params or realized_geometry
+        edge_u = None
+        edge_v = None
+
+        if action.intent_params and 'edge_u' in action.intent_params and 'edge_v' in action.intent_params:
+            edge_u = action.intent_params['edge_u']
+            edge_v = action.intent_params['edge_v']
+        elif action.realized_geometry and 'edgeid' in action.realized_geometry:
+            edge_u, edge_v = action.realized_geometry['edgeid']
+
+        if edge_u is None or edge_v is None:
+            logger.warning(f"Cannot rewind REMOVE_STREET: no edge info in action")
+            return state
+
+        # Handle canonical node IDs (strings like "567314.0_4185177.4")
+        edge_u_str = str(edge_u)
+        edge_v_str = str(edge_v)
+
+        # Try integer conversion for backward compatibility, but use strings for canonical IDs
+        try:
+            edge_u_int = int(edge_u)
+            edge_v_int = int(edge_v)
+        except (ValueError, TypeError):
+            # Use string IDs directly for canonical node IDs
+            edge_u_int = edge_u_str
+            edge_v_int = edge_v_str
+
+        # Find and remove the street from the GeoDataFrame
+        existing_mask = ((state.streets['u'] == edge_u_str) & (state.streets['v'] == edge_v_str)) | \
+                       ((state.streets['u'] == edge_v_str) & (state.streets['v'] == edge_u_str))
+
+        if not existing_mask.any():
+            logger.warning(f"Cannot rewind REMOVE_STREET: street with edge ({edge_u}, {edge_v}) not found in current state")
+            return state
+
+        # Remove the street(s) from the GeoDataFrame
+        new_streets = state.streets[~existing_mask]
+
+        # INCREMENTAL GRAPH UPDATE: Remove edge from graph
+        new_graph = state.graph
+
+        # DEBUG: Check graph state before removal
+        edges_before = new_graph.number_of_edges()
+        logger.debug(f"Graph before removal: {edges_before} edges, has_edge({edge_u_int}, {edge_v_int})={new_graph.has_edge(edge_u_int, edge_v_int)}, has_edge({edge_v_int}, {edge_u_int})={new_graph.has_edge(edge_v_int, edge_u_int)}")
+
+        # Remove the edge
+        if new_graph.has_edge(edge_u_int, edge_v_int):
+            new_graph.remove_edge(edge_u_int, edge_v_int)
+
+            # Remove isolated nodes (nodes with no edges)
+            nodes_to_remove = [node for node in [edge_u_int, edge_v_int]
+                             if node in new_graph and new_graph.degree[node] == 0]
+            for node in nodes_to_remove:
+                new_graph.remove_node(node)
+
+            logger.debug(f"Incremental graph update: removed edge ({edge_u_int}, {edge_v_int}), removed {len(nodes_to_remove)} isolated nodes")
+        elif new_graph.has_edge(edge_v_int, edge_u_int):
+            new_graph.remove_edge(edge_v_int, edge_u_int)
+
+            # Remove isolated nodes (nodes with no edges)
+            nodes_to_remove = [node for node in [edge_v_int, edge_u_int]
+                             if node in new_graph and new_graph.degree[node] == 0]
+            for node in nodes_to_remove:
+                new_graph.remove_node(node)
+
+            logger.debug(f"Incremental graph update: removed edge ({edge_v_int}, {edge_u_int}), removed {len(nodes_to_remove)} isolated nodes")
+        else:
+            logger.warning(f"Edge ({edge_u_int}, {edge_v_int}) not found in graph during rewind")
+            # DEBUG: Show some sample edges
+            sample_edges = list(new_graph.edges())[:5]
+            logger.debug(f"Sample graph edges: {sample_edges}")
+
+        # DEBUG: Check graph state after removal
+        edges_after = new_graph.number_of_edges()
+        logger.debug(f"Graph after removal: {edges_after} edges (removed {edges_before - edges_after})")
+
+        # DELTA-BASED FRONTIER UPDATE: Update affected frontiers
+        new_frontiers = self._update_frontiers_delta(state.frontiers, new_graph, edge_u_int, edge_v_int)
+
+        # Keep iteration at 0 during inference rewind
+        new_iteration = max(0, state.iteration - 1)
+
+        return GrowthState(
+            streets=new_streets,
+            blocks=state.blocks,
+            frontiers=new_frontiers,
+            graph=new_graph,
+            iteration=new_iteration,
+            city_bounds=state.city_bounds
+        )
     
     def _extract_block_edge_segments(self, blocks) -> Set[Tuple[Tuple[float, float], Tuple[float, float]]]:
         """
@@ -429,22 +564,22 @@ class RewindEngine:
     def can_rewind_action(self, action: InverseGrowthAction, state: GrowthState) -> bool:
         """
         Check if an action can be safely rewound from the current state.
-        
+
         Args:
             action: Action to check
             state: Current state
-        
+
         Returns:
             True if rewind is possible
         """
         # Basic checks - can be extended
         if action.action_type == ActionType.EXTEND_FRONTIER:
             # Check if target street exists
-            target_id = action.target_id
+            target_id = action.street_id
             for idx, street in state.streets.iterrows():
                 if str(idx) in target_id or street.get('osmid', '') == target_id:
                     return True
             return False
-        
+
         # For other actions, assume possible for now
         return True

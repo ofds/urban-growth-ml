@@ -266,7 +266,7 @@ class DatasetGenerator:
                 {
                     'action_type': action.action_type.value,
                     'confidence': action.confidence,
-                    'target_id': action.target_id,
+                    'target_id': action.street_id,
                     'intent_params': action.intent_params,
                     'timestamp': action.timestamp
                 }
